@@ -1,0 +1,110 @@
+.Surface {
+	position: absolute;
+	overflow: hidden;
+
+	padding: 1rem;
+
+	border: var(--size-1) solid var(--color-border-dark);
+	border-radius: var(--size-1);
+	box-shadow:
+		inset var(--size-1) var(--size-1) var(--color-border-bright),
+		0 30px 60px -30px rgba(0, 0, 0, 0.65);
+
+	background: var(--color-surface-primary);
+	backdrop-filter: var(--strength-blur-normal) var(--strength-saturation-normal);
+
+	user-select: none;
+	touch-action: none;
+	isolation: isolate;
+
+	transform: rotateX(var(--ry, 0deg)) rotateY(var(--rx, 0deg));
+	transform-style: preserve-3d;
+	transition:
+		transform 0.5s cubic-bezier(0.2, 0.9, 0.2, 1),
+		box-shadow 0.4s;
+
+	&:active {
+		cursor: grabbing;
+	}
+}
+
+.Surface--compact {
+	inset: var(--size-4);
+	width: auto;
+	height: auto;
+
+	cursor: default;
+	touch-action: auto;
+
+	&:active {
+		cursor: default;
+	}
+}
+
+.Surface__handle {
+	position: absolute;
+}
+
+.Surface__handle--n {
+	top: -4px;
+	left: 8px;
+	right: 8px;
+	height: 8px;
+	cursor: ns-resize;
+}
+
+.Surface__handle--s {
+	bottom: -4px;
+	left: 8px;
+	right: 8px;
+	height: 8px;
+	cursor: ns-resize;
+}
+
+.Surface__handle--e {
+	top: 8px;
+	bottom: 8px;
+	right: -4px;
+	width: 8px;
+	cursor: ew-resize;
+}
+
+.Surface__handle--w {
+	top: 8px;
+	bottom: 8px;
+	left: -4px;
+	width: 8px;
+	cursor: ew-resize;
+}
+
+.Surface__handle--ne {
+	top: -4px;
+	right: -4px;
+	width: 12px;
+	height: 12px;
+	cursor: nesw-resize;
+}
+
+.Surface__handle--nw {
+	top: -4px;
+	left: -4px;
+	width: 12px;
+	height: 12px;
+	cursor: nwse-resize;
+}
+
+.Surface__handle--se {
+	bottom: -4px;
+	right: -4px;
+	width: 12px;
+	height: 12px;
+	cursor: nwse-resize;
+}
+
+.Surface__handle--sw {
+	bottom: -4px;
+	left: -4px;
+	width: 12px;
+	height: 12px;
+	cursor: nesw-resize;
+}

@@ -1,0 +1,22 @@
+.Content {
+	background: var(--color-surface-secondary);
+	border-radius: var(--size-1);
+	height: 100%;
+	overflow: hidden;
+	padding: var(--size-2);
+
+	box-shadow:
+		inset calc(var(--size-1) * -1) calc(var(--size-1) * -1)
+			var(--color-border-bright),
+		inset var(--size-1) var(--size-1) var(--color-border-dark);
+}
+
+.Content__inner {
+	height: 100%;
+	overflow-x: auto;
+	overflow-y: scroll;
+	padding: 1rem;
+
+	scrollbar-width: initial;
+	scrollbar-color: var(--color-accent-dark) var(--color-surface-secondary);
+}

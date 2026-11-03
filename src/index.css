@@ -1,0 +1,47 @@
+@font-face {
+	font-family: 'Sysfont';
+	src: url('./lib/fonts/sysfont.otf') format('opentype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	src: url('./lib/fonts/OpenSans-Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	src: url('./lib/fonts/OpenSans-Bold.ttf') format('truetype');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* Base and layout reset */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+:where(*:not(dialog, [popover])) {
+	margin: 0;
+	padding: 0;
+}
+
+:where(html) {
+	color-scheme: light dark;
+	-webkit-text-size-adjust: none;
+	text-size-adjust: none;
+}
+
+:where(body) {
+	max-inline-size: 100%;
+	min-block-size: 100dvh;
+}

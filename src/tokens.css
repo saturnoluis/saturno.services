@@ -1,0 +1,43 @@
+:root {
+	font-size: 20px;
+
+	--font-title: 'Sysfont', system-ui, sans-serif;
+	--font-input: 'Sysfont', system-ui, sans-serif;
+	--font-body: 'Open Sans', system-ui, sans-serif;
+	--font-paragraph: 'Open Sans', system-ui, sans-serif;
+
+	--font-size-1: 0.875rem;
+	--font-size-2: 1rem;
+	--font-size-3: 1.125rem;
+	--font-size-4: 1.25rem;
+	--font-size-5: 1.5rem;
+
+	--color-seed-1: oklch(0.6 0.18 250);
+	--color-seed-2: oklch(0.7 0.16 40);
+	--color-seed-3: oklch(0.62 0.15 145);
+	--color-seed-4: oklch(0.58 0.2 25);
+
+	--color-accent-dark: oklch(from var(--color-seed-1) 0.15 0.2 h / 0.5);
+	--color-accent-primary: oklch(from var(--color-seed-1) 0.6 0.2 h / 0.5);
+
+	--color-text-primary: oklch(from var(--color-seed-1) 0.15 0.05 h);
+
+	--color-border-dark: oklch(from var(--color-seed-1) 0.15 0.05 h / 0.65);
+	--color-border-bright: oklch(from var(--color-seed-1) 0.95 0.05 h / 0.55);
+	--color-border-primary: var(--color-seed-1);
+
+	--color-surface-primary: oklch(from var(--color-seed-1) 0.75 0.01 h / 0.5);
+	--color-surface-secondary: oklch(from var(--color-seed-1) 0.95 0.01 h / 0.3);
+
+	--size-1: 2px;
+	--size-2: 4px;
+	--size-3: 8px;
+	--size-4: 16px;
+	--size-5: 32px;
+
+	--size-column-min: 20rem;
+	--size-input: 1rem;
+
+	--strength-blur-normal: blur(32px);
+	--strength-saturation-normal: saturate(180%);
+}

@@ -1,0 +1,10 @@
+.Columns {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--columns-gap, var(--size-4));
+}
+
+.Columns > * {
+	flex: 1 1 var(--columns-basis, var(--size-column-min));
+	min-width: 0;
+}
