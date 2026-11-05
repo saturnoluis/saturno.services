@@ -1,5 +1,6 @@
 import Content from '@/components/Content';
 import Desktop from '@/components/Desktop';
+import Stack from '@/components/Stack';
 import Surface from '@/components/Surface';
 import WallpaperEditor from '@/components/WallpaperEditor';
 import { WallpaperProvider } from '@/state/WallpaperProvider.tsx';
@@ -16,9 +17,14 @@ function App() {
 						top='100px'
 						left='120px'
 					>
-						<Content>
-							<WallpaperEditor />
-						</Content>
+						<Stack>
+							<Content>
+								<h1>Arbitrary Content</h1>
+							</Content>
+							<Content>
+								<WallpaperEditor />
+							</Content>
+						</Stack>
 					</Surface>
 				</Desktop>
 			</div>
