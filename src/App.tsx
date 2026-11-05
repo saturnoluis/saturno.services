@@ -18,7 +18,7 @@ function App() {
 						left='120px'
 					>
 						<Stack>
-							<Content>
+							<Content variant="plain">
 								<h1>Arbitrary Content</h1>
 							</Content>
 							<Content>

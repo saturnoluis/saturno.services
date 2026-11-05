@@ -4,11 +4,29 @@
 	height: 100%;
 	overflow: hidden;
 	padding: var(--size-2);
+}
 
+.Content--sunken {
 	box-shadow:
 		inset calc(var(--size-1) * -1) calc(var(--size-1) * -1)
 			var(--color-border-bright),
 		inset var(--size-1) var(--size-1) var(--color-border-dark);
+}
+
+.Content--raised {
+	box-shadow:
+		inset calc(var(--size-1) * -1) calc(var(--size-1) * -1)
+			var(--color-border-dark),
+		inset var(--size-1) var(--size-1) var(--color-border-bright);
+}
+
+.Content--flat {
+	box-shadow: none;
+}
+
+.Content--plain {
+	background: none;
+	box-shadow: none;
 }
 
 .Content__inner {
