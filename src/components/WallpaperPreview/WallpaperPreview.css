@@ -1,0 +1,12 @@
+.WallpaperPreview {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.WallpaperPreview__frame {
+	flex-shrink: 0;
+	overflow: hidden;
+}

@@ -2,6 +2,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	gap: var(--columns-gap, var(--size-4));
+	height: 100%;
 }
 
 .Columns > * {
