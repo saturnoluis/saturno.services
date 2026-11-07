@@ -9,4 +9,12 @@
 .WallpaperPreview__frame {
 	flex-shrink: 0;
 	overflow: hidden;
+
+	border-top: var(--size-1) outset var(--color-border-bright);
+	border-left: var(--size-1) outset var(--color-border-bright);
+
+	border-bottom: var(--size-1) outset var(--color-border-dark);
+	border-right: var(--size-1) outset var(--color-border-dark);
+
+	border-radius: var(--size-1);
 }

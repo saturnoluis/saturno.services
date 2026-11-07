@@ -3,7 +3,7 @@ import ShaderRenderer from '@/components/ShaderRenderer';
 import { useWallpaper } from '@/state/wallpaper-context.ts';
 import './WallpaperPreview.css';
 
-const PREVIEW_RATIO = 16 / 9;
+const PREVIEW_RATIO = 4 / 3;
 
 export default function WallpaperPreview() {
 	const { preset, uniforms } = useWallpaper();
@@ -35,17 +35,17 @@ export default function WallpaperPreview() {
 
 	return (
 		<div ref={containerRef} className='WallpaperPreview'>
-			<div
-				className='WallpaperPreview__frame'
-				style={{ width: size.width, height: size.height }}
-			>
-				<ShaderRenderer
-					preset={preset}
-					uniforms={uniforms}
-					width='100%'
-					height='100%'
-				/>
-			</div>
+				<div
+					className='WallpaperPreview__frame'
+					style={{ width: size.width, height: size.height }}
+				>
+					<ShaderRenderer
+						preset={preset}
+						uniforms={uniforms}
+						width='100%'
+						height='100%'
+					/>
+				</div>
 		</div>
 	);
 }
