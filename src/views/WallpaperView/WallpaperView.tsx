@@ -3,6 +3,7 @@ import Content from '@/components/Content';
 import Fieldset from '@/components/Fieldset';
 import Stack from '@/components/Stack';
 import Surface from '@/components/Surface';
+import WallpaperColors from '@/components/WallpaperColors';
 import WallpaperEditor from '@/components/WallpaperEditor';
 import WallpaperPreview from '@/components/WallpaperPreview';
 
@@ -14,7 +15,7 @@ export default function WallpaperView() {
 					<Columns columns={3} minWidth='10rem'>
 						<WallpaperPreview />
 						<Fieldset title='Colors'>
-							<div>foo</div>
+							<WallpaperColors />
 						</Fieldset>
 					</Columns>
 				</Content>
