@@ -9,3 +9,7 @@
 	flex: 1 1 var(--columns-basis, var(--size-column-min));
 	min-width: 0;
 }
+
+.Columns[data-stacked] {
+	height: auto;
+}

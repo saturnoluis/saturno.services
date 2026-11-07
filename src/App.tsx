@@ -21,7 +21,7 @@ function App() {
 						left='120px'
 					>
 						<Stack>
-							<Content variant="flat" overflowY="auto">
+							<Content overflowY="auto">
 								<Columns columns={3} minWidth='10rem'>
 									<WallpaperPreview />
 									<Fieldset title='Colors'>
