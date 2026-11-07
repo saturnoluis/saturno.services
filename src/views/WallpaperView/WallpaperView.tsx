@@ -1,11 +1,13 @@
 import Columns from '@/components/Columns';
 import Content from '@/components/Content';
-import Fieldset from '@/components/Fieldset';
 import Stack from '@/components/Stack';
 import Surface from '@/components/Surface';
+import Fieldset from '@/components/Fieldset';
 import WallpaperColors from '@/components/WallpaperColors';
 import WallpaperEditor from '@/components/WallpaperEditor';
+import WallpaperPreset from '@/components/WallpaperPreset';
 import WallpaperPreview from '@/components/WallpaperPreview';
+import './WallpaperView.css';
 
 export default function WallpaperView() {
 	return (
@@ -14,8 +16,9 @@ export default function WallpaperView() {
 				<Content overflowY='auto'>
 					<Columns columns={3} minWidth='10rem'>
 						<WallpaperPreview />
-						<Fieldset title='Colors'>
-							<WallpaperColors />
+						<Fieldset title='Distortion'>
+							<WallpaperPreset />
+							<WallpaperColors label='Colors' />
 						</Fieldset>
 					</Columns>
 				</Content>

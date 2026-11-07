@@ -15,21 +15,26 @@
 .ColorInput input[type='color'] {
 	width: 100%;
 	height: var(--size-5);
-	padding: var(--size-1);
+	padding: 0;
 
 	-webkit-appearance: none;
 	appearance: none;
+	outline: none;
 
 	background: var(--color-surface-secondary);
-	border: var(--size-1) solid var(--color-border-dark);
 	border-radius: var(--size-1);
-	box-shadow: inset var(--size-1) var(--size-1) var(--color-border-bright);
 
 	cursor: pointer;
+
+	border-top: var(--size-1) solid var(--color-border-dark);
+	border-left: var(--size-1) solid var(--color-border-dark);
+
+	border-bottom: var(--size-1) solid var(--color-border-bright);
+	border-right: var(--size-1) solid var(--color-border-bright);
 }
 
 .ColorInput input[type='color']::-webkit-color-swatch-wrapper {
-	padding: var(--size-1);
+	padding: 0;
 }
 
 .ColorInput input[type='color']::-webkit-color-swatch {

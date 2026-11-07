@@ -35,17 +35,17 @@ export default function WallpaperPreview() {
 
 	return (
 		<div ref={containerRef} className='WallpaperPreview'>
-				<div
-					className='WallpaperPreview__frame'
-					style={{ width: size.width, height: size.height }}
-				>
-					<ShaderRenderer
-						preset={preset}
-						uniforms={uniforms}
-						width='100%'
-						height='100%'
-					/>
-				</div>
+			<div
+				className='WallpaperPreview__frame'
+				style={{ width: size.width, height: size.height }}
+			>
+				<ShaderRenderer
+					preset={preset}
+					uniforms={uniforms}
+					width='100%'
+					height='100%'
+				/>
+			</div>
 		</div>
 	);
 }
