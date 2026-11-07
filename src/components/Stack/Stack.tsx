@@ -5,11 +5,7 @@ interface StackProps extends ComponentProps<'div'> {
 	gap?: number;
 }
 
-export default function Stack({
-	gap = 16,
-	style,
-	...props
-}: StackProps) {
+export default function Stack({ gap = 16, style, ...props }: StackProps) {
 	return (
 		<div
 			className='Stack'

@@ -4,9 +4,7 @@ export type {
 	Preset,
 	PresetId,
 } from '@/components/ShaderRenderer/lib/presets.ts';
-export type {
-	PatternUniformKey,
-} from '@/components/ShaderRenderer/lib/presetUniforms.ts';
+export type { PatternUniformKey } from '@/components/ShaderRenderer/lib/presetUniforms.ts';
 export type {
 	DistortType,
 	LightingType,

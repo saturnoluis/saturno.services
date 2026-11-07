@@ -220,7 +220,10 @@ export default function WallpaperEditor() {
 					{LIGHTING_SLIDERS.map((config) =>
 						renderSlider(
 							config,
-							!lightingSliderEnabled(config.key, uniforms.uLightingType),
+							!lightingSliderEnabled(
+								config.key,
+								uniforms.uLightingType,
+							),
 						),
 					)}
 				</Fieldset>
@@ -234,7 +237,9 @@ export default function WallpaperEditor() {
 						}
 					/>
 
-					{DITHER_SLIDERS.map((config) => renderSlider(config, !ditherOn))}
+					{DITHER_SLIDERS.map((config) =>
+						renderSlider(config, !ditherOn),
+					)}
 
 					{BASE_SLIDERS.map((config) => renderSlider(config))}
 

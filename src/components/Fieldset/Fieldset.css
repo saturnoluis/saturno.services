@@ -5,8 +5,7 @@
 	border-radius: var(--size-1);
 	border: var(--size-1) solid var(--color-border-dark);
 	box-shadow:
-		inset calc(var(--size-1)) calc(var(--size-1))
-			var(--color-border-bright),
+		inset calc(var(--size-1)) calc(var(--size-1)) var(--color-border-bright),
 		var(--size-1) var(--size-1) var(--color-border-bright);
 }
 
