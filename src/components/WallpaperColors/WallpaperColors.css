@@ -14,6 +14,20 @@
 	width: 100%;
 }
 
+.WallpaperColors__controls {
+	display: flex;
+	width: 100%;
+}
+
+.WallpaperColors__controls > :first-child {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+.WallpaperColors__controls .Button {
+	width: var(--size-5);
+}
+
 .WallpaperColors__row > * {
 	flex: 1 1 25%;
 	min-width: 0;

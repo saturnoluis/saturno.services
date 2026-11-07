@@ -1,0 +1,25 @@
+.Button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+
+	background: none;
+	border: var(--size-1) solid var(--color-border-dark);
+	border-radius: var(--size-1);
+	box-shadow: inset var(--size-1) var(--size-1) var(--color-border-bright);
+
+	color: var(--color-text-primary);
+	font-family: var(--font-title);
+	font-size: var(--font-size-1);
+}
+
+.Button__element {
+	background: none;
+	border: none;
+	outline: none;
+	height: 100%;
+	width: 100%;
+	color: inherit;
+	cursor: pointer;
+}

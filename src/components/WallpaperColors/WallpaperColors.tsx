@@ -1,5 +1,6 @@
 import type { ChangeEvent } from 'react';
 import Select from '@/components/Select';
+import Button from '@/components/Button';
 import ColorInput from '@/components/ColorInput';
 import { hexToSrgb, srgbEquals, srgbToHex } from '@/lib/color.ts';
 import { useWallpaper } from '@/state/wallpaper-context.ts';
@@ -36,21 +37,31 @@ export default function WallpaperColors({ label }: WallpaperColorsProps) {
 		);
 	};
 
+	const reverseColors = () => {
+		const reversed = COLOR_KEYS.map((key) => uniforms[key]).reverse();
+		COLOR_KEYS.forEach((key, index) => setUniform(key, reversed[index]));
+	};
+
 	return (
 		<div className='WallpaperColors'>
 			{label !== undefined && (
 				<span className='WallpaperColors__label'>{label}</span>
 			)}
-			<Select value={selectedId} onChange={onChange}>
-				<option key={CUSTOM_ID} value={CUSTOM_ID}>
-					Custom
-				</option>
-				{COLOR_PALETTES.map((palette) => (
-					<option key={palette.id} value={palette.id}>
-						{palette.label}
+			<div className='WallpaperColors__controls'>
+				<Select value={selectedId} onChange={onChange}>
+					<option key={CUSTOM_ID} value={CUSTOM_ID}>
+						Custom
 					</option>
-				))}
-			</Select>
+					{COLOR_PALETTES.map((palette) => (
+						<option key={palette.id} value={palette.id}>
+							{palette.label}
+						</option>
+					))}
+				</Select>
+				<Button onClick={reverseColors} aria-label='Reverse colors'>
+					↔
+				</Button>
+			</div>
 			<div className='WallpaperColors__row'>
 				{COLOR_KEYS.map((key) => (
 					<ColorInput
