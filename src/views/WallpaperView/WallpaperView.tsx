@@ -7,6 +7,7 @@ import WallpaperColors from '@/views/WallpaperView/components/WallpaperColors';
 import WallpaperEditor from '@/views/WallpaperView/components/WallpaperEditor';
 import WallpaperPreset from '@/views/WallpaperView/components/WallpaperPreset';
 import WallpaperPreview from '@/views/WallpaperView/components/WallpaperPreview';
+import WallpaperTheme from '@/views/WallpaperView/components/WallpaperTheme';
 
 export default function WallpaperView() {
 	return (
@@ -16,9 +17,10 @@ export default function WallpaperView() {
 				<Columns columns={2} minWidth='10rem'>
 					<WallpaperPreview />
 					<Fieldset title='Style'>
-							<WallpaperPreset />
-							<WallpaperColors label='Colors' />
-						</Fieldset>
+						<WallpaperTheme />
+						<WallpaperPreset />
+						<WallpaperColors label='Colors' />
+					</Fieldset>
 					</Columns>
 				</Content>
 				<Content>

@@ -26,7 +26,10 @@ type SetUniformAction = {
 	value: ShaderUniforms[keyof ShaderUniforms];
 };
 
-type WallpaperAction = { type: 'setPreset'; preset: PresetId } | SetUniformAction;
+type WallpaperAction =
+	| { type: 'setPreset'; preset: PresetId }
+	| { type: 'setConfig'; config: WallpaperConfig }
+	| SetUniformAction;
 
 function reducer(
 	state: WallpaperConfig,
@@ -35,6 +38,11 @@ function reducer(
 	switch (action.type) {
 		case 'setPreset':
 			return { ...state, preset: action.preset };
+		case 'setConfig':
+			return {
+				preset: action.config.preset,
+				uniforms: action.config.uniforms,
+			};
 		case 'setUniform':
 			return {
 				...state,
@@ -83,6 +91,7 @@ export function WallpaperProvider({ children }: { children?: ReactNode }) {
 			setPreset: (preset) => dispatch({ type: 'setPreset', preset }),
 			setUniform: (key, value) =>
 				dispatch({ type: 'setUniform', key, value }),
+			setConfig: (config) => dispatch({ type: 'setConfig', config }),
 		}),
 		[state],
 	);

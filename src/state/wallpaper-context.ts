@@ -12,6 +12,7 @@ export interface WallpaperContextValue extends WallpaperConfig {
 		key: K,
 		value: ShaderUniforms[K],
 	) => void;
+	setConfig: (config: WallpaperConfig) => void;
 }
 
 export const WallpaperContext = createContext<WallpaperContextValue | null>(null);
