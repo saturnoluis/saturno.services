@@ -64,7 +64,7 @@ function buildInitialConfig(): WallpaperConfig {
 	if (stored) {
 		return stored;
 	}
-	const defaultTheme = WALLPAPER_THEMES.find((theme) => theme.id === 'ok-luis');
+	const defaultTheme = WALLPAPER_THEMES.find((theme) => theme.id === 'default');
 	if (defaultTheme) {
 		return {
 			preset: defaultTheme.preset,

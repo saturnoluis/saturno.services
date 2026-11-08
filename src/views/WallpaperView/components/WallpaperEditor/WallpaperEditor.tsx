@@ -78,6 +78,16 @@ const DITHER_SLIDERS: SliderConfig[] = [
 	{ key: 'uDitherLevels', label: 'Dither Levels', min: 2, max: 16, step: 1 },
 ];
 
+const PIXELATE_MAX = 128;
+
+function toPixelateSlider(u: number): number {
+	return u <= 0 ? 0 : PIXELATE_MAX + 1 - u;
+}
+
+function toPixelateUniform(s: number): number {
+	return s <= 0 ? 0 : PIXELATE_MAX + 1 - s;
+}
+
 const PATTERN_SLIDERS: PatternSliderConfig[] = [
 	{ key: 'uVariation', label: 'Variation', min: 0, max: 1, step: 0.01 },
 	{ key: 'uAngle', label: 'Angle', min: -Math.PI, max: Math.PI, step: 0.01 },
@@ -183,6 +193,20 @@ export default function WallpaperEditor() {
 					{DITHER_SLIDERS.map((config) =>
 						renderSlider(config, !ditherOn),
 					)}
+
+					<Range
+						label='Pixelate'
+						min={0}
+						max={PIXELATE_MAX}
+						step={1}
+						value={toPixelateSlider(uniforms.uPixelate)}
+						onChange={(event) =>
+							setUniform(
+								'uPixelate',
+								toPixelateUniform(Number(event.target.value)),
+							)
+						}
+					/>
 				</Fieldset>
 
 				<Fieldset title='Lighting'>

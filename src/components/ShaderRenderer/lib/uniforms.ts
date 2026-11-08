@@ -57,6 +57,8 @@ export type ShaderUniforms = {
 	uSpeed: number;
 	/** Center offset, [-1,1] (used by some presets). */
 	uCenter: number;
+	/** Pixelation: number of blocks across the width; 0 disables. */
+	uPixelate: number;
 };
 
 export const DEFAULT_UNIFORMS: ShaderUniforms = {
@@ -80,6 +82,7 @@ export const DEFAULT_UNIFORMS: ShaderUniforms = {
 	uScale: 1.0,
 	uSpeed: 0.0,
 	uCenter: 0.0,
+	uPixelate: 0.0,
 };
 
 export type ShaderUniformOverrides = Partial<ShaderUniforms>;
@@ -129,6 +132,7 @@ export function resolveUniforms(
 	u.uDitherLevels = Math.max(1, u.uDitherLevels);
 	u.uVariation = clamp(u.uVariation, 0, 1);
 	u.uCenter = clamp(u.uCenter, -1, 1);
+	u.uPixelate = Math.max(0, u.uPixelate);
 
 	return u;
 }

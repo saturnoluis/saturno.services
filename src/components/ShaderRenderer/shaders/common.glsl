@@ -14,6 +14,13 @@ uniform float uDither;
 uniform float uDitherStrength;
 uniform float uDitherLevels;
 uniform float uVariation;
+uniform float uPixelate;
+
+vec2 pixelateUV(vec2 fragCoord) {
+    if (uPixelate <= 1.0) return fragCoord;
+    float cell = iResolution.x / uPixelate;
+    return (floor(fragCoord / cell) + 0.5) * cell;
+}
 
 vec2 swirlUV(vec2 uv) {
     vec2 c = uv - 0.5;

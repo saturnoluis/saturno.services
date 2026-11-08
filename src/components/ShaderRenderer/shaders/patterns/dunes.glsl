@@ -18,7 +18,7 @@ float duneWave(float x, float baseY, float freq, float phase, float amplitude, f
 out vec4 fragColor;
 
 void main() {
-    vec2 uv = distortUV(gl_FragCoord.xy / iResolution.xy);
+    vec2 uv = distortUV(pixelateUV(gl_FragCoord.xy) / iResolution.xy);
 
     vec2 c = uv - vec2(0.5, 0.5 + uCenter * 0.4);
     float ca = cos(uAngle);

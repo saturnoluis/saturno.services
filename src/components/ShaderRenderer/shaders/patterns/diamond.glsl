@@ -6,7 +6,7 @@ uniform float uCenter;
 out vec4 fragColor;
 
 void main() {
-    vec2 uv = distortUV(gl_FragCoord.xy / iResolution.xy);
+    vec2 uv = distortUV(pixelateUV(gl_FragCoord.xy) / iResolution.xy);
 
     vec2 p = uv - vec2(0.5 + uCenter * 0.4, 0.5);
 

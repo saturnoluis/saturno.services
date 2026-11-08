@@ -6,7 +6,7 @@ uniform float uCenter;
 out vec4 fragColor;
 
 void main() {
-    vec2 uv = distortUV(gl_FragCoord.xy / iResolution.xy);
+    vec2 uv = distortUV(pixelateUV(gl_FragCoord.xy) / iResolution.xy);
     float time = iTime * uSpeed;
     float phase = uVariation * 6.2832;
 
