@@ -11,7 +11,7 @@ export default function WallpaperPreset() {
 	};
 
 	return (
-		<Select label='Preset' value={preset} onChange={onChange}>
+		<Select label='Pattern' value={preset} onChange={onChange}>
 			{PRESETS.map((p) => (
 				<option key={p.id} value={p.id}>
 					{p.label}

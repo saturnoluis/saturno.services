@@ -38,7 +38,7 @@ type PatternSliderConfig = Omit<SliderConfig, 'key'> & {
 
 const DISTORT_STRENGTH: SliderConfig = {
 	key: 'uDistortStrength',
-	label: 'Strength',
+	label: 'Distortion Strength',
 	min: -10,
 	max: 10,
 	step: 0.01,
@@ -136,10 +136,21 @@ export default function WallpaperEditor() {
 	return (
 		<div className='WallpaperEditor'>
 			<Columns columns={3} minWidth='10rem'>
-				<Fieldset title='Distortion'>
+				<Fieldset title='Properties'>
+					{BASE_SLIDERS.map((config) => renderSlider(config))}
+
+					{PATTERN_SLIDERS.map((config) =>
+						renderSlider(
+							config,
+							!PRESET_PATTERN_UNIFORMS[preset].includes(config.key),
+						),
+					)}
+				</Fieldset>
+
+				<Fieldset title='Effects'>
 					<label className='WallpaperEditor__field'>
 						<Select
-							label='Type'
+							label='Distortion'
 							value={uniforms.uDistortType}
 							onChange={(event) =>
 								setUniform(
@@ -159,6 +170,18 @@ export default function WallpaperEditor() {
 					{renderSlider(
 						DISTORT_STRENGTH,
 						uniforms.uDistortType === DistortType.None,
+					)}
+
+					<Checkbox
+						label='Dither'
+						checked={ditherOn}
+						onChange={(event) =>
+							setUniform('uDither', event.target.checked ? 1 : 0)
+						}
+					/>
+
+					{DITHER_SLIDERS.map((config) =>
+						renderSlider(config, !ditherOn),
 					)}
 				</Fieldset>
 
@@ -189,29 +212,6 @@ export default function WallpaperEditor() {
 								config.key,
 								uniforms.uLightingType,
 							),
-						),
-					)}
-				</Fieldset>
-
-				<Fieldset title='Effects'>
-					<Checkbox
-						label='Dither'
-						checked={ditherOn}
-						onChange={(event) =>
-							setUniform('uDither', event.target.checked ? 1 : 0)
-						}
-					/>
-
-					{DITHER_SLIDERS.map((config) =>
-						renderSlider(config, !ditherOn),
-					)}
-
-					{BASE_SLIDERS.map((config) => renderSlider(config))}
-
-					{PATTERN_SLIDERS.map((config) =>
-						renderSlider(
-							config,
-							!PRESET_PATTERN_UNIFORMS[preset].includes(config.key),
 						),
 					)}
 				</Fieldset>
