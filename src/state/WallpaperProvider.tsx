@@ -5,6 +5,7 @@ import {
 	type ShaderUniforms,
 } from '@/components/ShaderRenderer';
 import { srgbEquals } from '@/lib/color.ts';
+import { DEFAULT_TARGET_ID } from '@/lib/resolution.ts';
 import {
 	loadStoredConfig,
 	readSeedRgbFromCss,
@@ -14,6 +15,7 @@ import {
 	withSeedColors,
 	writeSeedColorsToCss,
 } from '@/state/seedColors.ts';
+import { WALLPAPER_THEMES } from '@/views/WallpaperView/components/WallpaperTheme/themes.ts';
 import {
 	WallpaperContext,
 	type WallpaperConfig,
@@ -28,6 +30,7 @@ type SetUniformAction = {
 
 type WallpaperAction =
 	| { type: 'setPreset'; preset: PresetId }
+	| { type: 'setTarget'; targetId: string }
 	| { type: 'setConfig'; config: WallpaperConfig }
 	| SetUniformAction;
 
@@ -38,10 +41,13 @@ function reducer(
 	switch (action.type) {
 		case 'setPreset':
 			return { ...state, preset: action.preset };
+		case 'setTarget':
+			return { ...state, targetId: action.targetId };
 		case 'setConfig':
 			return {
 				preset: action.config.preset,
 				uniforms: action.config.uniforms,
+				targetId: action.config.targetId,
 			};
 		case 'setUniform':
 			return {
@@ -58,9 +64,18 @@ function buildInitialConfig(): WallpaperConfig {
 	if (stored) {
 		return stored;
 	}
+	const defaultTheme = WALLPAPER_THEMES.find((theme) => theme.id === 'ok-luis');
+	if (defaultTheme) {
+		return {
+			preset: defaultTheme.preset,
+			uniforms: defaultTheme.uniforms,
+			targetId: DEFAULT_TARGET_ID,
+		};
+	}
 	return {
 		preset: 'plasma',
 		uniforms: withSeedColors({ ...DEFAULT_UNIFORMS }),
+		targetId: DEFAULT_TARGET_ID,
 	};
 }
 
@@ -91,6 +106,7 @@ export function WallpaperProvider({ children }: { children?: ReactNode }) {
 			setPreset: (preset) => dispatch({ type: 'setPreset', preset }),
 			setUniform: (key, value) =>
 				dispatch({ type: 'setUniform', key, value }),
+			setTarget: (targetId) => dispatch({ type: 'setTarget', targetId }),
 			setConfig: (config) => dispatch({ type: 'setConfig', config }),
 		}),
 		[state],

@@ -1,31 +1,13 @@
 import { useEffect, useRef } from 'react';
-import * as twgl from 'twgl.js';
-import vertexShaderSource from '@/components/ShaderRenderer/shaders/vertex.glsl?raw';
-import type { ShaderRendererOptions } from '@/components/ShaderRenderer/types.ts';
+import type {
+	PresetId,
+	ShaderRendererOptions,
+} from '@/components/ShaderRenderer/types.ts';
 import {
-	assembleFragment,
-	type PresetId,
-} from '@/components/ShaderRenderer/lib/presets.ts';
-import { resolveUniforms } from '@/components/ShaderRenderer/lib/uniforms.ts';
-
-const arrays = {
-	aPos: {
-		numComponents: 2,
-		data: [-1, -1, 1, -1, 1, 1, -1, -1, 1, 1, -1, 1],
-	},
-};
-
-function deleteBufferInfo(
-	gl: WebGL2RenderingContext,
-	bufferInfo: twgl.BufferInfo,
-) {
-	if (bufferInfo.indices) {
-		gl.deleteBuffer(bufferInfo.indices);
-	}
-	for (const attrib of Object.values(bufferInfo.attribs ?? {})) {
-		gl.deleteBuffer(attrib.buffer);
-	}
-}
+	createWallpaperRenderer,
+	deleteWallpaperRenderer,
+	drawWallpaperFrame,
+} from '@/components/ShaderRenderer/lib/render.ts';
 
 export function useShaderRenderer(
 	preset: PresetId,
@@ -51,14 +33,7 @@ export function useShaderRenderer(
 			return;
 		}
 
-		const bufferInfo = twgl.createBufferInfoFromArrays(
-			gl as WebGLRenderingContext,
-			arrays,
-		);
-		const programInfo = twgl.createProgramInfo(gl as WebGLRenderingContext, [
-			vertexShaderSource,
-			assembleFragment(preset),
-		]);
+		const renderer = createWallpaperRenderer(gl, preset);
 
 		const startTime = performance.now();
 		let animationFrame = 0;
@@ -72,33 +47,12 @@ export function useShaderRenderer(
 				animate = false,
 			} = optionsRef.current;
 
-			twgl.resizeCanvasToDisplaySize(
-				canvas,
-				Math.max(1, dpr ?? window.devicePixelRatio),
-			);
-			gl.viewport(0, 0, canvas.width, canvas.height);
+			const time = animate
+				? ((performance.now() - startTime) / 1000) * timeScale +
+					timeOffset
+				: timeOffset;
 
-			const mergedUniforms = resolveUniforms(uniforms);
-
-			gl.useProgram(programInfo.program);
-			twgl.setBuffersAndAttributes(
-				gl as WebGLRenderingContext,
-				programInfo,
-				bufferInfo,
-			);
-			twgl.setUniforms(programInfo, {
-				...mergedUniforms,
-				iResolution: [canvas.width, canvas.height, 1],
-				iTime: animate
-					? ((performance.now() - startTime) / 1000) * timeScale +
-						timeOffset
-					: timeOffset,
-			});
-			twgl.drawBufferInfo(
-				gl as WebGLRenderingContext,
-				bufferInfo,
-				gl.TRIANGLES,
-			);
+			drawWallpaperFrame(renderer, canvas, { uniforms, time, dpr });
 		};
 
 		const step = () => {
@@ -132,8 +86,7 @@ export function useShaderRenderer(
 			resizeObserver.disconnect();
 			drawRef.current = null;
 			startLoopRef.current = null;
-			gl.deleteProgram(programInfo.program);
-			deleteBufferInfo(gl, bufferInfo);
+			deleteWallpaperRenderer(renderer);
 		};
 	}, [preset]);
 

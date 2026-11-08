@@ -12,6 +12,11 @@ import {
 	srgbToOklchString,
 	type Srgb,
 } from '@/lib/color.ts';
+import {
+	AUTO_TARGET_ID,
+	DEFAULT_TARGET_ID,
+	isProfileId,
+} from '@/lib/resolution.ts';
 import type { WallpaperConfig } from '@/state/wallpaper-context.ts';
 
 export const SEED_COLOR_COUNT = 4;
@@ -111,6 +116,7 @@ export function loadStoredConfig(): WallpaperConfig | null {
 		const data = JSON.parse(raw) as {
 			preset?: unknown;
 			uniforms?: unknown;
+			targetId?: unknown;
 		};
 
 		const preset = PRESETS.some((p) => p.id === data.preset)
@@ -121,8 +127,13 @@ export function loadStoredConfig(): WallpaperConfig | null {
 		}
 
 		const uniforms = sanitizeUniforms(data.uniforms);
+		const targetId =
+			typeof data.targetId === 'string' &&
+			(data.targetId === AUTO_TARGET_ID || isProfileId(data.targetId))
+				? data.targetId
+				: DEFAULT_TARGET_ID;
 
-		return { preset, uniforms };
+		return { preset, uniforms, targetId };
 	} catch {
 		return null;
 	}

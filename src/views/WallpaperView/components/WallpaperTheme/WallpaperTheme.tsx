@@ -4,7 +4,7 @@ import { useWallpaper } from '@/state/wallpaper-context.ts';
 import { CUSTOM_ID, matchesTheme, WALLPAPER_THEMES } from './themes.ts';
 
 export default function WallpaperTheme() {
-	const { preset, uniforms, setConfig } = useWallpaper();
+	const { preset, uniforms, targetId, setConfig } = useWallpaper();
 
 	const selectedId =
 		WALLPAPER_THEMES.find((theme) => matchesTheme(theme, preset, uniforms))
@@ -15,7 +15,11 @@ export default function WallpaperTheme() {
 		if (!theme) {
 			return;
 		}
-		setConfig({ preset: theme.preset, uniforms: theme.uniforms });
+		setConfig({
+			preset: theme.preset,
+			uniforms: theme.uniforms,
+			targetId,
+		});
 	};
 
 	return (

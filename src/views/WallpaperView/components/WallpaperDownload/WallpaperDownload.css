@@ -1,0 +1,11 @@
+.WallpaperDownload {
+	display: flex;
+	align-items: center;
+	gap: var(--size-3);
+	width: 100%;
+}
+
+.WallpaperDownload__error {
+	color: var(--color-seed-4);
+	font-size: var(--font-size-1);
+}

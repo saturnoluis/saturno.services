@@ -4,6 +4,7 @@ import type { PresetId, ShaderUniforms } from '@/components/ShaderRenderer';
 export interface WallpaperConfig {
 	preset: PresetId;
 	uniforms: ShaderUniforms;
+	targetId: string;
 }
 
 export interface WallpaperContextValue extends WallpaperConfig {
@@ -12,6 +13,7 @@ export interface WallpaperContextValue extends WallpaperConfig {
 		key: K,
 		value: ShaderUniforms[K],
 	) => void;
+	setTarget: (targetId: string) => void;
 	setConfig: (config: WallpaperConfig) => void;
 }
 
