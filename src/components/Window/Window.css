@@ -49,7 +49,8 @@
 }
 
 .Window__header {
-	flex: 0 0 auto;
+	display: flex;
+	flex-direction: row;
 	padding: var(--size-2);
 	padding-bottom: calc(var(--size-2) * 1.4);
 }
@@ -57,6 +58,7 @@
 .Window__header-title {
 	display: flex;
 	justify-content: flex-start;
+	flex: 1 auto;
 	align-items: center;
 	margin: 0;
 	padding: var(--size-3) var(--size-3);
@@ -65,6 +67,15 @@
 	transform: translateX(calc(-1 * var(--size-2)));
 	font-family: var(--font-title);
 	text-shadow: var(--size-1) var(--size-1) var(--color-border-dark);
+	border-radius: var(--size-1);
+}
+
+.Window__header-controls {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: var(--size-1);
 }
 
 .Window__body {

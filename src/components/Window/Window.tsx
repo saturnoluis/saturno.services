@@ -1,3 +1,4 @@
+import Button from '@/components/Button';
 import { useEffect, useRef, useState } from 'react';
 import type {
 	CSSProperties,
@@ -191,10 +192,16 @@ export default function Window({
 			}
 			onPointerDown={(event) => beginDrag(event, 'move')}
 		>
-			{title && <header className="Window__header">
-				<span className="Window__header-title">{title}</span>
-			</header>}
-			<div className="Window__body">{children}</div>
+			{title && (
+				<header className='Window__header'>
+					<span className='Window__header-title'>{title}</span>
+					<div className='Window__header-controls'>
+						<Button onClick={() => {}}>X</Button>
+						<Button onClick={() => {}}>?</Button>
+					</div>
+				</header>
+			)}
+			<div className='Window__body'>{children}</div>
 			{!isCompact &&
 				RESIZE_HANDLES.map((direction) => (
 					<div
