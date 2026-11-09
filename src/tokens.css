@@ -20,6 +20,7 @@
 	--color-accent-dark: oklch(from var(--color-seed-1) 0.15 0.2 h / 0.5);
 	--color-accent-primary: oklch(from var(--color-seed-1) 0.6 0.2 h / 0.5);
 	--color-accent-contrast: oklch(0.15 0.05 250);
+	--color-accent-shadow: oklch(0.95 0.05 250);
 
 	--color-surface-title: linear-gradient(
 		to right,

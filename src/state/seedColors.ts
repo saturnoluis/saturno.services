@@ -11,6 +11,7 @@ import {
 	parseOklch,
 	srgbToOklchString,
 	contrastColorFor,
+	contrastShadowFor,
 	type Srgb,
 } from '@/lib/color.ts';
 import {
@@ -107,6 +108,10 @@ export function writeSeedColorsToCss(rgb: Srgb[]): void {
 		root.style.setProperty(
 			'--color-accent-contrast',
 			srgbToOklchString(contrastColorFor(accent)),
+		);
+		root.style.setProperty(
+			'--color-accent-shadow',
+			srgbToOklchString(contrastShadowFor(accent)),
 		);
 	}
 }

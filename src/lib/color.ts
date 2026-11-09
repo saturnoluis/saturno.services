@@ -144,6 +144,17 @@ export function contrastColorFor(rgb: Srgb): Srgb {
 	);
 }
 
+/** Pick a shadow color opposite to the accent's legible text color. */
+export function contrastShadowFor(rgb: Srgb): Srgb {
+	const { l, h } = srgbToOklch(rgb);
+	const light = l >= CONTRAST_LIGHTNESS_THRESHOLD;
+	return oklchToSrgb(
+		light ? LIGHT_TEXT_L : DARK_TEXT_L,
+		light ? LIGHT_TEXT_C : DARK_TEXT_C,
+		h,
+	);
+}
+
 export function srgbToHex([r, g, b]: Srgb): string {
 	const to = (v: number) =>
 		Math.round(clampChannel(v) * 255)
