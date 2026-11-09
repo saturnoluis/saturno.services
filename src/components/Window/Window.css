@@ -1,6 +1,9 @@
-.Surface {
+.Window {
 	position: absolute;
 	overflow: hidden;
+
+	display: flex;
+	flex-direction: column;
 
 	padding: var(--size-4);
 
@@ -28,7 +31,7 @@
 	}
 }
 
-.Surface--compact {
+.Window--compact {
 	inset: var(--size-4);
 	width: auto;
 	height: auto;
@@ -41,11 +44,39 @@
 	}
 }
 
-.Surface__handle {
+.Window--titled {
+	padding-top: var(--size-2);
+}
+
+.Window__header {
+	flex: 0 0 auto;
+	padding: var(--size-2);
+	padding-bottom: calc(var(--size-2) * 1.4);
+}
+
+.Window__header-title {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin: 0;
+	padding: var(--size-3) var(--size-3);
+	color: var(--color-accent-contrast);
+	background: var(--color-surface-title);
+	transform: translateX(calc(-1 * var(--size-2)));
+	font-family: var(--font-title);
+	text-shadow: var(--size-1) var(--size-1) var(--color-border-dark);
+}
+
+.Window__body {
+	flex: 1 1 auto;
+	min-height: 0;
+}
+
+.Window__handle {
 	position: absolute;
 }
 
-.Surface__handle--n {
+.Window__handle--n {
 	top: -4px;
 	left: 8px;
 	right: 8px;
@@ -53,7 +84,7 @@
 	cursor: ns-resize;
 }
 
-.Surface__handle--s {
+.Window__handle--s {
 	bottom: -4px;
 	left: 8px;
 	right: 8px;
@@ -61,7 +92,7 @@
 	cursor: ns-resize;
 }
 
-.Surface__handle--e {
+.Window__handle--e {
 	top: 8px;
 	bottom: 8px;
 	right: -4px;
@@ -69,7 +100,7 @@
 	cursor: ew-resize;
 }
 
-.Surface__handle--w {
+.Window__handle--w {
 	top: 8px;
 	bottom: 8px;
 	left: -4px;
@@ -77,7 +108,7 @@
 	cursor: ew-resize;
 }
 
-.Surface__handle--ne {
+.Window__handle--ne {
 	top: -4px;
 	right: -4px;
 	width: 12px;
@@ -85,7 +116,7 @@
 	cursor: nesw-resize;
 }
 
-.Surface__handle--nw {
+.Window__handle--nw {
 	top: -4px;
 	left: -4px;
 	width: 12px;
@@ -93,7 +124,7 @@
 	cursor: nwse-resize;
 }
 
-.Surface__handle--se {
+.Window__handle--se {
 	bottom: -4px;
 	right: -4px;
 	width: 12px;
@@ -101,7 +132,7 @@
 	cursor: nwse-resize;
 }
 
-.Surface__handle--sw {
+.Window__handle--sw {
 	bottom: -4px;
 	left: -4px;
 	width: 12px;

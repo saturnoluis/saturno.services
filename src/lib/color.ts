@@ -127,6 +127,23 @@ export function srgbToOklchString(rgb: Srgb): string {
 	return `oklch(${formatNumber(l)} ${formatNumber(c)} ${formatNumber(h)})`;
 }
 
+const CONTRAST_LIGHTNESS_THRESHOLD = 0.55;
+const DARK_TEXT_L = 0.15;
+const DARK_TEXT_C = 0.05;
+const LIGHT_TEXT_L = 0.95;
+const LIGHT_TEXT_C = 0.05;
+
+/** Pick a legible text color for a given accent sRGB, preserving its hue. */
+export function contrastColorFor(rgb: Srgb): Srgb {
+	const { l, h } = srgbToOklch(rgb);
+	const light = l >= CONTRAST_LIGHTNESS_THRESHOLD;
+	return oklchToSrgb(
+		light ? DARK_TEXT_L : LIGHT_TEXT_L,
+		light ? DARK_TEXT_C : LIGHT_TEXT_C,
+		h,
+	);
+}
+
 export function srgbToHex([r, g, b]: Srgb): string {
 	const to = (v: number) =>
 		Math.round(clampChannel(v) * 255)

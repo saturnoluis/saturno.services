@@ -4,7 +4,7 @@ import type {
 	PointerEvent as ReactPointerEvent,
 	ReactNode,
 } from 'react';
-import './Surface.css';
+import './Window.css';
 
 type ResizeDirection = 'n' | 's' | 'e' | 'w' | 'ne' | 'nw' | 'se' | 'sw';
 
@@ -12,11 +12,12 @@ const MIN_WIDTH = 64;
 const MIN_HEIGHT = 48;
 const GAP = 16;
 
-interface SurfaceProps {
+interface WindowProps {
 	height?: CSSProperties['height'];
 	width?: CSSProperties['width'];
 	top?: CSSProperties['top'];
 	left?: CSSProperties['left'];
+	title?: ReactNode;
 	children?: ReactNode;
 }
 
@@ -64,13 +65,14 @@ function computeCompact(
 	);
 }
 
-export default function Surface({
+export default function Window({
 	height: initialHeight,
 	width: initialWidth,
 	top: initialTop,
 	left: initialLeft,
+	title,
 	children,
-}: SurfaceProps) {
+}: WindowProps) {
 	const [position, setPosition] = useState(() => ({
 		x: toPixels(initialLeft, 0),
 		y: toPixels(initialTop, 0),
@@ -170,7 +172,13 @@ export default function Surface({
 
 	return (
 		<div
-			className={isCompact ? 'Surface Surface--compact' : 'Surface'}
+			className={
+				isCompact
+					? 'Window Window--compact'
+					: title
+						? 'Window Window--titled'
+						: 'Window'
+			}
 			style={
 				isCompact
 					? undefined
@@ -183,12 +191,15 @@ export default function Surface({
 			}
 			onPointerDown={(event) => beginDrag(event, 'move')}
 		>
-			{children}
+			{title && <header className="Window__header">
+				<span className="Window__header-title">{title}</span>
+			</header>}
+			<div className="Window__body">{children}</div>
 			{!isCompact &&
 				RESIZE_HANDLES.map((direction) => (
 					<div
 						key={direction}
-						className={`Surface__handle Surface__handle--${direction}`}
+						className={`Window__handle Window__handle--${direction}`}
 						onPointerDown={(event) => beginDrag(event, direction)}
 					/>
 				))}
