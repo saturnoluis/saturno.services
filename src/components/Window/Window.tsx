@@ -224,24 +224,28 @@ export default function Window({
 					<span className='Window__header-title'>{title}</span>
 					{controls && controls.length > 0 && (
 						<div className='Window__header-controls'>
-							{controls.map(({ label, title: controlTitle, action }, index) =>
-								typeof action === 'string' ? (
-									<Button
-										key={`${label}-${index}`}
-										href={action}
-										title={controlTitle}
-									>
-										{label}
-									</Button>
-								) : (
-									<Button
-										key={`${label}-${index}`}
-										onClick={action}
-										title={controlTitle}
-									>
-										{label}
-									</Button>
-								),
+							{controls.map(
+								(
+									{ label, title: controlTitle, action },
+									index,
+								) =>
+									typeof action === 'string' ? (
+										<Button
+											key={`${label}-${index}`}
+											href={action}
+											title={controlTitle}
+										>
+											{label}
+										</Button>
+									) : (
+										<Button
+											key={`${label}-${index}`}
+											onClick={action}
+											title={controlTitle}
+										>
+											{label}
+										</Button>
+									),
 							)}
 						</div>
 					)}
