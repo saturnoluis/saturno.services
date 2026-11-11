@@ -78,6 +78,12 @@
 	gap: var(--size-1);
 }
 
+.Window__header-controls .Button {
+	background: oklch(from var(--color-seed-1) l c h / 0.4);
+	color: var(--color-accent-contrast);
+	text-shadow: var(--size-1) var(--size-1) var(--color-accent-shadow);
+}
+
 .Window__body {
 	flex: 1 1 auto;
 	min-height: 0;

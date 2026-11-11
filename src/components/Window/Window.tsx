@@ -200,13 +200,13 @@ export default function Window({
 
 	return (
 		<div
-			className={
-				isCompact
-					? 'Window Window--compact'
-					: title
-						? 'Window Window--titled'
-						: 'Window'
-			}
+			className={[
+				'Window',
+				isCompact ? 'Window--compact' : '',
+				title ? 'Window--titled' : '',
+			]
+				.filter(Boolean)
+				.join(' ')}
 			style={
 				isCompact
 					? undefined

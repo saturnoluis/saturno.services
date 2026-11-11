@@ -21,6 +21,7 @@
 	height: var(--size-input);
 	width: 100%;
 	color: inherit;
+	text-shadow: inherit;
 	padding: var(--size-1) var(--size-2);
 	margin: 0;
 

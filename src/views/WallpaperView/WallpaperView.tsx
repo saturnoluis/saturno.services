@@ -37,8 +37,8 @@ export default function WallpaperView() {
 			left={position.left}
 			title='Wallpaper Editor'
 			controls={[
-				{ label: 'X', title: 'Close', action: '/' },
 				{ label: '?', title: 'Help', action: () => console.log('help') },
+				{ label: '✖', title: 'Close', action: '/' },
 			]}
 		>
 			<Stack>
