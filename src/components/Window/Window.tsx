@@ -9,9 +9,33 @@ import './Window.css';
 
 type ResizeDirection = 'n' | 's' | 'e' | 'w' | 'ne' | 'nw' | 'se' | 'sw';
 
-const MIN_WIDTH = 64;
-const MIN_HEIGHT = 48;
 const GAP = 16;
+const MIN_SIZE_FALLBACK = 400;
+
+function readColumnMin(): number {
+	if (typeof document === 'undefined') {
+		return MIN_SIZE_FALLBACK;
+	}
+	const styles = getComputedStyle(document.documentElement);
+	const raw = styles.getPropertyValue('--size-column-min').trim();
+	const value = Number.parseFloat(raw);
+	if (!Number.isFinite(value)) {
+		return MIN_SIZE_FALLBACK;
+	}
+	if (raw.endsWith('rem')) {
+		const root = Number.parseFloat(styles.fontSize);
+		if (Number.isFinite(root)) {
+			return value * root;
+		}
+	}
+	return value;
+}
+
+export interface WindowControl {
+	label: string;
+	title?: string;
+	action?: string | (() => void);
+}
 
 interface WindowProps {
 	height?: CSSProperties['height'];
@@ -19,6 +43,7 @@ interface WindowProps {
 	top?: CSSProperties['top'];
 	left?: CSSProperties['left'];
 	title?: ReactNode;
+	controls?: WindowControl[];
 	children?: ReactNode;
 }
 
@@ -72,6 +97,7 @@ export default function Window({
 	top: initialTop,
 	left: initialLeft,
 	title,
+	controls,
 	children,
 }: WindowProps) {
 	const [position, setPosition] = useState(() => ({
@@ -111,6 +137,7 @@ export default function Window({
 			const dy = event.clientY - state.startY;
 
 			let { x, y, width, height } = state;
+			const minSize = readColumnMin();
 
 			if (state.mode === 'move') {
 				x += dx;
@@ -127,13 +154,13 @@ export default function Window({
 					y += dy;
 				}
 
-				if (width < MIN_WIDTH) {
-					if (state.mode.includes('w')) x -= MIN_WIDTH - width;
-					width = MIN_WIDTH;
+				if (width < minSize) {
+					if (state.mode.includes('w')) x -= minSize - width;
+					width = minSize;
 				}
-				if (height < MIN_HEIGHT) {
-					if (state.mode.includes('n')) y -= MIN_HEIGHT - height;
-					height = MIN_HEIGHT;
+				if (height < minSize) {
+					if (state.mode.includes('n')) y -= minSize - height;
+					height = minSize;
 				}
 			}
 
@@ -195,10 +222,29 @@ export default function Window({
 			{title && (
 				<header className='Window__header'>
 					<span className='Window__header-title'>{title}</span>
-					<div className='Window__header-controls'>
-						<Button onClick={() => {}}>X</Button>
-						<Button onClick={() => {}}>?</Button>
-					</div>
+					{controls && controls.length > 0 && (
+						<div className='Window__header-controls'>
+							{controls.map(({ label, title: controlTitle, action }, index) =>
+								typeof action === 'string' ? (
+									<Button
+										key={`${label}-${index}`}
+										href={action}
+										title={controlTitle}
+									>
+										{label}
+									</Button>
+								) : (
+									<Button
+										key={`${label}-${index}`}
+										onClick={action}
+										title={controlTitle}
+									>
+										{label}
+									</Button>
+								),
+							)}
+						</div>
+					)}
 				</header>
 			)}
 			<div className='Window__body'>{children}</div>

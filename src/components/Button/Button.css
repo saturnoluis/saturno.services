@@ -14,17 +14,22 @@
 }
 
 .Button__element {
+	display: block;
 	background: none;
 	border: none;
 	outline: none;
 	height: var(--size-input);
 	width: 100%;
 	color: inherit;
+	padding: var(--size-1) var(--size-2);
+	margin: 0;
+
 	cursor: pointer;
+	text-decoration: none;
 
 	font-family: var(--font-title);
 	font-size: var(--font-size-2);
-	padding: var(--size-1) var(--size-2);
 	line-height: var(--size-input);
+	text-align: center;
 	vertical-align: middle;
 }

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Columns from '@/components/Columns';
 import Content from '@/components/Content';
 import Stack from '@/components/Stack';
@@ -10,14 +11,35 @@ import WallpaperPreview from '@/views/WallpaperView/components/WallpaperPreview'
 import WallpaperSize from '@/views/WallpaperView/components/WallpaperSize';
 import WallpaperTheme from '@/views/WallpaperView/components/WallpaperTheme';
 
+const WINDOW_SIZE = 900;
+const JITTER = 32;
+
+function randomWindowPosition(size: number) {
+	const maxX = Math.max(0, globalThis.innerWidth - size);
+	const maxY = Math.max(0, globalThis.innerHeight - size);
+	const jitterX = Math.min(maxX / 2, JITTER);
+	const jitterY = Math.min(maxY / 2, JITTER);
+
+	return {
+		left: maxX / 2 + (Math.random() * 2 - 1) * jitterX,
+		top: maxY / 2 + (Math.random() * 2 - 1) * jitterY,
+	};
+}
+
 export default function WallpaperView() {
+	const [position] = useState(() => randomWindowPosition(WINDOW_SIZE));
+
 	return (
 		<Window
-			width='640px'
-			height='480px'
-			top='100px'
-			left='120px'
+			width={WINDOW_SIZE}
+			height={WINDOW_SIZE}
+			top={position.top}
+			left={position.left}
 			title='Wallpaper Editor'
+			controls={[
+				{ label: 'X', title: 'Close', action: '/' },
+				{ label: '?', title: 'Help', action: () => console.log('help') },
+			]}
 		>
 			<Stack>
 				<Content overflowY='auto'>
