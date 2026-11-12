@@ -4,8 +4,7 @@ import { Link } from 'react-router';
 import './Button.css';
 
 type ButtonProps =
-	| ({ to?: undefined } & ComponentProps<'button'>)
-	| ComponentProps<typeof Link>;
+	({ to?: undefined } & ComponentProps<'button'>) | ComponentProps<typeof Link>;
 
 const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
 	function Button(props, ref) {

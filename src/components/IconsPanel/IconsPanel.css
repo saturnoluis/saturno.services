@@ -1,0 +1,34 @@
+.IconsPanel {
+	display: block;
+	width: var(--size-7);
+}
+
+.Icon {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: var(--size-3);
+
+	padding: var(--size-4);
+	padding-bottom: var(--size-3);
+	border: var(--size-2) solid var(--color-border-dark);
+	border-radius: var(--size-2);
+	box-shadow: inset var(--size-2) var(--size-2) var(--size-2) var(--color-border-bright);
+	background: var(--color-surface-primary);
+
+	font-family: var(--font-title);
+	color: var(--color-accent-contrast);
+	text-shadow: var(--size-1) var(--size-1) var(--color-accent-shadow);
+	text-decoration: none;
+}
+
+.Icon img {
+	display: block;
+	width: 100%;
+	height: auto;
+	aspect-ratio: 1 / 1;
+	border-radius: var(--size-2);
+	box-shadow: var(--size-2) var(--size-2) var(--color-border-dark);
+	transform: translate(calc(-1 * var(--size-1)), calc(-1 * var(--size-1)));
+}
