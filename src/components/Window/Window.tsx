@@ -232,7 +232,7 @@ export default function Window({
 									typeof action === 'string' ? (
 										<Button
 											key={`${label}-${index}`}
-											href={action}
+											to={action}
 											title={controlTitle}
 										>
 											{label}

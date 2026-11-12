@@ -4,12 +4,12 @@ import Content from '@/components/Content';
 import Stack from '@/components/Stack';
 import Window from '@/components/Window';
 import Fieldset from '@/components/Fieldset';
-import WallpaperColors from '@/views/WallpaperView/components/WallpaperColors';
-import WallpaperEditor from '@/views/WallpaperView/components/WallpaperEditor';
-import WallpaperPreset from '@/views/WallpaperView/components/WallpaperPreset';
-import WallpaperPreview from '@/views/WallpaperView/components/WallpaperPreview';
-import WallpaperSize from '@/views/WallpaperView/components/WallpaperSize';
-import WallpaperTheme from '@/views/WallpaperView/components/WallpaperTheme';
+import WallpaperColors from '@/views/WallpaperEditorView/components/WallpaperColors';
+import WallpaperEditor from '@/views/WallpaperEditorView/components/WallpaperEditor';
+import WallpaperPreset from '@/views/WallpaperEditorView/components/WallpaperPreset';
+import WallpaperPreview from '@/views/WallpaperEditorView/components/WallpaperPreview';
+import WallpaperSize from '@/views/WallpaperEditorView/components/WallpaperSize';
+import WallpaperTheme from '@/views/WallpaperEditorView/components/WallpaperTheme';
 
 const WINDOW_SIZE = 900;
 const JITTER = 32;
@@ -26,7 +26,7 @@ function randomWindowPosition(size: number) {
 	};
 }
 
-export default function WallpaperView() {
+export default function WallpaperEditorView() {
 	const [position] = useState(() => randomWindowPosition(WINDOW_SIZE));
 
 	return (

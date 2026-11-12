@@ -1,15 +1,35 @@
+import { BrowserRouter, Outlet, Route, Routes } from 'react-router';
 import Desktop from '@/components/Desktop';
-import WallpaperView from '@/views/WallpaperView';
+import AboutMeView from '@/views/AboutMeView';
+import HomeView from '@/views/HomeView';
+import WallpaperEditorView from '@/views/WallpaperEditorView';
 import { WallpaperProvider } from '@/state/WallpaperProvider.tsx';
 import './App.css';
+
+function DesktopLayout() {
+	return (
+		<Desktop>
+			<Outlet />
+		</Desktop>
+	);
+}
 
 function App() {
 	return (
 		<WallpaperProvider>
 			<div className='App'>
-				<Desktop>
-					<WallpaperView />
-				</Desktop>
+				<BrowserRouter>
+					<Routes>
+						<Route element={<DesktopLayout />}>
+							<Route index element={<HomeView />} />
+							<Route path='about-me' element={<AboutMeView />} />
+							<Route
+								path='wallpaper-editor'
+								element={<WallpaperEditorView />}
+							/>
+						</Route>
+					</Routes>
+				</BrowserRouter>
 			</div>
 		</WallpaperProvider>
 	);

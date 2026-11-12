@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef, useState } from 'react';
 import ShaderRenderer from '@/components/ShaderRenderer';
-import WallpaperDownload from '@/views/WallpaperView/components/WallpaperDownload';
+import WallpaperDownload from '@/views/WallpaperEditorView/components/WallpaperDownload';
 import { profileAspect, resolveProfile } from '@/lib/resolution.ts';
 import { useWallpaper } from '@/state/wallpaper-context.ts';
 import './WallpaperPreview.css';

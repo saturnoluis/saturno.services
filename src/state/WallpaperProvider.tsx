@@ -15,7 +15,7 @@ import {
 	withSeedColors,
 	writeSeedColorsToCss,
 } from '@/state/seedColors.ts';
-import { WALLPAPER_THEMES } from '@/views/WallpaperView/components/WallpaperTheme/themes.ts';
+import { WALLPAPER_THEMES } from '@/views/WallpaperEditorView/components/WallpaperTheme/themes.ts';
 import {
 	WallpaperContext,
 	type WallpaperConfig,
