@@ -3,6 +3,8 @@
 	align-items: center;
 	justify-content: center;
 	width: 100%;
+	min-width: calc(var(--size-input) + 4 * var(--size-1));
+	height: calc(var(--size-input) + 4 * var(--size-1));
 
 	background: none;
 	border: var(--size-1) solid var(--color-border-dark);
@@ -10,27 +12,35 @@
 	box-shadow: inset var(--size-1) var(--size-1) var(--color-border-bright);
 
 	color: var(--color-text-primary);
-	padding: var(--size-1);
+}
+
+.Button:has(.Button__element:active) {
+	box-shadow:
+		inset calc(var(--size-1) * -1) calc(var(--size-1) * -1)
+			var(--color-border-bright),
+		inset var(--size-1) var(--size-1) var(--color-border-dark);
+	background: oklch(from var(--color-border-dark) l c h / 0.2);
 }
 
 .Button__element {
-	display: block;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	background: none;
 	border: none;
 	outline: none;
-	height: var(--size-input);
+	height: 100%;
 	width: 100%;
 	color: inherit;
 	text-shadow: inherit;
-	padding: var(--size-1) var(--size-2);
+	padding: 0;
 	margin: 0;
+	padding-top: var(--size-1);
+	padding-left: var(--size-1);
 
 	cursor: pointer;
 	text-decoration: none;
 
 	font-family: var(--font-title);
 	font-size: var(--font-size-2);
-	line-height: var(--size-input);
-	text-align: center;
-	vertical-align: middle;
 }

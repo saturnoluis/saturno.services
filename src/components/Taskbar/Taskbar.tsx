@@ -1,10 +1,11 @@
+import Button from '@/components/Button';
 import type { ReactNode } from 'react';
 import './Taskbar.css';
 
 export default function Taskbar() {
 	return (
 	<div className='Taskbar'>
-		Taskbar	
+		<Button className="Taskbar__menu-button">Menu</Button>
 	</div>
 	);
 }

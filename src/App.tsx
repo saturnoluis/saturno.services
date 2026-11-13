@@ -12,7 +12,6 @@ function DesktopLayout() {
 	return (
 		<Desktop>
 			<Taskbar />
-			<IconsPanel />
 			<Outlet />
 		</Desktop>
 	);

@@ -7,9 +7,9 @@ type ButtonProps =
 	({ to?: undefined } & ComponentProps<'button'>) | ComponentProps<typeof Link>;
 
 const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
-	function Button(props, ref) {
+	function Button({ className, ...props }, ref) {
 		return (
-			<div className='Button'>
+			<div className={className ? `Button ${className}` : 'Button'}>
 				{props.to === undefined ? (
 					<button
 						ref={ref as Ref<HTMLButtonElement>}
