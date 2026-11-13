@@ -1,6 +1,7 @@
 import { BrowserRouter, Outlet, Route, Routes } from 'react-router';
 import Desktop from '@/components/Desktop';
 import IconsPanel from '@/components/IconsPanel';
+import Taskbar from '@/components/Taskbar';
 import AboutMeView from '@/views/AboutMeView';
 import HomeView from '@/views/HomeView';
 import WallpaperEditorView from '@/views/WallpaperEditorView';
@@ -10,6 +11,7 @@ import './App.css';
 function DesktopLayout() {
 	return (
 		<Desktop>
+			<Taskbar />
 			<IconsPanel />
 			<Outlet />
 		</Desktop>
