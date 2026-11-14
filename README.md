@@ -13,15 +13,15 @@ resizable `Window`s that wrap the routed pages.
 
 ## Tech stack
 
-| Layer      | Choice                                             |
-| ---------- | -------------------------------------------------- |
-| UI         | React 19 + TypeScript                              |
-| Build tool | Vite 8 (`@vitejs/plugin-react`)                    |
-| Routing    | `react-router` v8                                   |
-| WebGL      | `twgl.js` (WebGL2 wallpaper renderer)              |
-| Linting    | `oxlint`                                           |
-| Formatting | `prettier` (tabs, width 82, single quotes)         |
-| Package mgr| npm (`.npmrc` sets `ignore-scripts=true`)          |
+| Layer       | Choice                                     |
+| ----------- | ------------------------------------------ |
+| UI          | React 19 + TypeScript                      |
+| Build tool  | Vite 8 (`@vitejs/plugin-react`)            |
+| Routing     | `react-router` v8                          |
+| WebGL       | `twgl.js` (WebGL2 wallpaper renderer)      |
+| Linting     | `oxlint`                                   |
+| Formatting  | `prettier` (tabs, width 82, single quotes) |
+| Package mgr | npm (`.npmrc` sets `ignore-scripts=true`)  |
 
 ## Getting started
 
@@ -32,15 +32,15 @@ npm run dev       # starts Vite on http://localhost:2727
 
 Other scripts (see `package.json`):
 
-| Script            | What it does                                        |
-| ----------------- | --------------------------------------------------- |
-| `npm run dev`     | Start the dev server (port **2727**)                |
-| `npm run build`   | `tsc -b && vite build` (type-check + production build) |
-| `npm run lint`    | `oxlint` (lint only, no type-check)                 |
-| `npm run format`  | Format the whole repo with Prettier                 |
-| `npm run format:check` | Check formatting without writing                |
-| `npm run preview` | Preview the production build                        |
-| `npm run create`  | Scaffold a new component (see below)                |
+| Script                 | What it does                                           |
+| ---------------------- | ------------------------------------------------------ |
+| `npm run dev`          | Start the dev server (port **2727**)                   |
+| `npm run build`        | `tsc -b && vite build` (type-check + production build) |
+| `npm run lint`         | `oxlint` (lint only, no type-check)                    |
+| `npm run format`       | Format the whole repo with Prettier                    |
+| `npm run format:check` | Check formatting without writing                       |
+| `npm run preview`      | Preview the production build                           |
+| `npm run create`       | Scaffold a new component (see below)                   |
 
 ## Project structure
 
@@ -52,7 +52,7 @@ src/
 ├── tokens.css               # Design tokens (CSS custom properties) — single source of truth
 ├── components/              # Reusable UI primitives (one folder per component)
 │   ├── Button/  Checkbox/  ColorInput/  Columns/  Content/  Fieldset/  Heading/
-│   ├── Range/  Select/  Stack/  Window/  Taskbar/  IconsPanel/  Desktop/
+│   ├── Range/  Select/  Stack/  Window/  Taskbar/  MainMenu/  Desktop/
 │   └── ShaderRenderer/      # WebGL2 wallpaper renderer (presets, shaders, uniforms)
 ├── state/                   # App state: context, providers, hooks
 │   ├── wallpaper-context.ts # WallpaperContext + useWallpaper()
@@ -83,7 +83,7 @@ src/
    `z-index: 10`.
 
 Routing is nested: `DesktopLayout` renders `<Taskbar />` and `<Outlet />`, so
-every route below it (`/`, `/about-me`, `/wallpaper-editor`) is rendered *inside*
+every route below it (`/`, `/about-me`, `/wallpaper-editor`) is rendered _inside_
 the desktop as a window.
 
 ### Taskbar
@@ -173,7 +173,7 @@ Fill in the implementation, then import it as `@/components/MyComponent`.
 2. Use `useRandomWindowPosition(width, height)` for the initial position and
    pass the result as `top`/`left` to `<Window>`.
 3. Register the route in `src/App.tsx` under the `DesktopLayout` route.
-4. (Optional) add an icon link in `src/components/IconsPanel/IconsPanel.tsx`.
+4. (Optional) add an icon link in `src/components/MainMenu/MainMenu.tsx`.
 
 ### A new shader preset
 
@@ -209,13 +209,4 @@ npm run build   # includes tsc -b type-check
 
 ## Known issues
 
-The production build (`npm run build`) currently fails on a few pre-existing
-type errors unrelated to recent feature work:
-
-- `src/App.tsx` — unused `IconsPanel` import.
-- `src/components/IconsPanel/IconsPanel.tsx` — unused `ReactNode`/`children`
-  and a missing `IconsPanelProps` type.
-- `src/components/Taskbar/Taskbar.tsx` — unused `ReactNode` import.
-
-These are intentionally left in place until cleaned up; `npm run dev` and
-`npm run lint` are unaffected.
+None at the moment.

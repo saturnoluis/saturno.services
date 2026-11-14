@@ -1,5 +1,7 @@
-.IconsPanel {
+.MainMenu {
 	display: block;
+	position: absolute;
+	z-index: 99;
 	width: var(--size-7);
 	padding: var(--size-3) var(--size-1);
 
@@ -8,11 +10,11 @@
 	box-shadow:
 		inset var(--size-2) var(--size-2) var(--size-1) var(--color-border-bright),
 		inset calc(-1 * var(--size-2)) calc(-1 * var(--size-2)) var(--size-1)
-		oklch(from var(--color-border-dark) l c h / 0.2);
+			oklch(from var(--color-border-dark) l c h / 0.2);
 	background: var(--color-surface-primary);
 }
 
-.Icon {
+.MainMenu__icon {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -28,7 +30,7 @@
 	text-decoration: none;
 }
 
-.Icon img {
+.MainMenu__icon img {
 	display: block;
 	width: 100%;
 	height: auto;

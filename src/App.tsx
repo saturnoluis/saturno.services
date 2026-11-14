@@ -1,6 +1,7 @@
+import { useState } from 'react';
 import { BrowserRouter, Outlet, Route, Routes } from 'react-router';
 import Desktop from '@/components/Desktop';
-import IconsPanel from '@/components/IconsPanel';
+import MainMenu from '@/components/MainMenu';
 import Taskbar from '@/components/Taskbar';
 import AboutMeView from '@/views/AboutMeView';
 import HomeView from '@/views/HomeView';
@@ -9,10 +10,13 @@ import { WallpaperProvider } from '@/state/WallpaperProvider.tsx';
 import './App.css';
 
 function DesktopLayout() {
+	const [menuOpen, setMenuOpen] = useState(false);
+
 	return (
 		<Desktop>
-			<Taskbar />
+			<Taskbar onMenuClick={() => setMenuOpen((open) => !open)} />
 			<Outlet />
+			<MainMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
 		</Desktop>
 	);
 }

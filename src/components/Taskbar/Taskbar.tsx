@@ -1,11 +1,20 @@
 import Button from '@/components/Button';
-import type { ReactNode } from 'react';
 import './Taskbar.css';
 
-export default function Taskbar() {
+interface TaskbarProps {
+	onMenuClick: () => void;
+}
+
+export default function Taskbar({ onMenuClick }: TaskbarProps) {
 	return (
-	<div className='Taskbar'>
-		<Button className="Taskbar__menu-button">Menú</Button>
-	</div>
+		<div className='Taskbar'>
+			<Button
+				className='Taskbar__menu-button'
+				onClick={onMenuClick}
+				onPointerDown={(event) => event.stopPropagation()}
+			>
+				Menú
+			</Button>
+		</div>
 	);
 }
