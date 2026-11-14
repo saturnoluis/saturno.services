@@ -1,9 +1,9 @@
-import { useState } from 'react';
 import Columns from '@/components/Columns';
 import Content from '@/components/Content';
 import Stack from '@/components/Stack';
 import Window from '@/components/Window';
 import Fieldset from '@/components/Fieldset';
+import { useRandomWindowPosition } from '@/state/useRandomWindowPosition';
 import WallpaperColors from '@/views/WallpaperEditorView/components/WallpaperColors';
 import WallpaperEditor from '@/views/WallpaperEditorView/components/WallpaperEditor';
 import WallpaperPreset from '@/views/WallpaperEditorView/components/WallpaperPreset';
@@ -11,28 +11,16 @@ import WallpaperPreview from '@/views/WallpaperEditorView/components/WallpaperPr
 import WallpaperSize from '@/views/WallpaperEditorView/components/WallpaperSize';
 import WallpaperTheme from '@/views/WallpaperEditorView/components/WallpaperTheme';
 
-const WINDOW_SIZE = 900;
-const JITTER = 32;
-
-function randomWindowPosition(size: number) {
-	const maxX = Math.max(0, globalThis.innerWidth - size);
-	const maxY = Math.max(0, globalThis.innerHeight - size);
-	const jitterX = Math.min(maxX / 2, JITTER);
-	const jitterY = Math.min(maxY / 2, JITTER);
-
-	return {
-		left: maxX / 2 + (Math.random() * 2 - 1) * jitterX,
-		top: maxY / 2 + (Math.random() * 2 - 1) * jitterY,
-	};
-}
+const WINDOW_WIDTH = 900;
+const WINDOW_HEIGHT = 900;
 
 export default function WallpaperEditorView() {
-	const [position] = useState(() => randomWindowPosition(WINDOW_SIZE));
+	const position = useRandomWindowPosition(WINDOW_WIDTH, WINDOW_HEIGHT);
 
 	return (
 		<Window
-			width={WINDOW_SIZE}
-			height={WINDOW_SIZE}
+			width={WINDOW_WIDTH}
+			height={WINDOW_HEIGHT}
 			top={position.top}
 			left={position.left}
 			title='Wallpaper Editor'

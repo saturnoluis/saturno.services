@@ -5,7 +5,7 @@ import './Taskbar.css';
 export default function Taskbar() {
 	return (
 	<div className='Taskbar'>
-		<Button className="Taskbar__menu-button">Menu</Button>
+		<Button className="Taskbar__menu-button">Menú</Button>
 	</div>
 	);
 }

@@ -1,4 +1,5 @@
 import Button from '@/components/Button';
+import { readTaskbarHeight } from '@/lib/taskbar';
 import { useEffect, useRef, useState } from 'react';
 import type {
 	CSSProperties,
@@ -84,10 +85,11 @@ function toPixels(
 function computeCompact(
 	requestedWidth: number,
 	requestedHeight: number,
+	taskbarHeight: number,
 ): boolean {
 	return (
 		window.innerWidth < requestedWidth + GAP * 2 ||
-		window.innerHeight < requestedHeight + GAP * 2
+		window.innerHeight - taskbarHeight < requestedHeight + GAP * 2
 	);
 }
 
@@ -110,14 +112,21 @@ export default function Window({
 	}));
 	const requestedWidth = toPixels(initialWidth, 320);
 	const requestedHeight = toPixels(initialHeight, 200);
+	const taskbarHeight = readTaskbarHeight();
 	const [isCompact, setIsCompact] = useState(() =>
-		computeCompact(requestedWidth, requestedHeight),
+		computeCompact(requestedWidth, requestedHeight, taskbarHeight),
 	);
 	const dragState = useRef<DragState | null>(null);
 
 	useEffect(() => {
 		const update = () => {
-			setIsCompact(computeCompact(requestedWidth, requestedHeight));
+			setIsCompact(
+				computeCompact(
+					requestedWidth,
+					requestedHeight,
+					readTaskbarHeight(),
+				),
+			);
 			dragState.current = null;
 		};
 
@@ -209,7 +218,12 @@ export default function Window({
 				.join(' ')}
 			style={
 				isCompact
-					? undefined
+					? {
+							top: taskbarHeight + GAP,
+							left: GAP,
+							right: GAP,
+							bottom: GAP,
+						}
 					: {
 							left: position.x,
 							top: position.y,

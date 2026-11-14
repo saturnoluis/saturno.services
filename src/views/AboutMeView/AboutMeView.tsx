@@ -1,11 +1,19 @@
 import Content from '@/components/Content';
 import Window from '@/components/Window';
+import { useRandomWindowPosition } from '@/state/useRandomWindowPosition';
+
+const WINDOW_WIDTH = 480;
+const WINDOW_HEIGHT = 360;
 
 export default function AboutMeView() {
+	const position = useRandomWindowPosition(WINDOW_WIDTH, WINDOW_HEIGHT);
+
 	return (
 		<Window
-			width={480}
-			height={360}
+			width={WINDOW_WIDTH}
+			height={WINDOW_HEIGHT}
+			top={position.top}
+			left={position.left}
 			title='About me'
 			controls={[
 				{ label: '?', title: 'Help', action: () => console.log('help') },

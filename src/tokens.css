@@ -45,6 +45,8 @@
 	--size-6: 64px;
 	--size-7: 128px;
 
+	--size-taskbar: var(--size-6);
+
 	--size-column-min: 20rem;
 	--size-input: 1rem;
 
