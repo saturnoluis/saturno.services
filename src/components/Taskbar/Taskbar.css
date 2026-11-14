@@ -1,7 +1,11 @@
 .Taskbar {
-	display: block;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
 	height: var(--size-6);
-	padding: var(--size-2) var(--size-2);
+	padding: var(--size-2) var(--size-3);
 	box-sizing: border-box;
 
 	border: var(--size-1) solid var(--color-border-dark);
@@ -9,10 +13,11 @@
 	box-shadow:
 		inset var(--size-1) var(--size-1) var(--size-1) var(--color-border-bright),
 		inset calc(-1 * var(--size-1)) calc(-1 * var(--size-1)) 
-		oklch(from var(--color-border-dark) l c h / 0.2);
+		oklch(from var(--color-border-dark) l c h / 0.5);
 	background: var(--color-surface-primary);
 }
 
 .Taskbar__menu-button {
-	height: 100%;
+	height: 90%;
+	width: var(--size-7);
 }
