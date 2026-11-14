@@ -112,9 +112,8 @@ export default function Window({
 	}));
 	const requestedWidth = toPixels(initialWidth, 320);
 	const requestedHeight = toPixels(initialHeight, 200);
-	const taskbarHeight = readTaskbarHeight();
 	const [isCompact, setIsCompact] = useState(() =>
-		computeCompact(requestedWidth, requestedHeight, taskbarHeight),
+		computeCompact(requestedWidth, requestedHeight, readTaskbarHeight()),
 	);
 	const dragState = useRef<DragState | null>(null);
 
@@ -218,12 +217,7 @@ export default function Window({
 				.join(' ')}
 			style={
 				isCompact
-					? {
-							top: taskbarHeight + GAP,
-							left: GAP,
-							right: GAP,
-							bottom: GAP,
-						}
+					? undefined
 					: {
 							left: position.x,
 							top: position.y,

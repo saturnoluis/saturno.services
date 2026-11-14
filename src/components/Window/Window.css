@@ -32,7 +32,8 @@
 }
 
 .Window--compact {
-	inset: var(--size-4);
+	inset: var(--size-2);
+	top: calc(var(--size-taskbar) + var(--size-2));
 	width: auto;
 	height: auto;
 
@@ -41,6 +42,12 @@
 
 	&:active {
 		cursor: default;
+	}
+}
+
+@media (max-width: 640px) {
+	.Window--compact {
+		top: calc(var(--size-taskbar) + var(--size-3));
 	}
 }
 

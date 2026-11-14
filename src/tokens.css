@@ -46,10 +46,17 @@
 	--size-7: 128px;
 
 	--size-taskbar: var(--size-6);
+	--size-main-menu: calc(var(--size-7) * 3);
 
 	--size-column-min: 20rem;
 	--size-input: 1rem;
 
 	--strength-blur-normal: blur(32px);
 	--strength-saturation-normal: saturate(180%);
+}
+
+@media (max-width: 640px) {
+	:root {
+		--size-taskbar: 48px;
+	}
 }

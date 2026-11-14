@@ -1,10 +1,8 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router';
-import { readTaskbarHeight } from '@/lib/taskbar';
 import './MainMenu.css';
 
-const MENU_GAP_X = 16;
-const MENU_GAP_Y = 4;
+const MOBILE_MAX_WIDTH = 640;
 
 interface MainMenuProps {
 	open: boolean;
@@ -12,7 +10,20 @@ interface MainMenuProps {
 }
 
 export default function MainMenu({ open, onClose }: MainMenuProps) {
-	const menuRef = useRef<HTMLElement>(null);
+	const menuRef = useRef<HTMLDivElement>(null);
+	const [isCompact, setIsCompact] = useState(
+		() => window.innerWidth <= MOBILE_MAX_WIDTH,
+	);
+
+	useEffect(() => {
+		const update = () => setIsCompact(window.innerWidth <= MOBILE_MAX_WIDTH);
+
+		globalThis.addEventListener('resize', update);
+
+		return () => {
+			globalThis.removeEventListener('resize', update);
+		};
+	}, []);
 
 	useEffect(() => {
 		if (!open) return;
@@ -38,8 +49,9 @@ export default function MainMenu({ open, onClose }: MainMenuProps) {
 	return (
 		<div
 			ref={menuRef}
-			className='MainMenu'
-			style={{ top: readTaskbarHeight() + MENU_GAP_Y, left: MENU_GAP_X }}
+			className={['MainMenu', isCompact ? 'MainMenu--compact' : '']
+				.filter(Boolean)
+				.join(' ')}
 		>
 		<nav
 			className='MainMenu__nav'
@@ -55,15 +67,15 @@ export default function MainMenu({ open, onClose }: MainMenuProps) {
 					<p>Who I am? Will I am? Lorem Ipsum</p>
 				</div>
 			</Link>
-			<Link className='MainMenu__link' to='/about-me' onClick={onClose}>
+			<Link className='MainMenu__link' to='/wallpaper-editor' onClick={onClose}>
 				<img
 					className='MainMenu__link-icon'
 					src='/icons/about-me.opti.webp'
 					alt='My face as an icon for about-me'
 				/>
 				<div className='MainMenu__link-description'>
-					<span>About me</span>
-					<p>Who I am? Will I am? Lorem Ipsum</p>
+					<span>Wallpaper Editor</span>
+					<p>Tool to create and download an abstract wallpaper</p>
 				</div>
 			</Link>
 			<Link className='MainMenu__link' to='/about-me' onClick={onClose}>
