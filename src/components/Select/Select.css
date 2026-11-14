@@ -20,9 +20,10 @@
 
 	border-radius: var(--size-1);
 	border: var(--size-1) solid var(--color-border-dark);
-	box-shadow: inset var(--size-1) var(--size-1) var(--color-border-bright),
+	box-shadow:
+		inset var(--size-1) var(--size-1) var(--color-border-bright),
 		inset calc(-1 * var(--size-1)) calc(-1 * var(--size-1))
-		oklch(from var(--color-border-dark) l c h / 0.25);
+			oklch(from var(--color-border-dark) l c h / 0.25);
 
 	color: inherit;
 }

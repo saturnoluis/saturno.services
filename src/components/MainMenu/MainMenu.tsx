@@ -3,7 +3,8 @@ import { Link } from 'react-router';
 import { readTaskbarHeight } from '@/lib/taskbar';
 import './MainMenu.css';
 
-const MENU_GAP = 16;
+const MENU_GAP_X = 16;
+const MENU_GAP_Y = 4;
 
 interface MainMenuProps {
 	open: boolean;
@@ -35,30 +36,48 @@ export default function MainMenu({ open, onClose }: MainMenuProps) {
 	if (!open) return null;
 
 	return (
-		<nav
+		<div
 			ref={menuRef}
 			className='MainMenu'
-			style={{ top: readTaskbarHeight() + MENU_GAP, left: MENU_GAP }}
+			style={{ top: readTaskbarHeight() + MENU_GAP_Y, left: MENU_GAP_X }}
 		>
-			<Link className='MainMenu__icon' to='/about-me' onClick={onClose}>
+		<nav
+			className='MainMenu__nav'
+		>
+			<Link className='MainMenu__link' to='/about-me' onClick={onClose}>
 				<img
+					className='MainMenu__link-icon'
 					src='/icons/about-me.opti.webp'
 					alt='My face as an icon for about-me'
 				/>
-				<span>About me</span>
+				<div className='MainMenu__link-description'>
+					<span>About me</span>
+					<p>Who I am? Will I am? Lorem Ipsum</p>
+				</div>
 			</Link>
-
-			<Link
-				className='MainMenu__icon'
-				to='/wallpaper-editor'
-				onClick={onClose}
-			>
+			<Link className='MainMenu__link' to='/about-me' onClick={onClose}>
 				<img
+					className='MainMenu__link-icon'
 					src='/icons/about-me.opti.webp'
 					alt='My face as an icon for about-me'
 				/>
-				<span>Wallpaper Editor</span>
+				<div className='MainMenu__link-description'>
+					<span>About me</span>
+					<p>Who I am? Will I am? Lorem Ipsum</p>
+				</div>
+			</Link>
+			<Link className='MainMenu__link' to='/about-me' onClick={onClose}>
+				<img
+					className='MainMenu__link-icon'
+					src='/icons/about-me.opti.webp'
+					alt='My face as an icon for about-me'
+				/>
+				<div className='MainMenu__link-description'>
+					<span>About me</span>
+					<p>Who I am? Will I am? Lorem Ipsum</p>
+				</div>
 			</Link>
 		</nav>
+		</div>
 	);
 }

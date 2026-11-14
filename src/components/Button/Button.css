@@ -9,14 +9,16 @@
 	background: none;
 	border: var(--size-1) solid var(--color-border-dark);
 	border-radius: var(--size-1);
-	box-shadow: inset var(--size-1) var(--size-1) var(--color-border-bright),
+	box-shadow:
+		inset var(--size-1) var(--size-1) var(--color-border-bright),
 		inset calc(-1 * var(--size-1)) calc(-1 * var(--size-1))
-		oklch(from var(--color-border-dark) l c h / 0.25);
+			oklch(from var(--color-border-dark) l c h / 0.25);
 
 	color: var(--color-text-primary);
 }
 
-.Button:has(.Button__element:active) {
+.Button:has(.Button__element:active),
+.Button--active {
 	box-shadow:
 		inset calc(var(--size-1) * -1) calc(var(--size-1) * -1)
 			var(--color-border-bright),

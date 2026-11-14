@@ -14,7 +14,10 @@ function DesktopLayout() {
 
 	return (
 		<Desktop>
-			<Taskbar onMenuClick={() => setMenuOpen((open) => !open)} />
+			<Taskbar
+				menuOpen={menuOpen}
+				onMenuClick={() => setMenuOpen((open) => !open)}
+			/>
 			<Outlet />
 			<MainMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
 		</Desktop>

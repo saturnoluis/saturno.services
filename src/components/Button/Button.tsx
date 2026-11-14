@@ -3,13 +3,20 @@ import type { ComponentProps, Ref } from 'react';
 import { Link } from 'react-router';
 import './Button.css';
 
-type ButtonProps =
-	({ to?: undefined } & ComponentProps<'button'>) | ComponentProps<typeof Link>;
+type ButtonProps = {
+	active?: boolean;
+} & (
+	({ to?: undefined } & ComponentProps<'button'>) | ComponentProps<typeof Link>
+);
 
 const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
-	function Button({ className, ...props }, ref) {
+	function Button({ className, active = false, ...props }, ref) {
+		const classes = ['Button', className, active ? 'Button--active' : null]
+			.filter(Boolean)
+			.join(' ');
+
 		return (
-			<div className={className ? `Button ${className}` : 'Button'}>
+			<div className={classes}>
 				{props.to === undefined ? (
 					<button
 						ref={ref as Ref<HTMLButtonElement>}
