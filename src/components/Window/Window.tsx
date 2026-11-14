@@ -1,4 +1,5 @@
 import Button from '@/components/Button';
+import { remToPx } from '@/lib/length';
 import { readTaskbarHeight } from '@/lib/taskbar';
 import { useEffect, useRef, useState } from 'react';
 import type {
@@ -17,17 +18,15 @@ function readColumnMin(): number {
 	if (typeof document === 'undefined') {
 		return MIN_SIZE_FALLBACK;
 	}
-	const styles = getComputedStyle(document.documentElement);
-	const raw = styles.getPropertyValue('--size-column-min').trim();
+	const raw = getComputedStyle(document.documentElement)
+		.getPropertyValue('--size-column-min')
+		.trim();
 	const value = Number.parseFloat(raw);
 	if (!Number.isFinite(value)) {
 		return MIN_SIZE_FALLBACK;
 	}
 	if (raw.endsWith('rem')) {
-		const root = Number.parseFloat(styles.fontSize);
-		if (Number.isFinite(root)) {
-			return value * root;
-		}
+		return remToPx(raw);
 	}
 	return value;
 }

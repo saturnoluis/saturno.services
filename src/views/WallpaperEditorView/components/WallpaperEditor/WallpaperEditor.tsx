@@ -11,6 +11,10 @@ import Fieldset from '@/components/Fieldset';
 import Range from '@/components/Range';
 import Select from '@/components/Select';
 import { useWallpaper } from '@/state/wallpaper-context.ts';
+import {
+	EDITOR_COLUMN_GAP,
+	EDITOR_COLUMN_MIN_WIDTH,
+} from '@/views/WallpaperEditorView/constants.ts';
 import './WallpaperEditor.css';
 
 type SliderKey = Exclude<
@@ -122,7 +126,15 @@ function lightingSliderEnabled(key: SliderKey, type: LightingType): boolean {
 	return true;
 }
 
-export default function WallpaperEditor() {
+interface WallpaperEditorProps {
+	minWidth?: string;
+	gap?: number;
+}
+
+export default function WallpaperEditor({
+	minWidth = EDITOR_COLUMN_MIN_WIDTH,
+	gap = EDITOR_COLUMN_GAP,
+}: WallpaperEditorProps) {
 	const { preset, uniforms, setUniform } = useWallpaper();
 
 	const renderSlider = (config: SliderConfig, disabled = false) => {
@@ -145,7 +157,7 @@ export default function WallpaperEditor() {
 
 	return (
 		<div className='WallpaperEditor'>
-			<Columns columns={3} minWidth='10rem'>
+			<Columns columns={3} minWidth={minWidth} gap={gap}>
 				<Fieldset title='Properties'>
 					{BASE_SLIDERS.map((config) => renderSlider(config))}
 

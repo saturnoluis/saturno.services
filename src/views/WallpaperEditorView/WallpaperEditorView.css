@@ -1,0 +1,7 @@
+.WallpaperEditorView__preview {
+	height: 100%;
+}
+
+.WallpaperEditorView__style {
+	margin-bottom: var(--size-4);
+}
