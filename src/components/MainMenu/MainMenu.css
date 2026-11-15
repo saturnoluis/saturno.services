@@ -6,8 +6,9 @@
 	flex-direction: row;
 	width: var(--size-main-menu);
 	max-height: calc(100dvh - var(--size-taskbar) - var(--size-2) * 2);
-	overflow-y: auto;
 	z-index: 99;
+	overflow-y: auto;
+	user-select: none;
 
 	padding: var(--size-1);
 	border: var(--size-1) solid var(--color-border-dark);
@@ -18,6 +19,10 @@
 			oklch(from var(--color-border-dark) l c h / 0.5);
 	background: var(--color-surface-primary);
 	backdrop-filter: var(--strength-blur-normal);
+
+	box-shadow:
+		inset var(--size-1) var(--size-1) var(--color-border-bright),
+		0 30px 60px -30px rgba(0, 0, 0, 0.65);
 }
 
 .MainMenu--compact {

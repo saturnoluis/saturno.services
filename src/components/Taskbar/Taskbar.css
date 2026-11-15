@@ -8,6 +8,7 @@
 	padding: var(--size-2) var(--size-3);
 	box-sizing: border-box;
 	position: relative;
+	user-select: none;
 	z-index: 100;
 
 	border: var(--size-1) solid var(--color-border-dark);

@@ -57,7 +57,7 @@ export default function MainMenu({ open, onClose }: MainMenuProps) {
 				<span>
 					<strong>saturno</strong>
 					.services
-				</span>	
+				</span>
 			</div>
 			<nav className='MainMenu__nav'>
 				<Link className='MainMenu__link' to='/about-me' onClick={onClose}>
