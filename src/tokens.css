@@ -11,17 +11,24 @@
 	--font-size-3: 1.125rem;
 	--font-size-4: 1.25rem;
 	--font-size-5: 1.5rem;
+	--font-size-6: 1.75rem;
 
 	--color-seed-1: oklch(0.6 0.18 250);
 	--color-seed-2: oklch(0.7 0.16 40);
 	--color-seed-3: oklch(0.62 0.15 145);
 	--color-seed-4: oklch(0.58 0.2 25);
 
-	--color-accent-dark: oklch(from var(--color-seed-1) 0.15 0.2 h / 0.5);
+	--color-accent-dark: oklch(from var(--color-seed-1) 0.15 0.2 h / 0.4);
 	--color-accent-primary: oklch(from var(--color-seed-1) 0.6 0.2 h / 0.5);
 	--color-accent-contrast: oklch(0.15 0.05 250);
 	--color-accent-shadow: oklch(0.95 0.05 250);
 
+	--color-menu-title: linear-gradient(
+		to top,
+		oklch(from var(--color-accent-dark) l c h / 0.8),
+		oklch(from var(--color-seed-1) l c h / 0.6),
+		oklch(from var(--color-seed-3) l c h / 0)
+	);
 	--color-surface-title: linear-gradient(
 		to right,
 		oklch(from var(--color-seed-1) l c h / 0.9),
@@ -30,7 +37,7 @@
 
 	--color-text-primary: oklch(from var(--color-seed-1) 0.15 0.05 h);
 
-	--color-border-dark: oklch(from var(--color-seed-1) 0.15 0.05 h / 0.65);
+	--color-border-dark: oklch(from var(--color-seed-1) 0.15 0.05 h / 0.5);
 	--color-border-bright: oklch(from var(--color-seed-1) 0.95 0.05 h / 0.55);
 	--color-border-primary: var(--color-seed-1);
 
@@ -46,7 +53,7 @@
 	--size-7: 128px;
 
 	--size-taskbar: var(--size-6);
-	--size-main-menu: calc(var(--size-7) * 3);
+	--size-main-menu: calc(var(--size-7) * 4);
 
 	--size-column-min: 20rem;
 	--size-input: 1rem;

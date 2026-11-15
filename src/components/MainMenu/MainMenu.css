@@ -1,12 +1,15 @@
 .MainMenu {
 	position: absolute;
 	top: calc(var(--size-taskbar) + var(--size-2));
-	left: var(--size-4);
+	left: calc(var(--size-2) + var(--size-1));
+	display: flex;
+	flex-direction: row;
 	width: var(--size-main-menu);
 	max-height: calc(100dvh - var(--size-taskbar) - var(--size-2) * 2);
 	overflow-y: auto;
 	z-index: 99;
 
+	padding: var(--size-1);
 	border: var(--size-1) solid var(--color-border-dark);
 	border-radius: var(--size-1);
 	box-shadow:
@@ -23,6 +26,27 @@
 	width: auto;
 }
 
+.MainMenu__title {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	width: calc(var(--size-5) * 1.5);
+	padding: var(--size-3);
+	writing-mode: sideways-lr;
+	background: var(--color-menu-title);
+	transform: translateY(calc(-1 * var(--size-1)));
+}
+
+.MainMenu__title span {
+	font-family: var(--font-body);
+}
+
+.MainMenu__title span strong {
+	font-weight: normal;
+	font-size: calc(var(--font-size-5) * 1.25);
+	font-family: var(--font-title);
+}
+
 .MainMenu__nav {
 	display: flex;
 	flex-direction: column;
@@ -34,14 +58,20 @@
 .MainMenu__link {
 	display: flex;
 	flex-direction: row;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 	gap: var(--size-3);
 	height: calc(var(--size-6) * 1.6);
 
-	padding: var(--size-2);
+	border-radius: var(--size-2);
+	padding: var(--size-3) var(--size-2);
 	padding-bottom: var(--size-3);
 	text-decoration: none;
+}
+
+.MainMenu__link:hover,
+.MainMenu__link:active {
+	background: var(--color-accent-dark);
 }
 
 .MainMenu__link-icon {
@@ -53,6 +83,12 @@
 	border-radius: var(--size-2);
 	box-shadow: var(--size-2) var(--size-2) var(--color-border-dark);
 	transform: translate(calc(-1 * var(--size-1)), calc(-1 * var(--size-1)));
+}
+
+.MainMenu__link:active .MainMenu__link-icon {
+	background: blue;
+	transform: translate(0, 0);
+	box-shadow: var(--size-1) var(--size-1) var(--color-border-dark);
 }
 
 .MainMenu__link-description {
@@ -67,4 +103,10 @@
 	font-family: var(--font-title);
 	font-size: var(--font-size-4);
 	text-shadow: var(--size-1) var(--size-1) var(--color-accent-shadow);
+}
+
+.MainMenu__link-description p {
+	font-family: var(--font-body);
+	font-size: var(--font-size-1);
+	line-height: var(--font-size-1);
 }

@@ -53,43 +53,51 @@ export default function MainMenu({ open, onClose }: MainMenuProps) {
 				.filter(Boolean)
 				.join(' ')}
 		>
-		<nav
-			className='MainMenu__nav'
-		>
-			<Link className='MainMenu__link' to='/about-me' onClick={onClose}>
-				<img
-					className='MainMenu__link-icon'
-					src='/icons/about-me.opti.webp'
-					alt='My face as an icon for about-me'
-				/>
-				<div className='MainMenu__link-description'>
-					<span>About me</span>
-					<p>Who I am? Will I am? Lorem Ipsum</p>
-				</div>
-			</Link>
-			<Link className='MainMenu__link' to='/wallpaper-editor' onClick={onClose}>
-				<img
-					className='MainMenu__link-icon'
-					src='/icons/about-me.opti.webp'
-					alt='My face as an icon for about-me'
-				/>
-				<div className='MainMenu__link-description'>
-					<span>Wallpaper Editor</span>
-					<p>Tool to create and download an abstract wallpaper</p>
-				</div>
-			</Link>
-			<Link className='MainMenu__link' to='/about-me' onClick={onClose}>
-				<img
-					className='MainMenu__link-icon'
-					src='/icons/about-me.opti.webp'
-					alt='My face as an icon for about-me'
-				/>
-				<div className='MainMenu__link-description'>
-					<span>About me</span>
-					<p>Who I am? Will I am? Lorem Ipsum</p>
-				</div>
-			</Link>
-		</nav>
+			<div className='MainMenu__title'>
+				<span>
+					<strong>saturno</strong>
+					.services
+				</span>	
+			</div>
+			<nav className='MainMenu__nav'>
+				<Link className='MainMenu__link' to='/about-me' onClick={onClose}>
+					<img
+						className='MainMenu__link-icon'
+						src='/icons/about-me.opti.webp'
+						alt='My face as an icon for about-me'
+					/>
+					<div className='MainMenu__link-description'>
+						<span>About me</span>
+						<p>Who I am? Will I am? Lorem Ipsum</p>
+					</div>
+				</Link>
+				<Link
+					className='MainMenu__link'
+					to='/wallpaper-editor'
+					onClick={onClose}
+				>
+					<img
+						className='MainMenu__link-icon'
+						src='/icons/about-me.opti.webp'
+						alt='My face as an icon for about-me'
+					/>
+					<div className='MainMenu__link-description'>
+						<span>Wallpaper Editor</span>
+						<p>Tool to create and download an abstract wallpaper</p>
+					</div>
+				</Link>
+				<Link className='MainMenu__link' to='/about-me' onClick={onClose}>
+					<img
+						className='MainMenu__link-icon'
+						src='/icons/about-me.opti.webp'
+						alt='My face as an icon for about-me'
+					/>
+					<div className='MainMenu__link-description'>
+						<span>About me</span>
+						<p>Who I am? Will I am? Lorem Ipsum</p>
+					</div>
+				</Link>
+			</nav>
 		</div>
 	);
 }

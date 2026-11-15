@@ -47,7 +47,7 @@
 
 @media (max-width: 640px) {
 	.Window--compact {
-		top: calc(var(--size-taskbar) + var(--size-3));
+		top: calc(var(--size-taskbar) + var(--size-2));
 	}
 }
 
