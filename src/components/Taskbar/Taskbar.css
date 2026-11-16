@@ -21,6 +21,11 @@
 	backdrop-filter: var(--strength-blur-normal);
 }
 
+.Taskbar--fixed {
+	position: sticky;
+	top: 0;
+}
+
 .Taskbar__menu-button {
 	height: 90%;
 	width: var(--size-7);

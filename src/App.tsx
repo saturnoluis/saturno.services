@@ -6,6 +6,7 @@ import Taskbar from '@/components/Taskbar';
 import AboutMeView from '@/views/AboutMeView';
 import HomeView from '@/views/HomeView';
 import WallpaperEditorView from '@/views/WallpaperEditorView';
+import { DesktopModeProvider } from '@/state/DesktopModeProvider.tsx';
 import { WallpaperProvider } from '@/state/WallpaperProvider.tsx';
 import './App.css';
 
@@ -27,20 +28,25 @@ function DesktopLayout() {
 function App() {
 	return (
 		<WallpaperProvider>
-			<div className='App'>
-				<BrowserRouter>
-					<Routes>
-						<Route element={<DesktopLayout />}>
-							<Route index element={<HomeView />} />
-							<Route path='about-me' element={<AboutMeView />} />
-							<Route
-								path='wallpaper-editor'
-								element={<WallpaperEditorView />}
-							/>
-						</Route>
-					</Routes>
-				</BrowserRouter>
-			</div>
+			<DesktopModeProvider>
+				<div className='App'>
+					<BrowserRouter>
+						<Routes>
+							<Route element={<DesktopLayout />}>
+								<Route index element={<HomeView />} />
+								<Route
+									path='about-me'
+									element={<AboutMeView />}
+								/>
+								<Route
+									path='wallpaper-editor'
+									element={<WallpaperEditorView />}
+								/>
+							</Route>
+						</Routes>
+					</BrowserRouter>
+				</div>
+			</DesktopModeProvider>
 		</WallpaperProvider>
 	);
 }

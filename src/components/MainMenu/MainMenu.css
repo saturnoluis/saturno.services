@@ -1,5 +1,5 @@
 .MainMenu {
-	position: absolute;
+	position: fixed;
 	top: calc(var(--size-taskbar) + var(--size-2));
 	left: calc(var(--size-2) + var(--size-1));
 	display: flex;

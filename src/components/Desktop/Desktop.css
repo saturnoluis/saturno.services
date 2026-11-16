@@ -19,3 +19,14 @@
 .Desktop__content {
 	z-index: 10;
 }
+
+.Desktop--scrollable .Desktop__content {
+	overflow-y: auto;
+	scrollbar-gutter: stable;
+	scroll-padding-top: var(--size-taskbar);
+	scrollbar-width: thin;
+}
+
+.Desktop--scrollable .Desktop__content::-webkit-scrollbar {
+	width: var(--size-scrollbar);
+}

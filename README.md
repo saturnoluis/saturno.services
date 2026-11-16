@@ -57,6 +57,8 @@ src/
 ├── state/                   # App state: context, providers, hooks
 │   ├── wallpaper-context.ts # WallpaperContext + useWallpaper()
 │   ├── WallpaperProvider.tsx# Provider that owns + persists wallpaper config
+│   ├── desktop-mode-context.ts # DesktopModeContext + useDesktopMode()
+│   ├── DesktopModeProvider.tsx # Provider for scrollable vs OS desktop mode
 │   ├── seedColors.ts        # Reads/writes seed colors to/from CSS vars
 │   └── useRandomWindowPosition.ts # Shared hook for window positioning
 ├── lib/                     # Pure utilities (no React)
@@ -86,11 +88,23 @@ Routing is nested: `DesktopLayout` renders `<Taskbar />` and `<Outlet />`, so
 every route below it (`/`, `/about-me`, `/wallpaper-editor`) is rendered _inside_
 the desktop as a window.
 
+### Scrollable (website) mode
+
+`Desktop` has two modes controlled by `DesktopModeProvider` (in `src/state/`).
+The default is the OS desktop: a fixed viewport with `overflow: hidden`. A view
+can opt into the "website" mode by setting `scrollable` on mount (see
+`HomeView`), which makes the desktop's content layer the scroll container
+(`overflow-y: auto` + `scrollbar-gutter: stable`) and switches the taskbar to
+`position: sticky`. The `--size-scrollbar` token pins the scrollbar width so the
+taskbar and scrollbar never overlap.
+
 ### Taskbar
 
 `Taskbar` is fixed at the top with a height of `var(--size-taskbar)` (currently
 `var(--size-6)` = 64px). It uses `position: relative; z-index: 100` so it always
-sits **above** windows, even when a window is dragged over it.
+sits **above** windows, even when a window is dragged over it. In the
+scrollable ("website") mode it switches to `position: sticky`
+(`.Taskbar--fixed`) so it stays pinned while the content scrolls underneath.
 
 > **Important:** the taskbar height is the single source of truth in
 > `tokens.css` (`--size-taskbar`). Any JS that needs the height must read it via
@@ -194,6 +208,15 @@ npm run lint
 npm run build   # includes tsc -b type-check
 ```
 
+## Committing
+
+Commits use the Conventional Commits format: a `type:` prefix followed by a
+short, imperative summary (e.g. `feat: add wallpaper download`). Common types
+are `feat:`, `fix:`, `chore:`, `docs:`, and `style:`.
+
+The commit body describes the changes in one or a few plain paragraphs (no
+bullets or other visual aids), wrapped at 80 characters.
+
 ## Notes for AI agents / contributors
 
 - Start here, then explore `src/App.tsx` → `src/components/Desktop` →
@@ -205,6 +228,9 @@ npm run build   # includes tsc -b type-check
   top-level directory (e.g. `src/hooks/`) without a good reason — hooks live in
   `src/state/`, pure helpers in `src/lib/`.
 - Respect the Prettier config and run `npm run lint` after changes.
+- Do not commit, amend, or push unless the user explicitly asks. The expected
+  workflow is to plan, then develop, then test, and only then ask for
+  permission to commit.
 - Do not add comments unless asked; keep code self-explanatory.
 
 ## Known issues
