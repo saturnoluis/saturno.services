@@ -45,6 +45,7 @@ interface WindowProps {
 	title?: ReactNode;
 	controls?: WindowControl[];
 	children?: ReactNode;
+	static?: boolean;
 }
 
 interface DragState {
@@ -100,6 +101,7 @@ export default function Window({
 	title,
 	controls,
 	children,
+	static: isStatic = false,
 }: WindowProps) {
 	const [position, setPosition] = useState(() => ({
 		x: toPixels(initialLeft, 0),
@@ -112,12 +114,19 @@ export default function Window({
 	const requestedWidth = toPixels(initialWidth, 320);
 	const requestedHeight = toPixels(initialHeight, 200);
 	const [isCompact, setIsCompact] = useState(() =>
-		computeCompact(requestedWidth, requestedHeight, readTaskbarHeight()),
+		isStatic
+			? false
+			: computeCompact(
+					requestedWidth,
+					requestedHeight,
+					readTaskbarHeight(),
+				),
 	);
 	const dragState = useRef<DragState | null>(null);
 
 	useEffect(() => {
 		const update = () => {
+			if (isStatic) return;
 			setIsCompact(
 				computeCompact(
 					requestedWidth,
@@ -133,7 +142,7 @@ export default function Window({
 		return () => {
 			globalThis.removeEventListener('resize', update);
 		};
-	}, [requestedWidth, requestedHeight]);
+	}, [requestedWidth, requestedHeight, isStatic]);
 
 	useEffect(() => {
 		const onPointerMove = (event: PointerEvent) => {
@@ -191,7 +200,7 @@ export default function Window({
 	}, []);
 
 	const beginDrag = (event: ReactPointerEvent, mode: DragState['mode']) => {
-		if (isCompact) return;
+		if (isCompact || isStatic) return;
 		event.preventDefault();
 		event.stopPropagation();
 		dragState.current = {
@@ -210,12 +219,13 @@ export default function Window({
 			className={[
 				'Window',
 				isCompact ? 'Window--compact' : '',
+				isStatic ? 'Window--static' : '',
 				title ? 'Window--titled' : '',
 			]
 				.filter(Boolean)
 				.join(' ')}
 			style={
-				isCompact
+				isCompact || isStatic
 					? undefined
 					: {
 							left: position.x,
@@ -224,7 +234,9 @@ export default function Window({
 							height: size.height,
 						}
 			}
-			onPointerDown={(event) => beginDrag(event, 'move')}
+			onPointerDown={
+				isStatic ? undefined : (event) => beginDrag(event, 'move')
+			}
 		>
 			{title && (
 				<header className='Window__header'>
@@ -260,6 +272,7 @@ export default function Window({
 			)}
 			<div className='Window__body'>{children}</div>
 			{!isCompact &&
+				!isStatic &&
 				RESIZE_HANDLES.map((direction) => (
 					<div
 						key={direction}

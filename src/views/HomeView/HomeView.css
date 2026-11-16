@@ -1,3 +1,90 @@
 .HomeView {
-	background: transparent;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: var(--size-4) var(--size-4);
+}
+
+.HomeView .Window {
+	width: 100%;
+	max-width: var(--size-content-max);
+}
+
+.HomeView__title {
+	margin: 0;
+	padding: var(--size-4);
+	font-family: var(--font-title);
+	font-size: var(--font-size-6);
+	color: var(--color-text-primary);
+	text-shadow: var(--size-1) var(--size-1) var(--color-accent-shadow);
+}
+
+.HomeView__hero-image {
+	display: flex;
+	padding: var(--size-1);
+	box-shadow:
+		inset calc(var(--size-1) * -1) calc(var(--size-1) * -1)
+			var(--color-border-bright),
+		inset var(--size-1) var(--size-1) var(--color-border-dark);
+}
+
+.HomeView__hero-image img {
+	width: 100%;
+	display: block;
+}
+
+.HomeView__hero-content {
+	display: flex;
+	flex-direction: column;
+	padding: var(--size-5) var(--size-2);
+	gap: var(--size-5);
+}
+
+.HomeView__hero-content h1 {
+	font-family: var(--font-title);
+	font-size: calc(var(--font-size-2) * 2.25);
+	text-shadow: var(--size-1) var(--size-1) var(--color-accent-shadow);
+	line-height: 1;
+}
+
+.HomeView__hero-content p {
+	font-family: var(--font-body);
+	font-size: var(--font-size-3);
+	line-height: 1.25;
+}
+
+.HomeView__hero-content .Button {
+	font-size: var(--font-size-4);
+	padding: var(--size-4);
+}
+
+@media (max-width: 640px) {
+	.HomeView {
+		padding: var(--size-3) var(--size-2);
+	}
+
+	.HomeView .Columns {
+		gap: var(--size-3);
+	}
+
+	.HomeView__hero-content {
+		padding: var(--size-3) var(--size-2);
+		gap: var(--size-4);
+	}
+
+	.HomeView__hero-content h1 {
+		font-size: calc(var(--font-size-2) * 1.5);
+		line-height: 1.05;
+		overflow-wrap: break-word;
+	}
+
+	.HomeView__hero-content p {
+		font-size: var(--font-size-2);
+		line-height: 1.3;
+		overflow-wrap: break-word;
+	}
+
+	.HomeView__hero-content .Button {
+		padding: var(--size-3);
+	}
 }

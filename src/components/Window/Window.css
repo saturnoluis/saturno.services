@@ -51,6 +51,17 @@
 	}
 }
 
+.Window--static {
+	position: relative;
+	cursor: default;
+	touch-action: auto;
+	user-select: auto;
+
+	&:active {
+		cursor: default;
+	}
+}
+
 .Window--titled {
 	padding-top: var(--size-2);
 }
@@ -162,4 +173,23 @@
 	width: 12px;
 	height: 12px;
 	cursor: nesw-resize;
+}
+
+@media (max-width: 640px) {
+	.Window {
+		padding: var(--size-3);
+	}
+
+	.Window--titled {
+		padding-top: var(--size-1);
+	}
+
+	.Window__header {
+		padding: var(--size-1);
+		padding-bottom: var(--size-2);
+	}
+
+	.Window__header-title {
+		padding: var(--size-2) var(--size-3);
+	}
 }

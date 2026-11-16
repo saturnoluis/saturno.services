@@ -38,3 +38,13 @@
 	scrollbar-width: initial;
 	scrollbar-color: var(--color-accent-dark) var(--color-surface-secondary);
 }
+
+@media (max-width: 640px) {
+	.Content {
+		padding: var(--size-1);
+	}
+
+	.Content__inner {
+		padding: var(--size-3);
+	}
+}
