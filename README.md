@@ -11,6 +11,9 @@ resizable `Window`s that wrap the routed pages.
 > **Last updated:** November 17, 2026 — keep this document updated on a regular
 > basis as the project evolves.
 
+> Working instructions for AI agents (workflow, conventions, commit rules) live
+> in [`AGENTS.md`](AGENTS.md).
+
 ## Tech stack
 
 | Layer       | Choice                                     |
@@ -217,22 +220,6 @@ are `feat:`, `fix:`, `chore:`, `docs:`, and `style:`.
 
 The commit body describes the changes in one or a few plain paragraphs (no
 bullets or other visual aids), wrapped at 80 characters.
-
-## Notes for AI agents / contributors
-
-- Start here, then explore `src/App.tsx` → `src/components/Desktop` →
-  `src/components/Window` → `src/state/` to build a mental model.
-- The taskbar height and window "safe area" logic must always stay in sync;
-  use `readTaskbarHeight()` and `useRandomWindowPosition()` rather than
-  duplicating math.
-- Follow existing file/folder conventions exactly; don't introduce a new
-  top-level directory (e.g. `src/hooks/`) without a good reason — hooks live in
-  `src/state/`, pure helpers in `src/lib/`.
-- Respect the Prettier config and run `npm run lint` after changes.
-- Do not commit, amend, or push unless the user explicitly asks. The expected
-  workflow is to plan, then develop, then test, and only then ask for
-  permission to commit.
-- Do not add comments unless asked; keep code self-explanatory.
 
 ## Known issues
 
