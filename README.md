@@ -8,7 +8,7 @@ The site is a desktop metaphor: a full-screen `Desktop` hosts a fixed `Taskbar`
 at the top, a wallpaper (a live WebGL2 shader) behind everything, and draggable,
 resizable `Window`s that wrap the routed pages.
 
-> **Last updated:** November 14, 2026 — keep this document updated on a regular
+> **Last updated:** November 17, 2026 — keep this document updated on a regular
 > basis as the project evolves.
 
 ## Tech stack
@@ -52,6 +52,7 @@ src/
 ├── tokens.css               # Design tokens (CSS custom properties) — single source of truth
 ├── components/              # Reusable UI primitives (one folder per component)
 │   ├── Button/  Checkbox/  ColorInput/  Columns/  Content/  Fieldset/  Heading/
+│   ├── Information/
 │   ├── Range/  Select/  Stack/  Window/  Taskbar/  MainMenu/  Desktop/
 │   └── ShaderRenderer/      # WebGL2 wallpaper renderer (presets, shaders, uniforms)
 ├── state/                   # App state: context, providers, hooks

@@ -1,0 +1,23 @@
+.Information {
+	display: block;
+	background: var(--color-reading-surface);
+	color: var(--color-reading-text);
+	padding: 0;
+	border-radius: var(--size-2);
+	overflow: hidden;
+}
+
+.Information__title {
+	display: block;
+	margin: 0;
+	padding: var(--size-3) var(--size-3);
+	background: oklch(from var(--color-seed-1) l c h / 0.9);
+	color: var(--color-accent-contrast);
+	text-shadow: var(--size-1) var(--size-1) var(--color-accent-shadow);
+	font-family: var(--font-title);
+}
+
+.Information__body {
+	font-size: var(--font-size-1);
+	padding: var(--size-3) var(--size-3);
+}

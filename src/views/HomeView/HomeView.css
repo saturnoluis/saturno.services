@@ -2,21 +2,21 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: var(--size-4) var(--size-4);
+	padding: var(--size-6) 0;
+	gap: var(--size-6);
 }
 
-.HomeView .Window {
+@media (max-width: 640px) {
+	.HomeView {
+		padding: var(--size-3) 0;
+	}
+}
+
+/* ---- Hero Section ------------------------------------------------------------ */
+
+.HomeView__hero .Window {
 	width: 100%;
 	max-width: var(--size-content-max);
-}
-
-.HomeView__title {
-	margin: 0;
-	padding: var(--size-4);
-	font-family: var(--font-title);
-	font-size: var(--font-size-6);
-	color: var(--color-text-primary);
-	text-shadow: var(--size-1) var(--size-1) var(--color-accent-shadow);
 }
 
 .HomeView__hero-image {
@@ -42,9 +42,11 @@
 
 .HomeView__hero-content h1 {
 	font-family: var(--font-title);
-	font-size: calc(var(--font-size-2) * 2.25);
+	font-size: var(--font-size-7);
+	font-weight: normal;
 	text-shadow: var(--size-1) var(--size-1) var(--color-accent-shadow);
 	line-height: 1;
+	margin-bottom: var(--size-4);
 }
 
 .HomeView__hero-content p {
@@ -59,14 +61,6 @@
 }
 
 @media (max-width: 640px) {
-	.HomeView {
-		padding: var(--size-3) var(--size-2);
-	}
-
-	.HomeView .Columns {
-		gap: var(--size-3);
-	}
-
 	.HomeView__hero-content {
 		padding: var(--size-3) var(--size-2);
 		gap: var(--size-4);
@@ -87,4 +81,47 @@
 	.HomeView__hero-content .Button {
 		padding: var(--size-3);
 	}
+}
+
+/* ---- Services Section -------------------------------------------------------- */
+
+.HomeView__services {
+	width: 100%;
+	padding: var(--size-5);
+	background: var(--color-surface-primary);
+	backdrop-filter: var(--strength-blur-normal);
+}
+
+.HomeView__services-container {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-5);
+	margin: 0 auto;
+	max-width: var(--size-content-max);
+}
+
+.HomeView__services-container .Window .Window__body {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-4);
+	justify-content: space-between;
+}
+
+.HomeView__services-container h1 {
+	font-weight: normal;
+	font-size: var(--font-size-7);
+	font-family: var(--font-title);
+	text-shadow: var(--size-1) var(--size-1) var(--color-accent-shadow);
+}
+
+.HomeView__services-container h2 {
+	font-weight: normal;
+	font-size: var(--font-size-6);
+	font-family: var(--font-title);
+	text-shadow: var(--size-1) var(--size-1) var(--color-accent-shadow);
+}
+
+.HomeView__services-container p {
+	font-family: var(--font-body);
+	line-height: 1.25;
 }

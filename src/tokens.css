@@ -12,6 +12,7 @@
 	--font-size-4: 1.25rem;
 	--font-size-5: 1.5rem;
 	--font-size-6: 1.75rem;
+	--font-size-7: 2rem;
 
 	--color-seed-1: oklch(0.6 0.18 250);
 	--color-seed-2: oklch(0.7 0.16 40);
@@ -44,6 +45,9 @@
 	--color-surface-primary: oklch(from var(--color-seed-1) 0.75 0.01 h / 0.5);
 	--color-surface-secondary: oklch(from var(--color-seed-1) 0.95 0.01 h / 0.3);
 
+	--color-reading-surface: oklch(from var(--color-seed-1) 0.97 0.005 h);
+	--color-reading-text: oklch(from var(--color-seed-1) 0.18 0.01 h);
+
 	--size-1: 2px;
 	--size-2: 4px;
 	--size-3: 8px;
@@ -56,7 +60,7 @@
 	--size-scrollbar: var(--size-3);
 	--size-main-menu: calc(var(--size-7) * 4);
 
-	--size-content-max: calc(var(--size-7) * 8);
+	--size-content-max: calc(var(--size-7) * 9);
 	--size-column-min: 20rem;
 	--size-input: 1rem;
 
