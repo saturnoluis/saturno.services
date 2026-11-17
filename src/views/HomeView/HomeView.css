@@ -169,3 +169,20 @@
 		margin: 0 0 var(--size-3);
 	}
 }
+
+/* ---- Testimonials/Contact Section -------------------------------------------------------- */
+
+.HomeView__testimonials {
+	width: 100%;
+	padding: var(--size-5);
+	background: var(--color-surface-secondary);
+	backdrop-filter: var(--strength-blur-normal);
+}
+
+.HomeView__testimonials-container {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-5);
+	margin: 0 auto;
+	max-width: var(--size-content-max);
+}

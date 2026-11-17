@@ -149,6 +149,18 @@ export default function HomeView() {
 					</Content>
 				</Window>
 			</section>
+
+			{/* ---- Testimonials / Contact Section ------------------------------------------ */}
+			<section className='HomeView__testimonials'>
+				<div className='HomeView__testimonials-container'>
+					<h1>Lo que dicen quienes han trabajado conmigo</h1>
+					<Columns columns={2} minWidth='48%'>
+						<Content variant='sunken' overflowY='hidden'>Foo</Content>
+						<Content variant='sunken' overflowY='hidden'>Bar</Content>
+						<Content variant='sunken' overflowY='hidden'>Fizz</Content>
+					</Columns>
+				</div>
+			</section>
 		</div>
 	);
 }
