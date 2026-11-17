@@ -5,6 +5,7 @@
 	padding: 0;
 	border-radius: var(--size-2);
 	overflow: hidden;
+	box-shadow: var(--size-1) var(--size-1) var(--color-border-dark);
 }
 
 .Information__title {

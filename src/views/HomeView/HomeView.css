@@ -125,3 +125,47 @@
 	font-family: var(--font-body);
 	line-height: 1.25;
 }
+
+/* ---- Sales Section ------------------------------------------------------------ */
+
+.HomeView__sales .Window {
+	width: 100%;
+	max-width: var(--size-content-max);
+}
+
+.HomeView__sales h1 {
+	font-family: var(--font-title);
+	font-size: var(--font-size-7);
+	font-weight: normal;
+	line-height: 1;
+	text-shadow: var(--size-1) var(--size-1) var(--color-accent-shadow);
+	margin-bottom: var(--size-4);
+}
+
+.HomeView__sales p {
+	display: flow-root;
+	font-family: var(--font-body);
+	font-size: var(--font-size-3);
+	line-height: 1.25;
+}
+
+.HomeView__sales p img {
+	float: right;
+	width: 30%;
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+	margin: 0 0 var(--size-2) var(--size-4);
+	padding: var(--size-1);
+	box-shadow:
+		inset calc(var(--size-1) * -1) calc(var(--size-1) * -1)
+			var(--color-border-bright),
+		inset var(--size-1) var(--size-1) var(--color-border-dark);
+}
+
+@media (max-width: 640px) {
+	.HomeView__sales p img {
+		float: none;
+		width: 100%;
+		margin: 0 0 var(--size-3);
+	}
+}

@@ -18,7 +18,7 @@ export default function HomeView() {
 	return (
 		<div className='HomeView'>
 			{/* ---- Hero Section ---------------------------------------------- */}
-			<div className='HomeView__hero'>
+			<section className='HomeView__hero'>
 				<Window title='Luis Saturno - Home' static>
 					<Content variant='sunken'>
 						<Columns columns={2} ratios={[1, 2]}>
@@ -46,13 +46,13 @@ export default function HomeView() {
 									</p>
 								</Content>
 								<Button to='/about-me'>
-									Conoce más sobre mi -
+									Conoce más sobre mí -
 								</Button>
 							</div>
 						</Columns>
 					</Content>
 				</Window>
-			</div>
+			</section>
 
 			{/* ---- Services Section ------------------------------------------ */}
 			<section className='HomeView__services'>
@@ -123,6 +123,31 @@ export default function HomeView() {
 						</Window>
 					</Columns>
 				</div>
+			</section>
+
+			{/* ---- Sales Section ---------------------------------------------- */}
+			<section className='HomeView__sales'>
+				<Window title='¿Por qué contratarme?' static>
+					<Content variant='sunken'>
+						<h1>Transparencia total y control sobre tu proyecto</h1>
+						<p>
+							<img
+								src='/images/me_selling_stuff.jpg'
+								alt='Pixel-art representation of me selling something'
+							/>
+							Trabajo bajo un modelo abierto (open-book) como
+							profesional autónomo registrado en España. Hablas
+							directamente con la persona que diseña y programa tu
+							solución, sin intermediarios ni costes ocultos: si tu
+							proyecto requiere contratar un dominio, servidor o
+							servicio externo, te asesoro para que lo contrates
+							directamente a tu nombre y al precio real del
+							proveedor. Sin comisiones opacas ni ataduras; el
+							código y la infraestructura son tuyos desde el primer
+							día.
+						</p>
+					</Content>
+				</Window>
 			</section>
 		</div>
 	);
