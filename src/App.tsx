@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { BrowserRouter, Outlet, Route, Routes } from 'react-router';
 import Desktop from '@/components/Desktop';
+import Footer from '@/components/Footer';
 import MainMenu from '@/components/MainMenu';
 import Taskbar from '@/components/Taskbar';
 import AboutMeView from '@/views/AboutMeView';
@@ -20,6 +21,7 @@ function DesktopLayout() {
 				onMenuClick={() => setMenuOpen((open) => !open)}
 			/>
 			<Outlet />
+			<Footer />
 			<MainMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
 		</Desktop>
 	);

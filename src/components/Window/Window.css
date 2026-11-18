@@ -34,6 +34,7 @@
 .Window--compact {
 	inset: var(--size-2);
 	top: calc(var(--size-taskbar) + var(--size-2));
+	bottom: calc(var(--size-footer) + var(--size-2));
 	width: auto;
 	height: auto;
 

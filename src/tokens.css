@@ -57,6 +57,7 @@
 	--size-7: 128px;
 
 	--size-taskbar: var(--size-6);
+	--size-footer: calc(var(--size-taskbar) * 0.6);
 	--size-scrollbar: var(--size-3);
 	--size-main-menu: calc(var(--size-7) * 4);
 

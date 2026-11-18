@@ -5,7 +5,9 @@
 	display: flex;
 	flex-direction: row;
 	width: var(--size-main-menu);
-	max-height: calc(100dvh - var(--size-taskbar) - var(--size-2) * 2);
+	max-height: calc(
+		100dvh - var(--size-taskbar) - var(--size-footer) - var(--size-2) * 2
+	);
 	z-index: 99;
 	overflow-y: auto;
 	user-select: none;

@@ -1,4 +1,5 @@
 import Button from '@/components/Button';
+import { readFooterHeight } from '@/lib/footer';
 import { remToPx } from '@/lib/length';
 import { readTaskbarHeight } from '@/lib/taskbar';
 import { useEffect, useRef, useState } from 'react';
@@ -86,10 +87,12 @@ function computeCompact(
 	requestedWidth: number,
 	requestedHeight: number,
 	taskbarHeight: number,
+	footerHeight: number,
 ): boolean {
 	return (
 		window.innerWidth < requestedWidth + GAP * 2 ||
-		window.innerHeight - taskbarHeight < requestedHeight + GAP * 2
+		window.innerHeight - taskbarHeight - footerHeight <
+			requestedHeight + GAP * 2
 	);
 }
 
@@ -120,6 +123,7 @@ export default function Window({
 					requestedWidth,
 					requestedHeight,
 					readTaskbarHeight(),
+					readFooterHeight(),
 				),
 	);
 	const dragState = useRef<DragState | null>(null);
@@ -132,6 +136,7 @@ export default function Window({
 					requestedWidth,
 					requestedHeight,
 					readTaskbarHeight(),
+					readFooterHeight(),
 				),
 			);
 			dragState.current = null;
