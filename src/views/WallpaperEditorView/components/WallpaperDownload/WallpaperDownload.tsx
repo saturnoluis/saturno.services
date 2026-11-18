@@ -2,11 +2,13 @@ import { useState } from 'react';
 import Button from '@/components/Button';
 import { renderWallpaperToCanvas } from '@/lib/downloadWallpaper.ts';
 import { resolveProfile } from '@/lib/resolution.ts';
+import { useI18n } from '@/state/i18n-context.ts';
 import { useWallpaper } from '@/state/wallpaper-context.ts';
 import './WallpaperDownload.css';
 
 export default function WallpaperDownload() {
 	const { preset, uniforms, targetId } = useWallpaper();
+	const { t } = useI18n();
 	const [error, setError] = useState<string | null>(null);
 
 	const onClick = () => {
@@ -21,7 +23,7 @@ export default function WallpaperDownload() {
 
 			canvas.toBlob((blob) => {
 				if (!blob) {
-					setError('Failed to export image');
+					setError(t('editor.downloadError'));
 					return;
 				}
 				const url = URL.createObjectURL(blob);
@@ -33,13 +35,13 @@ export default function WallpaperDownload() {
 				setError(null);
 			}, 'image/png');
 		} catch {
-			setError('Failed to export image');
+			setError(t('editor.downloadError'));
 		}
 	};
 
 	return (
 		<div className='WallpaperDownload'>
-			<Button onClick={onClick}>Download Wallpaper</Button>
+			<Button onClick={onClick}>{t('editor.download')}</Button>
 			{error !== null && (
 				<span className='WallpaperDownload__error'>{error}</span>
 			)}

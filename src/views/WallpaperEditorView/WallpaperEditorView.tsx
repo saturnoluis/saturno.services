@@ -4,6 +4,7 @@ import Content from '@/components/Content';
 import Stack from '@/components/Stack';
 import Window from '@/components/Window';
 import { remToPx } from '@/lib/length';
+import { useI18n } from '@/state/i18n-context.ts';
 import { usePageTitle } from '@/state/usePageTitle';
 import { useRandomWindowPosition } from '@/state/useRandomWindowPosition';
 import WallpaperEditor from '@/views/WallpaperEditorView/components/WallpaperEditor';
@@ -20,7 +21,8 @@ const WINDOW_HEIGHT = 800;
 
 export default function WallpaperEditorView() {
 	const position = useRandomWindowPosition(WINDOW_WIDTH, WINDOW_HEIGHT);
-	usePageTitle('Editor de wallpaper');
+	const { t } = useI18n();
+	usePageTitle(t('editor.title'));
 	const previewRef = useRef<HTMLDivElement>(null);
 	const [stacked, setStacked] = useState(false);
 
@@ -47,10 +49,14 @@ export default function WallpaperEditorView() {
 			height={WINDOW_HEIGHT}
 			top={position.top}
 			left={position.left}
-			title='Wallpaper Editor'
+			title={t('editor.title')}
 			controls={[
-				{ label: '?', title: 'Help', action: () => console.log('help') },
-				{ label: '✖', title: 'Close', action: '/' },
+				{
+					label: '?',
+					title: t('editor.help'),
+					action: () => console.log('help'),
+				},
+				{ label: '✖', title: t('editor.close'), action: '/' },
 			]}
 		>
 			<Stack>

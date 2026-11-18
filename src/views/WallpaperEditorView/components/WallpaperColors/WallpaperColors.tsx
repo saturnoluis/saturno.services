@@ -3,6 +3,7 @@ import Select from '@/components/Select';
 import Button from '@/components/Button';
 import ColorInput from '@/components/ColorInput';
 import { hexToSrgb, srgbEquals, srgbToHex } from '@/lib/color.ts';
+import { useI18n } from '@/state/i18n-context.ts';
 import { useWallpaper } from '@/state/wallpaper-context.ts';
 import { COLOR_PALETTES } from './palettes.ts';
 import './WallpaperColors.css';
@@ -19,6 +20,7 @@ interface WallpaperColorsProps {
 
 export default function WallpaperColors({ label }: WallpaperColorsProps) {
 	const { uniforms, setUniform } = useWallpaper();
+	const { t } = useI18n();
 
 	const selectedId =
 		COLOR_PALETTES.find((palette) =>
@@ -50,7 +52,7 @@ export default function WallpaperColors({ label }: WallpaperColorsProps) {
 			<div className='WallpaperColors__controls'>
 				<Select value={selectedId} onChange={onChange}>
 					<option key={CUSTOM_ID} value={CUSTOM_ID}>
-						Custom
+						{t('editor.custom')}
 					</option>
 					{COLOR_PALETTES.map((palette) => (
 						<option key={palette.id} value={palette.id}>
@@ -58,7 +60,10 @@ export default function WallpaperColors({ label }: WallpaperColorsProps) {
 						</option>
 					))}
 				</Select>
-				<Button onClick={reverseColors} aria-label='Reverse colors'>
+				<Button
+					onClick={reverseColors}
+					aria-label={t('editor.reverseColors')}
+				>
 					↔
 				</Button>
 			</div>

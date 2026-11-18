@@ -1,10 +1,12 @@
 import type { ChangeEvent } from 'react';
 import Select from '@/components/Select';
+import { useI18n } from '@/state/i18n-context.ts';
 import { useWallpaper } from '@/state/wallpaper-context.ts';
 import { CUSTOM_ID, matchesTheme, WALLPAPER_THEMES } from './themes.ts';
 
 export default function WallpaperTheme() {
 	const { preset, uniforms, targetId, setConfig } = useWallpaper();
+	const { t } = useI18n();
 
 	const selectedId =
 		WALLPAPER_THEMES.find((theme) => matchesTheme(theme, preset, uniforms))
@@ -23,9 +25,9 @@ export default function WallpaperTheme() {
 	};
 
 	return (
-		<Select label='Theme' value={selectedId} onChange={onChange}>
+		<Select label={t('editor.theme')} value={selectedId} onChange={onChange}>
 			<option key={CUSTOM_ID} value={CUSTOM_ID}>
-				Custom
+				{t('editor.custom')}
 			</option>
 			{WALLPAPER_THEMES.map((theme) => (
 				<option key={theme.id} value={theme.id}>

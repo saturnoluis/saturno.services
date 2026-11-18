@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router';
+import { useI18n } from '@/state/i18n-context.ts';
 import './MainMenu.css';
 
 const MOBILE_MAX_WIDTH = 640;
@@ -14,6 +15,7 @@ export default function MainMenu({ open, onClose }: MainMenuProps) {
 	const [isCompact, setIsCompact] = useState(
 		() => window.innerWidth <= MOBILE_MAX_WIDTH,
 	);
+	const { t } = useI18n();
 
 	useEffect(() => {
 		const update = () => setIsCompact(window.innerWidth <= MOBILE_MAX_WIDTH);
@@ -92,7 +94,7 @@ export default function MainMenu({ open, onClose }: MainMenuProps) {
 			<nav
 				className='MainMenu__nav'
 				role='menu'
-				aria-label='Menú principal'
+				aria-label={t('menu.aria')}
 			>
 				<Link
 					className='MainMenu__link'
@@ -106,8 +108,8 @@ export default function MainMenu({ open, onClose }: MainMenuProps) {
 						alt=''
 					/>
 					<div className='MainMenu__link-description'>
-						<span>Inicio</span>
-						<p>Página principal del sitio</p>
+						<span>{t('menu.home.title')}</span>
+						<p>{t('menu.home.description')}</p>
 					</div>
 				</Link>
 				<Link
@@ -122,8 +124,8 @@ export default function MainMenu({ open, onClose }: MainMenuProps) {
 						alt=''
 					/>
 					<div className='MainMenu__link-description'>
-						<span>Sobre mí</span>
-						<p>Quién soy, mi experiencia y mi formación</p>
+						<span>{t('menu.about.title')}</span>
+						<p>{t('menu.about.description')}</p>
 					</div>
 				</Link>
 				<Link
@@ -138,8 +140,8 @@ export default function MainMenu({ open, onClose }: MainMenuProps) {
 						alt=''
 					/>
 					<div className='MainMenu__link-description'>
-						<span>Editor de wallpaper</span>
-						<p>Crea y descarga tu propio wallpaper abstracto</p>
+						<span>{t('menu.editor.title')}</span>
+						<p>{t('menu.editor.description')}</p>
 					</div>
 				</Link>
 			</nav>

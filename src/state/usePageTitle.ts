@@ -1,13 +1,15 @@
 import { useEffect } from 'react';
-
-const SITE_NAME = 'Luis Saturno';
-const BASE_TITLE = `${SITE_NAME} — Desarrollo Web`;
+import { useI18n } from '@/state/i18n-context.ts';
 
 export function usePageTitle(title?: string) {
+	const { t } = useI18n();
+	const baseTitle = t('site.title');
+	const siteName = t('site.name');
+
 	useEffect(() => {
-		document.title = title ? `${title} — ${SITE_NAME}` : BASE_TITLE;
+		document.title = title ? `${title} — ${siteName}` : baseTitle;
 		return () => {
-			document.title = BASE_TITLE;
+			document.title = baseTitle;
 		};
-	}, [title]);
+	}, [title, baseTitle, siteName]);
 }

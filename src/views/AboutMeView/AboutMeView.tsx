@@ -1,5 +1,6 @@
 import Content from '@/components/Content';
 import Window from '@/components/Window';
+import { useI18n } from '@/state/i18n-context.ts';
 import { usePageTitle } from '@/state/usePageTitle';
 import { useRandomWindowPosition } from '@/state/useRandomWindowPosition';
 
@@ -8,7 +9,8 @@ const WINDOW_HEIGHT = 360;
 
 export default function AboutMeView() {
 	const position = useRandomWindowPosition(WINDOW_WIDTH, WINDOW_HEIGHT);
-	usePageTitle('Sobre mí');
+	const { t } = useI18n();
+	usePageTitle(t('about.title'));
 
 	return (
 		<Window
@@ -16,14 +18,18 @@ export default function AboutMeView() {
 			height={WINDOW_HEIGHT}
 			top={position.top}
 			left={position.left}
-			title='About me'
+			title={t('about.title')}
 			controls={[
-				{ label: '?', title: 'Help', action: () => console.log('help') },
-				{ label: '✖', title: 'Close', action: '/' },
+				{
+					label: '?',
+					title: t('about.help'),
+					action: () => console.log('help'),
+				},
+				{ label: '✖', title: t('about.close'), action: '/' },
 			]}
 		>
 			<Content>
-				<h1>About me</h1>
+				<h1>{t('about.title')}</h1>
 			</Content>
 		</Window>
 	);

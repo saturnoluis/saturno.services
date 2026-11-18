@@ -1,5 +1,6 @@
 import Button from '@/components/Button';
 import { useDesktopMode } from '@/state/desktop-mode-context.ts';
+import { useI18n } from '@/state/i18n-context.ts';
 import { useTheme } from '@/state/theme-context.ts';
 import './Taskbar.css';
 
@@ -11,11 +12,12 @@ interface TaskbarProps {
 export default function Taskbar({ menuOpen, onMenuClick }: TaskbarProps) {
 	const { scrollable } = useDesktopMode();
 	const { theme, toggleTheme } = useTheme();
+	const { t } = useI18n();
 
 	return (
 		<div
 			role='toolbar'
-			aria-label='Navegación del sitio'
+			aria-label={t('taskbar.aria')}
 			className={scrollable ? 'Taskbar Taskbar--fixed' : 'Taskbar'}
 		>
 			<Button
@@ -26,12 +28,12 @@ export default function Taskbar({ menuOpen, onMenuClick }: TaskbarProps) {
 				aria-expanded={menuOpen}
 				data-menu-toggle
 			>
-				Menú
+				{t('taskbar.menu')}
 			</Button>
 			<Button
 				className='Taskbar__theme-button'
 				onClick={toggleTheme}
-				aria-label='Cambiar tema'
+				aria-label={t('taskbar.toggleTheme')}
 			>
 				{theme === 'dark' ? '☾' : '☀'}
 			</Button>

@@ -10,6 +10,7 @@ import Columns from '@/components/Columns';
 import Fieldset from '@/components/Fieldset';
 import Range from '@/components/Range';
 import Select from '@/components/Select';
+import { useI18n } from '@/state/i18n-context.ts';
 import { useWallpaper } from '@/state/wallpaper-context.ts';
 import {
 	EDITOR_COLUMN_GAP,
@@ -42,7 +43,7 @@ type PatternSliderConfig = Omit<SliderConfig, 'key'> & {
 
 const DISTORT_STRENGTH: SliderConfig = {
 	key: 'uDistortStrength',
-	label: 'Distortion Strength',
+	label: 'editor.slider.distortionStrength',
 	min: -10,
 	max: 10,
 	step: 0.01,
@@ -51,15 +52,21 @@ const DISTORT_STRENGTH: SliderConfig = {
 const LIGHTING_SLIDERS: SliderConfig[] = [
 	{
 		key: 'uLightStrength',
-		label: 'Light Strength',
+		label: 'editor.slider.lightStrength',
 		min: 0,
 		max: 1,
 		step: 0.01,
 	},
-	{ key: 'uBevelWidth', label: 'Bevel Width', min: 0, max: 1, step: 0.01 },
+	{
+		key: 'uBevelWidth',
+		label: 'editor.slider.bevelWidth',
+		min: 0,
+		max: 1,
+		step: 0.01,
+	},
 	{
 		key: 'uLightAngle',
-		label: 'Light Angle',
+		label: 'editor.slider.lightAngle',
 		min: -Math.PI,
 		max: Math.PI,
 		step: 0.01,
@@ -67,19 +74,25 @@ const LIGHTING_SLIDERS: SliderConfig[] = [
 ];
 
 const BASE_SLIDERS: SliderConfig[] = [
-	{ key: 'uBlend', label: 'Blend', min: 0, max: 1, step: 0.01 },
-	{ key: 'uNoise', label: 'Noise', min: 0, max: 1, step: 0.01 },
+	{ key: 'uBlend', label: 'editor.slider.blend', min: 0, max: 1, step: 0.01 },
+	{ key: 'uNoise', label: 'editor.slider.noise', min: 0, max: 1, step: 0.01 },
 ];
 
 const DITHER_SLIDERS: SliderConfig[] = [
 	{
 		key: 'uDitherStrength',
-		label: 'Dither Strength',
+		label: 'editor.slider.ditherStrength',
 		min: 0,
 		max: 1,
 		step: 0.01,
 	},
-	{ key: 'uDitherLevels', label: 'Dither Levels', min: 2, max: 16, step: 1 },
+	{
+		key: 'uDitherLevels',
+		label: 'editor.slider.ditherLevels',
+		min: 2,
+		max: 16,
+		step: 1,
+	},
 ];
 
 const PIXELATE_MAX = 128;
@@ -93,24 +106,48 @@ function toPixelateUniform(s: number): number {
 }
 
 const PATTERN_SLIDERS: PatternSliderConfig[] = [
-	{ key: 'uVariation', label: 'Variation', min: 0, max: 1, step: 0.01 },
-	{ key: 'uAngle', label: 'Angle', min: -Math.PI, max: Math.PI, step: 0.01 },
-	{ key: 'uScale', label: 'Scale', min: 0.1, max: 4, step: 0.01 },
-	{ key: 'uCenter', label: 'Center', min: -1, max: 1, step: 0.01 },
+	{
+		key: 'uVariation',
+		label: 'editor.slider.variation',
+		min: 0,
+		max: 1,
+		step: 0.01,
+	},
+	{
+		key: 'uAngle',
+		label: 'editor.slider.angle',
+		min: -Math.PI,
+		max: Math.PI,
+		step: 0.01,
+	},
+	{
+		key: 'uScale',
+		label: 'editor.slider.scale',
+		min: 0.1,
+		max: 4,
+		step: 0.01,
+	},
+	{
+		key: 'uCenter',
+		label: 'editor.slider.center',
+		min: -1,
+		max: 1,
+		step: 0.01,
+	},
 ];
 
 const DISTORT_OPTIONS = [
-	{ label: 'None', value: DistortType.None },
-	{ label: 'Swirl', value: DistortType.Swirl },
-	{ label: 'Fisheye', value: DistortType.Fisheye },
-	{ label: 'Sine Wave', value: DistortType.SineWave },
+	{ label: 'editor.distortion.none', value: DistortType.None },
+	{ label: 'editor.distortion.swirl', value: DistortType.Swirl },
+	{ label: 'editor.distortion.fisheye', value: DistortType.Fisheye },
+	{ label: 'editor.distortion.sineWave', value: DistortType.SineWave },
 ];
 
 const LIGHTING_OPTIONS = [
-	{ label: 'None', value: LightingType.None },
-	{ label: 'Bevel', value: LightingType.Bevel },
-	{ label: 'Gradient', value: LightingType.Gradient },
-	{ label: 'Vignette', value: LightingType.Vignette },
+	{ label: 'editor.lighting.none', value: LightingType.None },
+	{ label: 'editor.lighting.bevel', value: LightingType.Bevel },
+	{ label: 'editor.lighting.gradient', value: LightingType.Gradient },
+	{ label: 'editor.lighting.vignette', value: LightingType.Vignette },
 ];
 
 function lightingSliderEnabled(key: SliderKey, type: LightingType): boolean {
@@ -136,13 +173,14 @@ export default function WallpaperEditor({
 	gap = EDITOR_COLUMN_GAP,
 }: WallpaperEditorProps) {
 	const { preset, uniforms, setUniform } = useWallpaper();
+	const { t } = useI18n();
 
 	const renderSlider = (config: SliderConfig, disabled = false) => {
 		const { key, label, min, max, step } = config;
 		return (
 			<Range
 				key={key}
-				label={label}
+				label={t(label)}
 				min={min}
 				max={max}
 				step={step}
@@ -158,7 +196,7 @@ export default function WallpaperEditor({
 	return (
 		<div className='WallpaperEditor'>
 			<Columns columns={3} minWidth={minWidth} gap={gap}>
-				<Fieldset title='Properties'>
+				<Fieldset title={t('editor.properties')}>
 					{BASE_SLIDERS.map((config) => renderSlider(config))}
 
 					{PATTERN_SLIDERS.map((config) =>
@@ -169,10 +207,10 @@ export default function WallpaperEditor({
 					)}
 				</Fieldset>
 
-				<Fieldset title='Effects'>
+				<Fieldset title={t('editor.effects')}>
 					<label className='WallpaperEditor__field'>
 						<Select
-							label='Distortion'
+							label={t('editor.distortion')}
 							value={uniforms.uDistortType}
 							onChange={(event) =>
 								setUniform(
@@ -183,7 +221,7 @@ export default function WallpaperEditor({
 						>
 							{DISTORT_OPTIONS.map((option) => (
 								<option key={option.value} value={option.value}>
-									{option.label}
+									{t(option.label)}
 								</option>
 							))}
 						</Select>
@@ -195,7 +233,7 @@ export default function WallpaperEditor({
 					)}
 
 					<Checkbox
-						label='Dither'
+						label={t('editor.checkbox.dither')}
 						checked={ditherOn}
 						onChange={(event) =>
 							setUniform('uDither', event.target.checked ? 1 : 0)
@@ -207,7 +245,7 @@ export default function WallpaperEditor({
 					)}
 
 					<Range
-						label='Pixelate'
+						label={t('editor.slider.pixelate')}
 						min={0}
 						max={PIXELATE_MAX}
 						step={1}
@@ -221,10 +259,10 @@ export default function WallpaperEditor({
 					/>
 				</Fieldset>
 
-				<Fieldset title='Lighting'>
+				<Fieldset title={t('editor.lighting')}>
 					<label className='WallpaperEditor__field'>
 						<Select
-							label='Type'
+							label={t('editor.type')}
 							value={uniforms.uLightingType}
 							onChange={(event) =>
 								setUniform(
@@ -235,7 +273,7 @@ export default function WallpaperEditor({
 						>
 							{LIGHTING_OPTIONS.map((option) => (
 								<option key={option.value} value={option.value}>
-									{option.label}
+									{t(option.label)}
 								</option>
 							))}
 						</Select>
