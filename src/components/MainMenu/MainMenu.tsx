@@ -47,6 +47,33 @@ export default function MainMenu({ open, onClose }: MainMenuProps) {
 		};
 	}, [open, onClose]);
 
+	useEffect(() => {
+		if (!open) return;
+
+		const onKeyDown = (event: KeyboardEvent) => {
+			if (event.key === 'Escape') {
+				onClose();
+			}
+		};
+
+		globalThis.addEventListener('keydown', onKeyDown);
+
+		return () => {
+			globalThis.removeEventListener('keydown', onKeyDown);
+		};
+	}, [open, onClose]);
+
+	useEffect(() => {
+		if (!open) return;
+
+		menuRef.current?.querySelector<HTMLElement>('a')?.focus();
+
+		const toggle = document.querySelector<HTMLElement>('[data-menu-toggle]');
+		return () => {
+			toggle?.focus();
+		};
+	}, [open]);
+
 	if (!open) return null;
 
 	return (
@@ -62,8 +89,17 @@ export default function MainMenu({ open, onClose }: MainMenuProps) {
 					.services
 				</span>
 			</div>
-			<nav className='MainMenu__nav'>
-				<Link className='MainMenu__link' to='/' onClick={onClose}>
+			<nav
+				className='MainMenu__nav'
+				role='menu'
+				aria-label='Menú principal'
+			>
+				<Link
+					className='MainMenu__link'
+					role='menuitem'
+					to='/'
+					onClick={onClose}
+				>
 					<img
 						className='MainMenu__link-icon'
 						src='/icons/about-me.opti.webp'
@@ -74,7 +110,12 @@ export default function MainMenu({ open, onClose }: MainMenuProps) {
 						<p>Página principal del sitio</p>
 					</div>
 				</Link>
-				<Link className='MainMenu__link' to='/about-me' onClick={onClose}>
+				<Link
+					className='MainMenu__link'
+					role='menuitem'
+					to='/about-me'
+					onClick={onClose}
+				>
 					<img
 						className='MainMenu__link-icon'
 						src='/icons/about-me.opti.webp'
@@ -87,6 +128,7 @@ export default function MainMenu({ open, onClose }: MainMenuProps) {
 				</Link>
 				<Link
 					className='MainMenu__link'
+					role='menuitem'
 					to='/wallpaper-editor'
 					onClick={onClose}
 				>

@@ -2,7 +2,7 @@ import Button from '@/components/Button';
 import { readFooterHeight } from '@/lib/footer';
 import { remToPx } from '@/lib/length';
 import { readTaskbarHeight } from '@/lib/taskbar';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import type {
 	CSSProperties,
 	PointerEvent as ReactPointerEvent,
@@ -127,6 +127,7 @@ export default function Window({
 				),
 	);
 	const dragState = useRef<DragState | null>(null);
+	const titleId = useId();
 
 	useEffect(() => {
 		const update = () => {
@@ -221,6 +222,8 @@ export default function Window({
 
 	return (
 		<div
+			role={title ? 'region' : undefined}
+			aria-labelledby={title ? titleId : undefined}
 			className={[
 				'Window',
 				isCompact ? 'Window--compact' : '',
@@ -245,7 +248,9 @@ export default function Window({
 		>
 			{title && (
 				<header className='Window__header'>
-					<span className='Window__header-title'>{title}</span>
+					<span id={titleId} className='Window__header-title'>
+						{title}
+					</span>
 					{controls && controls.length > 0 && (
 						<div className='Window__header-controls'>
 							{controls.map(
@@ -281,6 +286,7 @@ export default function Window({
 				RESIZE_HANDLES.map((direction) => (
 					<div
 						key={direction}
+						aria-hidden='true'
 						className={`Window__handle Window__handle--${direction}`}
 						onPointerDown={(event) => beginDrag(event, direction)}
 					/>
