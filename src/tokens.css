@@ -44,6 +44,10 @@
 
 	--color-surface-primary: oklch(from var(--color-seed-1) 0.75 0.01 h / 0.5);
 	--color-surface-secondary: oklch(from var(--color-seed-1) 0.95 0.01 h / 0.3);
+	--color-surface-decorative-1: oklch(from var(--color-seed-1) l c h / 0.6);
+	--color-surface-decorative-2: oklch(from var(--color-seed-2) l c h / 0.6);
+	--color-surface-decorative-3: oklch(from var(--color-seed-3) l c h / 0.6);
+	--color-surface-decorative-4: oklch(from var(--color-seed-4) l c h / 0.6);
 
 	--color-reading-surface: oklch(from var(--color-seed-1) 0.97 0.005 h);
 	--color-reading-text: oklch(from var(--color-seed-1) 0.18 0.01 h);

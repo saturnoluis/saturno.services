@@ -1,15 +1,43 @@
 .Columns {
+	position: relative;
+	height: 100%;
+}
+
+.Columns__content {
 	display: flex;
 	flex-wrap: wrap;
 	gap: var(--columns-gap, var(--size-4));
 	height: 100%;
 }
 
-.Columns > * {
+.Columns__content > * {
 	flex: 1 1 var(--columns-basis, var(--size-column-min));
 	min-width: 0;
 }
 
 .Columns[data-stacked] {
 	height: auto;
+}
+
+.Columns[data-stacked] .Columns__content {
+	height: auto;
+}
+
+.Columns__dividers {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+}
+
+.Columns__divider {
+	position: absolute;
+	background: var(--color-border-bright);
+}
+
+.Columns__divider--vertical {
+	width: var(--size-1);
+}
+
+.Columns__divider--horizontal {
+	height: var(--size-1);
 }

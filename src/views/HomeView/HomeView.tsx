@@ -169,20 +169,17 @@ export default function HomeView() {
 			<section className='HomeView__experience'>
 				<div className='HomeView__experience-container'>
 					<h1>Experiencia probada en entornos reales</h1>
-					<Columns columns={3} minWidth='32%'>
+					<Columns columns={3} minWidth='30%' gap={32} divided>
 						{EXPERIENCE.map(({ title, body }) => (
-							<Content
+							<div
 								key={title}
-								variant='raised'
-								overflowY='hidden'
+								className='HomeView__experience-card'
 							>
-								<div className='HomeView__experience-card'>
-									<h2 className='HomeView__experience-title'>
-										{title}
-									</h2>
-									<p>{body}</p>
-								</div>
-							</Content>
+								<h2 className='HomeView__experience-title'>
+									{title}
+								</h2>
+								<p>{body}</p>
+							</div>
 						))}
 					</Columns>
 				</div>

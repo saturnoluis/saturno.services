@@ -2,13 +2,13 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: var(--size-6) 0;
+	padding: var(--size-6) 0 0 0;
 	gap: var(--size-6);
 }
 
 @media (max-width: 640px) {
 	.HomeView {
-		padding: var(--size-3) 0;
+		padding: var(--size-3) 0 0 0;
 	}
 }
 
@@ -179,8 +179,8 @@
 
 .HomeView__experience {
 	width: 100%;
-	padding: var(--size-5);
-	background: var(--color-surface-secondary);
+	padding: var(--size-5) 0;
+	background: var(--color-surface-decorative-3);
 	backdrop-filter: var(--strength-blur-normal);
 }
 
@@ -204,9 +204,8 @@
 	font-size: var(--font-size-6);
 	font-weight: normal;
 	margin: 0;
-	padding: var(--size-3);
+	padding: var(--size-3) 0;
 	border-radius: var(--size-1);
-	background: var(--color-surface-title);
 	color: var(--color-accent-contrast);
 	text-shadow: var(--size-1) var(--size-1) var(--color-accent-shadow);
 }

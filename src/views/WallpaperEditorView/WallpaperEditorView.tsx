@@ -14,8 +14,8 @@ import {
 } from '@/views/WallpaperEditorView/constants';
 import './WallpaperEditorView.css';
 
-const WINDOW_WIDTH = 900;
-const WINDOW_HEIGHT = 900;
+const WINDOW_WIDTH = 800;
+const WINDOW_HEIGHT = 800;
 
 export default function WallpaperEditorView() {
 	const position = useRandomWindowPosition(WINDOW_WIDTH, WINDOW_HEIGHT);
