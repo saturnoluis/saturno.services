@@ -16,7 +16,7 @@ export default function Taskbar({ menuOpen, onMenuClick }: TaskbarProps) {
 				className='Taskbar__menu-button'
 				active={menuOpen}
 				onClick={onMenuClick}
-				onPointerDown={(event) => event.stopPropagation()}
+				data-menu-toggle
 			>
 				Menú
 			</Button>

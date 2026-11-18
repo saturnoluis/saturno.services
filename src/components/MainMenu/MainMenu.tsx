@@ -29,18 +29,21 @@ export default function MainMenu({ open, onClose }: MainMenuProps) {
 		if (!open) return;
 
 		const onPointerDown = (event: PointerEvent) => {
+			const target = event.target;
 			if (
-				menuRef.current &&
-				!menuRef.current.contains(event.target as Node)
+				menuRef.current?.contains(target as Node) ||
+				(target instanceof Element &&
+					target.closest('[data-menu-toggle]'))
 			) {
-				onClose();
+				return;
 			}
+			onClose();
 		};
 
-		globalThis.addEventListener('pointerdown', onPointerDown);
+		globalThis.addEventListener('pointerdown', onPointerDown, true);
 
 		return () => {
-			globalThis.removeEventListener('pointerdown', onPointerDown);
+			globalThis.removeEventListener('pointerdown', onPointerDown, true);
 		};
 	}, [open, onClose]);
 
