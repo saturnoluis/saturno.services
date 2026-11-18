@@ -34,3 +34,12 @@
 	color: var(--color-accent-contrast);
 	text-shadow: var(--size-1) var(--size-1) var(--color-accent-shadow);
 }
+
+.Taskbar__theme-button {
+	height: 90%;
+	width: var(--size-5);
+	font-family: var(--font-title);
+	font-size: var(--font-size-3);
+	color: var(--color-accent-contrast);
+	text-shadow: var(--size-1) var(--size-1) var(--color-accent-shadow);
+}

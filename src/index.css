@@ -36,9 +36,13 @@
 }
 
 :where(html) {
-	color-scheme: light dark;
+	color-scheme: light;
 	-webkit-text-size-adjust: none;
 	text-size-adjust: none;
+}
+
+:where(html[data-theme='dark']) {
+	color-scheme: dark;
 }
 
 :where(body) {

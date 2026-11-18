@@ -12,7 +12,7 @@
 	display: block;
 	margin: 0;
 	padding: var(--size-3) var(--size-3);
-	background: oklch(from var(--color-seed-1) l c h / 0.9);
+	background: var(--color-accent-primary);
 	color: var(--color-accent-contrast);
 	text-shadow: var(--size-1) var(--size-1) var(--color-accent-shadow);
 	font-family: var(--font-title);

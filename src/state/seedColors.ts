@@ -10,8 +10,6 @@ import {
 	oklchToSrgb,
 	parseOklch,
 	srgbToOklchString,
-	contrastColorFor,
-	contrastShadowFor,
 	type Srgb,
 } from '@/lib/color.ts';
 import {
@@ -103,17 +101,6 @@ export function writeSeedColorsToCss(rgb: Srgb[]): void {
 	SEED_COLOR_VARS.forEach((name, i) => {
 		root.style.setProperty(name, srgbToOklchString(rgb[i]));
 	});
-	const accent = rgb[0];
-	if (accent) {
-		root.style.setProperty(
-			'--color-accent-contrast',
-			srgbToOklchString(contrastColorFor(accent)),
-		);
-		root.style.setProperty(
-			'--color-accent-shadow',
-			srgbToOklchString(contrastShadowFor(accent)),
-		);
-	}
 }
 
 export function loadStoredConfig(): WallpaperConfig | null {

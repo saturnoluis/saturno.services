@@ -19,38 +19,46 @@
 	--color-seed-3: oklch(0.62 0.15 145);
 	--color-seed-4: oklch(0.58 0.2 25);
 
-	--color-accent-dark: oklch(from var(--color-seed-1) 0.15 0.2 h / 0.4);
-	--color-accent-primary: oklch(from var(--color-seed-1) 0.6 0.2 h / 0.5);
-	--color-accent-contrast: oklch(0.15 0.05 250);
-	--color-accent-shadow: oklch(0.95 0.05 250);
+	--color-accent-dark: oklch(from var(--color-seed-1) 0.45 0.18 h / 0.6);
+	--color-accent-primary: oklch(from var(--color-seed-1) 0.62 0.2 h / 0.6);
+	--color-accent-contrast: oklch(from var(--color-seed-1) 0.12 0.05 h);
+	--color-accent-shadow: oklch(from var(--color-seed-1) 0.97 0.05 h);
 
 	--color-menu-title: linear-gradient(
 		to top,
-		oklch(from var(--color-accent-dark) l c h / 0.8),
-		oklch(from var(--color-seed-1) l c h / 0.6),
-		oklch(from var(--color-seed-3) l c h / 0)
+		oklch(from var(--color-seed-1) 0.5 0.16 h / 0.9),
+		oklch(from var(--color-seed-3) 0.62 0.12 h / 0.7),
+		oklch(from var(--color-seed-3) 0.85 0.05 h / 0.3)
 	);
 	--color-surface-title: linear-gradient(
 		to right,
-		oklch(from var(--color-seed-1) l c h / 0.9),
-		oklch(from var(--color-seed-1) l c h / 0)
+		oklch(from var(--color-seed-1) 0.6 0.16 h / 0.85),
+		oklch(from var(--color-seed-1) 0.85 0.05 h / 0.4)
 	);
 
 	--color-text-primary: oklch(from var(--color-seed-1) 0.15 0.05 h);
 
-	--color-border-dark: oklch(from var(--color-seed-1) 0.15 0.05 h / 0.5);
-	--color-border-bright: oklch(from var(--color-seed-1) 0.95 0.05 h / 0.55);
+	--color-border-dark: oklch(from var(--color-seed-1) 0.4 0.03 h / 0.7);
+	--color-border-bright: oklch(from var(--color-seed-1) 0.99 0.01 h / 0.95);
 	--color-border-primary: var(--color-seed-1);
 
-	--color-surface-primary: oklch(from var(--color-seed-1) 0.75 0.01 h / 0.5);
-	--color-surface-secondary: oklch(from var(--color-seed-1) 0.95 0.01 h / 0.3);
-	--color-surface-decorative-1: oklch(from var(--color-seed-1) l c h / 0.6);
-	--color-surface-decorative-2: oklch(from var(--color-seed-2) l c h / 0.6);
-	--color-surface-decorative-3: oklch(from var(--color-seed-3) l c h / 0.6);
-	--color-surface-decorative-4: oklch(from var(--color-seed-4) l c h / 0.6);
+	--color-surface-primary: oklch(from var(--color-seed-1) 0.92 0.015 h / 0.9);
+	--color-surface-secondary: oklch(from var(--color-seed-1) 0.97 0.01 h / 0.9);
+	--color-surface-decorative-1: oklch(
+		from var(--color-seed-1) 0.88 0.04 h / 0.7
+	);
+	--color-surface-decorative-2: oklch(
+		from var(--color-seed-2) 0.88 0.04 h / 0.7
+	);
+	--color-surface-decorative-3: oklch(
+		from var(--color-seed-3) 0.88 0.04 h / 0.7
+	);
+	--color-surface-decorative-4: oklch(
+		from var(--color-seed-4) 0.88 0.04 h / 0.7
+	);
 
-	--color-reading-surface: oklch(from var(--color-seed-1) 0.97 0.005 h);
-	--color-reading-text: oklch(from var(--color-seed-1) 0.18 0.01 h);
+	--color-reading-surface: oklch(from var(--color-seed-1) 0.98 0.005 h);
+	--color-reading-text: oklch(from var(--color-seed-1) 0.16 0.01 h);
 
 	--size-1: 2px;
 	--size-2: 4px;
@@ -71,6 +79,48 @@
 
 	--strength-blur-normal: blur(32px);
 	--strength-saturation-normal: saturate(180%);
+}
+
+[data-theme='dark'] {
+	--color-accent-dark: oklch(from var(--color-seed-1) 0.4 0.16 h / 0.6);
+	--color-accent-primary: oklch(from var(--color-seed-1) 0.6 0.18 h / 0.7);
+	--color-accent-contrast: oklch(from var(--color-seed-1) 0.95 0.03 h);
+	--color-accent-shadow: oklch(from var(--color-seed-1) 0.15 0.03 h);
+
+	--color-menu-title: linear-gradient(
+		to top,
+		oklch(from var(--color-seed-1) 0.45 0.15 h / 0.9),
+		oklch(from var(--color-seed-3) 0.5 0.1 h / 0.7),
+		oklch(from var(--color-seed-3) 0.25 0.04 h / 0.3)
+	);
+	--color-surface-title: linear-gradient(
+		to right,
+		oklch(from var(--color-seed-1) 0.48 0.15 h / 0.85),
+		oklch(from var(--color-seed-1) 0.22 0.04 h / 0.4)
+	);
+
+	--color-text-primary: oklch(from var(--color-seed-1) 0.9 0.02 h);
+
+	--color-border-dark: oklch(from var(--color-seed-1) 0.08 0.02 h / 0.8);
+	--color-border-bright: oklch(from var(--color-seed-1) 0.5 0.02 h / 0.7);
+
+	--color-surface-primary: oklch(from var(--color-seed-1) 0.24 0.02 h / 0.9);
+	--color-surface-secondary: oklch(from var(--color-seed-1) 0.18 0.01 h / 0.9);
+	--color-surface-decorative-1: oklch(
+		from var(--color-seed-1) 0.24 0.04 h / 0.8
+	);
+	--color-surface-decorative-2: oklch(
+		from var(--color-seed-2) 0.24 0.04 h / 0.8
+	);
+	--color-surface-decorative-3: oklch(
+		from var(--color-seed-3) 0.24 0.04 h / 0.8
+	);
+	--color-surface-decorative-4: oklch(
+		from var(--color-seed-4) 0.24 0.04 h / 0.8
+	);
+
+	--color-reading-surface: oklch(from var(--color-seed-1) 0.14 0.01 h);
+	--color-reading-text: oklch(from var(--color-seed-1) 0.93 0.01 h);
 }
 
 @media (max-width: 640px) {

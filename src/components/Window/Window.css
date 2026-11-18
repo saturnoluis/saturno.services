@@ -98,7 +98,7 @@
 }
 
 .Window__header-controls .Button {
-	background: oklch(from var(--color-seed-1) l c h / 0.4);
+	background: var(--color-accent-primary);
 	color: var(--color-accent-contrast);
 	text-shadow: var(--size-1) var(--size-1) var(--color-accent-shadow);
 }
