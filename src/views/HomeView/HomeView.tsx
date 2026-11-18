@@ -7,6 +7,21 @@ import Information from '@/components/Information';
 import { useDesktopMode } from '@/state/desktop-mode-context.ts';
 import './HomeView.css';
 
+const EXPERIENCE = [
+	{
+		title: 'Equipos Internacionales y Producto',
+		body: 'Más de 10 años desarrollando software en remoto para empresas tecnológicas y consultoras de EE. UU., Alemania y Latinoamérica, acostumbrado a integrarme rápido en equipos distribuidos y sistemas en producción.',
+	},
+	{
+		title: 'Interfaces Complejas, IA y Datos',
+		body: 'Experiencia construyendo aplicaciones web con integraciones de inteligencia artificial, visión por computador y flujos de datos en tiempo real, transformando lógica compleja en herramientas claras para el usuario.',
+	},
+	{
+		title: 'Ingeniería + Diseño Gráfico',
+		body: 'Doble formación que une arquitectura frontend sólida (TypeScript, Vue.js, SvelteKit, React) con criterio visual, accesibilidad y rendimiento web desde la primera línea de código.',
+	},
+];
+
 export default function HomeView() {
 	const { setScrollable } = useDesktopMode();
 
@@ -150,14 +165,25 @@ export default function HomeView() {
 				</Window>
 			</section>
 
-			{/* ---- Testimonials / Contact Section ------------------------------------------ */}
-			<section className='HomeView__testimonials'>
-				<div className='HomeView__testimonials-container'>
-					<h1>Lo que dicen quienes han trabajado conmigo</h1>
-					<Columns columns={2} minWidth='48%'>
-						<Content variant='sunken' overflowY='hidden'>Foo</Content>
-						<Content variant='sunken' overflowY='hidden'>Bar</Content>
-						<Content variant='sunken' overflowY='hidden'>Fizz</Content>
+			{/* ---- Experience Section ------------------------------------------ */}
+			<section className='HomeView__experience'>
+				<div className='HomeView__experience-container'>
+					<h1>Experiencia probada en entornos reales</h1>
+					<Columns columns={3} minWidth='32%'>
+						{EXPERIENCE.map(({ title, body }) => (
+							<Content
+								key={title}
+								variant='raised'
+								overflowY='hidden'
+							>
+								<div className='HomeView__experience-card'>
+									<h2 className='HomeView__experience-title'>
+										{title}
+									</h2>
+									<p>{body}</p>
+								</div>
+							</Content>
+						))}
 					</Columns>
 				</div>
 			</section>

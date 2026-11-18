@@ -88,6 +88,7 @@
 .HomeView__services {
 	width: 100%;
 	padding: var(--size-5);
+	padding-bottom: var(--size-6);
 	background: var(--color-surface-primary);
 	backdrop-filter: var(--strength-blur-normal);
 }
@@ -127,6 +128,10 @@
 }
 
 /* ---- Sales Section ------------------------------------------------------------ */
+
+.HomeView__sales {
+	padding: var(--size-6) 0;
+}
 
 .HomeView__sales .Window {
 	width: 100%;
@@ -170,19 +175,44 @@
 	}
 }
 
-/* ---- Testimonials/Contact Section -------------------------------------------------------- */
+/* ---- Experience Section -------------------------------------------------------- */
 
-.HomeView__testimonials {
+.HomeView__experience {
 	width: 100%;
 	padding: var(--size-5);
 	background: var(--color-surface-secondary);
 	backdrop-filter: var(--strength-blur-normal);
 }
 
-.HomeView__testimonials-container {
+.HomeView__experience-container {
 	display: flex;
 	flex-direction: column;
 	gap: var(--size-5);
 	margin: 0 auto;
 	max-width: var(--size-content-max);
+}
+
+.HomeView__experience-card {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-3);
+	height: 100%;
+}
+
+.HomeView__experience-title {
+	font-family: var(--font-title);
+	font-size: var(--font-size-6);
+	font-weight: normal;
+	margin: 0;
+	padding: var(--size-3);
+	border-radius: var(--size-1);
+	background: var(--color-surface-title);
+	color: var(--color-accent-contrast);
+	text-shadow: var(--size-1) var(--size-1) var(--color-accent-shadow);
+}
+
+.HomeView__experience-card p {
+	font-family: var(--font-body);
+	line-height: 1.25;
+	margin: 0;
 }
