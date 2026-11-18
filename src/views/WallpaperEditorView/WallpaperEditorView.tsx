@@ -4,6 +4,7 @@ import Content from '@/components/Content';
 import Stack from '@/components/Stack';
 import Window from '@/components/Window';
 import { remToPx } from '@/lib/length';
+import { usePageTitle } from '@/state/usePageTitle';
 import { useRandomWindowPosition } from '@/state/useRandomWindowPosition';
 import WallpaperEditor from '@/views/WallpaperEditorView/components/WallpaperEditor';
 import WallpaperPreview from '@/views/WallpaperEditorView/components/WallpaperPreview';
@@ -19,6 +20,7 @@ const WINDOW_HEIGHT = 800;
 
 export default function WallpaperEditorView() {
 	const position = useRandomWindowPosition(WINDOW_WIDTH, WINDOW_HEIGHT);
+	usePageTitle('Editor de wallpaper');
 	const previewRef = useRef<HTMLDivElement>(null);
 	const [stacked, setStacked] = useState(false);
 

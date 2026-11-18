@@ -1,5 +1,6 @@
 import Content from '@/components/Content';
 import Window from '@/components/Window';
+import { usePageTitle } from '@/state/usePageTitle';
 import { useRandomWindowPosition } from '@/state/useRandomWindowPosition';
 
 const WINDOW_WIDTH = 480;
@@ -7,6 +8,7 @@ const WINDOW_HEIGHT = 360;
 
 export default function AboutMeView() {
 	const position = useRandomWindowPosition(WINDOW_WIDTH, WINDOW_HEIGHT);
+	usePageTitle('Sobre mí');
 
 	return (
 		<Window

@@ -81,7 +81,7 @@ export default function HomeView() {
 						entregar resultados claros, documentación, y código que
 						perdura.
 					</p>
-					<Columns minWidth='32%' columns={3}>
+					<Columns minWidth='16rem' columns={3}>
 						<Window static>
 							<h2>Desarrollo Frontend Senior para Equipos</h2>
 							<p>
@@ -169,7 +169,7 @@ export default function HomeView() {
 			<section className='HomeView__experience'>
 				<div className='HomeView__experience-container'>
 					<h1>Experiencia probada en entornos reales</h1>
-					<Columns columns={3} minWidth='30%' gap={32} divided>
+					<Columns columns={3} minWidth='16rem' gap={32} divided>
 						{EXPERIENCE.map(({ title, body }) => (
 							<div
 								key={title}

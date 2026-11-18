@@ -63,15 +63,26 @@ export default function MainMenu({ open, onClose }: MainMenuProps) {
 				</span>
 			</div>
 			<nav className='MainMenu__nav'>
+				<Link className='MainMenu__link' to='/' onClick={onClose}>
+					<img
+						className='MainMenu__link-icon'
+						src='/icons/about-me.opti.webp'
+						alt=''
+					/>
+					<div className='MainMenu__link-description'>
+						<span>Inicio</span>
+						<p>Página principal del sitio</p>
+					</div>
+				</Link>
 				<Link className='MainMenu__link' to='/about-me' onClick={onClose}>
 					<img
 						className='MainMenu__link-icon'
 						src='/icons/about-me.opti.webp'
-						alt='My face as an icon for about-me'
+						alt=''
 					/>
 					<div className='MainMenu__link-description'>
-						<span>About me</span>
-						<p>Who I am? Will I am? Lorem Ipsum</p>
+						<span>Sobre mí</span>
+						<p>Quién soy, mi experiencia y mi formación</p>
 					</div>
 				</Link>
 				<Link
@@ -82,22 +93,11 @@ export default function MainMenu({ open, onClose }: MainMenuProps) {
 					<img
 						className='MainMenu__link-icon'
 						src='/icons/about-me.opti.webp'
-						alt='My face as an icon for about-me'
+						alt=''
 					/>
 					<div className='MainMenu__link-description'>
-						<span>Wallpaper Editor</span>
-						<p>Tool to create and download an abstract wallpaper</p>
-					</div>
-				</Link>
-				<Link className='MainMenu__link' to='/about-me' onClick={onClose}>
-					<img
-						className='MainMenu__link-icon'
-						src='/icons/about-me.opti.webp'
-						alt='My face as an icon for about-me'
-					/>
-					<div className='MainMenu__link-description'>
-						<span>About me</span>
-						<p>Who I am? Will I am? Lorem Ipsum</p>
+						<span>Editor de wallpaper</span>
+						<p>Crea y descarga tu propio wallpaper abstracto</p>
 					</div>
 				</Link>
 			</nav>

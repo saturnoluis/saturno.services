@@ -32,7 +32,6 @@
 	justify-content: center;
 	background: none;
 	border: none;
-	outline: none;
 	height: 100%;
 	width: 100%;
 	color: inherit;
@@ -47,4 +46,16 @@
 
 	font-family: var(--font-title);
 	font-size: var(--font-size-2);
+}
+
+.Button__element:focus-visible {
+	outline: var(--size-1) solid var(--color-border-primary);
+	outline-offset: var(--size-1);
+}
+
+@media (pointer: coarse) {
+	.Button {
+		min-height: 44px;
+		min-width: 44px;
+	}
 }

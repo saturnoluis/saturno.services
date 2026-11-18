@@ -38,6 +38,16 @@ export function useShaderRenderer(
 		const startTime = performance.now();
 		let animationFrame = 0;
 
+		const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+		let reduceMotion = reducedMotion.matches;
+		const onReducedMotionChange = () => {
+			reduceMotion = reducedMotion.matches;
+			if (!reduceMotion) {
+				startLoopRef.current?.();
+			}
+		};
+		reducedMotion.addEventListener('change', onReducedMotionChange);
+
 		const draw = () => {
 			const {
 				uniforms,
@@ -57,7 +67,7 @@ export function useShaderRenderer(
 
 		const step = () => {
 			draw();
-			if (optionsRef.current.animate) {
+			if (optionsRef.current.animate && !reduceMotion) {
 				animationFrame = requestAnimationFrame(step);
 			} else {
 				animationFrame = 0;
@@ -65,7 +75,11 @@ export function useShaderRenderer(
 		};
 
 		const startLoop = () => {
-			if (optionsRef.current.animate && animationFrame === 0) {
+			if (
+				optionsRef.current.animate &&
+				!reduceMotion &&
+				animationFrame === 0
+			) {
 				animationFrame = requestAnimationFrame(step);
 			}
 		};
@@ -83,6 +97,7 @@ export function useShaderRenderer(
 
 		return () => {
 			cancelAnimationFrame(animationFrame);
+			reducedMotion.removeEventListener('change', onReducedMotionChange);
 			resizeObserver.disconnect();
 			drawRef.current = null;
 			startLoopRef.current = null;
