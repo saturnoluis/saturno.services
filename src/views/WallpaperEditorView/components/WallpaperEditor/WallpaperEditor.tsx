@@ -10,8 +10,8 @@ import Columns from '@/components/Columns';
 import Fieldset from '@/components/Fieldset';
 import Range from '@/components/Range';
 import Select from '@/components/Select';
-import { useI18n } from '@/state/i18n-context.ts';
-import { useWallpaper } from '@/state/wallpaper-context.ts';
+import { useI18n } from '@/state/I18n';
+import { useWallpaper } from '@/state/Wallpaper';
 import {
 	EDITOR_COLUMN_GAP,
 	EDITOR_COLUMN_MIN_WIDTH,

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useI18n } from '@/state/i18n-context.ts';
+import { useI18n } from '@/state/I18n';
 
 export function usePageTitle(title?: string) {
 	const { t } = useI18n();

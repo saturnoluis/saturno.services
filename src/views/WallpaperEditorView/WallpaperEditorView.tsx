@@ -4,7 +4,7 @@ import Content from '@/components/Content';
 import Stack from '@/components/Stack';
 import Window from '@/components/Window';
 import { remToPx } from '@/lib/length';
-import { useI18n } from '@/state/i18n-context.ts';
+import { useI18n } from '@/state/I18n';
 import { usePageTitle } from '@/state/usePageTitle';
 import { useRandomWindowPosition } from '@/state/useRandomWindowPosition';
 import WallpaperEditor from '@/views/WallpaperEditorView/components/WallpaperEditor';

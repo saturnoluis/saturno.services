@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import ShaderRenderer from '@/components/ShaderRenderer';
-import { useDesktopMode } from '@/state/desktop-mode-context.ts';
-import { useWallpaper } from '@/state/wallpaper-context.ts';
+import { useDesktopMode } from '@/state/DesktopMode';
+import { useWallpaper } from '@/state/Wallpaper';
 
 import './Desktop.css';
 

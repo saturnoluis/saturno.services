@@ -1,7 +1,7 @@
 import type { ChangeEvent } from 'react';
 import Select from '@/components/Select';
-import { useI18n } from '@/state/i18n-context.ts';
-import { useWallpaper } from '@/state/wallpaper-context.ts';
+import { useI18n } from '@/state/I18n';
+import { useWallpaper } from '@/state/Wallpaper';
 import { CUSTOM_ID, matchesTheme, WALLPAPER_THEMES } from './themes.ts';
 
 export default function WallpaperTheme() {

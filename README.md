@@ -8,7 +8,7 @@ The site is a desktop metaphor: a full-screen `Desktop` hosts a fixed `Taskbar`
 at the top, a wallpaper (a live WebGL2 shader) behind everything, and draggable,
 resizable `Window`s that wrap the routed pages.
 
-> **Last updated:** November 17, 2026 — keep this document updated on a regular
+> **Last updated:** November 19, 2026 — keep this document updated on a regular
 > basis as the project evolves.
 
 > Working instructions for AI agents (workflow, conventions, commit rules) live
@@ -58,18 +58,21 @@ src/
 │   ├── Information/
 │   ├── Range/  Select/  Stack/  Window/  Taskbar/  MainMenu/  Desktop/
 │   └── ShaderRenderer/      # WebGL2 wallpaper renderer (presets, shaders, uniforms)
-├── state/                   # App state: context, providers, hooks
-│   ├── wallpaper-context.ts # WallpaperContext + useWallpaper()
-│   ├── WallpaperProvider.tsx# Provider that owns + persists wallpaper config
-│   ├── desktop-mode-context.ts # DesktopModeContext + useDesktopMode()
-│   ├── DesktopModeProvider.tsx # Provider for scrollable vs OS desktop mode
-│   ├── seedColors.ts        # Reads/writes seed colors to/from CSS vars
+├── state/                   # App state: contexts, providers, hooks
+│   ├── Theme/               # ThemeContext + useTheme(), ThemeProvider
+│   ├── I18n/                # I18nContext + useI18n(), I18nProvider
+│   ├── DesktopMode/         # DesktopModeContext + useDesktopMode(), DesktopModeProvider
+│   ├── Wallpaper/           # WallpaperContext + useWallpaper(), WallpaperProvider, seedColors
+│   ├── usePageTitle.ts      # Sets the document title from the active locale
 │   └── useRandomWindowPosition.ts # Shared hook for window positioning
 ├── lib/                     # Pure utilities (no React)
 │   ├── color.ts             # oklch ↔ sRGB conversions, contrast helpers
 │   ├── resolution.ts        # Resolution profiles + auto-detection
 │   ├── downloadWallpaper.ts # Renders wallpaper to a canvas (WebGL2)
 │   ├── taskbar.ts           # readTaskbarHeight() (reads --size-taskbar)
+│   ├── footer.ts            # readFooterHeight() (reads --size-footer)
+│   ├── length.ts            # Small length helpers
+│   ├── i18n/                # Message catalogs (en, es) + MessageCatalog type
 │   └── fonts/               # Bundled typefaces (Sysfont, Open Sans)
 └── views/                   # Page-level components rendered as windows
     ├── HomeView/
@@ -94,7 +97,7 @@ the desktop as a window.
 
 ### Scrollable (website) mode
 
-`Desktop` has two modes controlled by `DesktopModeProvider` (in `src/state/`).
+`Desktop` has two modes controlled by `DesktopModeProvider` (in `src/state/DesktopMode/`).
 The default is the OS desktop: a fixed viewport with `overflow: hidden`. A view
 can opt into the "website" mode by setting `scrollable` on mount (see
 `HomeView`), which makes the desktop's content layer the scroll container
@@ -128,7 +131,7 @@ container with:
 
 ### Window positioning
 
-`useRandomWindowPosition(width, height)` (in `src/state/`) computes a
+`useRandomWindowPosition(width, height)` (in `src/state/useRandomWindowPosition.ts`) computes a
 pseudo-random, taskbar-safe starting position for a window, once per mount.
 Both `AboutMeView` and `WallpaperEditorView` use it, passing their own window
 dimensions. It keeps windows clear of the taskbar and inside the viewport.

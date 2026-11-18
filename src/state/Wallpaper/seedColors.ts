@@ -17,7 +17,7 @@ import {
 	DEFAULT_TARGET_ID,
 	isProfileId,
 } from '@/lib/resolution.ts';
-import type { WallpaperConfig } from '@/state/wallpaper-context.ts';
+import type { WallpaperConfig } from './WallpaperContext.ts';
 
 export const SEED_COLOR_COUNT = 4;
 

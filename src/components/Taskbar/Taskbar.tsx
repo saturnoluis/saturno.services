@@ -1,7 +1,7 @@
 import Button from '@/components/Button';
-import { useDesktopMode } from '@/state/desktop-mode-context.ts';
-import { useI18n } from '@/state/i18n-context.ts';
-import { useTheme } from '@/state/theme-context.ts';
+import { useDesktopMode } from '@/state/DesktopMode';
+import { useI18n } from '@/state/I18n';
+import { useTheme } from '@/state/Theme';
 import './Taskbar.css';
 
 interface TaskbarProps {

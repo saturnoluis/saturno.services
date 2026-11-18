@@ -6,7 +6,7 @@ import {
 } from '@/components/ShaderRenderer';
 import { resolveUniforms } from '@/components/ShaderRenderer/lib/uniforms.ts';
 import { srgbEquals } from '@/lib/color.ts';
-import type { WallpaperConfig } from '@/state/wallpaper-context.ts';
+import type { WallpaperConfig } from '@/state/Wallpaper';
 
 export interface WallpaperTheme extends Omit<WallpaperConfig, 'targetId'> {
 	id: string;

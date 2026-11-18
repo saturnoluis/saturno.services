@@ -2,7 +2,7 @@ import { useLayoutEffect, useRef, useState } from 'react';
 import ShaderRenderer from '@/components/ShaderRenderer';
 import WallpaperDownload from '@/views/WallpaperEditorView/components/WallpaperDownload';
 import { profileAspect, resolveProfile } from '@/lib/resolution.ts';
-import { useWallpaper } from '@/state/wallpaper-context.ts';
+import { useWallpaper } from '@/state/Wallpaper';
 import './WallpaperPreview.css';
 
 export default function WallpaperPreview() {

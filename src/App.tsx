@@ -7,10 +7,10 @@ import Taskbar from '@/components/Taskbar';
 import AboutMeView from '@/views/AboutMeView';
 import HomeView from '@/views/HomeView';
 import WallpaperEditorView from '@/views/WallpaperEditorView';
-import { DesktopModeProvider } from '@/state/DesktopModeProvider.tsx';
-import { I18nProvider } from '@/state/I18nProvider.tsx';
-import { ThemeProvider } from '@/state/ThemeProvider.tsx';
-import { WallpaperProvider } from '@/state/WallpaperProvider.tsx';
+import { DesktopModeProvider } from '@/state/DesktopMode';
+import { I18nProvider } from '@/state/I18n';
+import { ThemeProvider } from '@/state/Theme';
+import { WallpaperProvider } from '@/state/Wallpaper';
 import './App.css';
 
 function DesktopLayout() {

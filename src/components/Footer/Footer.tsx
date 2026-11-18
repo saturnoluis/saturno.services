@@ -1,5 +1,5 @@
-import { useDesktopMode } from '@/state/desktop-mode-context.ts';
-import { useI18n } from '@/state/i18n-context.ts';
+import { useDesktopMode } from '@/state/DesktopMode';
+import { useI18n } from '@/state/I18n';
 import './Footer.css';
 
 export default function Footer() {

@@ -2,7 +2,7 @@ import { useMemo, useState, type ReactNode } from 'react';
 import {
 	DesktopModeContext,
 	type DesktopModeContextValue,
-} from '@/state/desktop-mode-context.ts';
+} from './DesktopModeContext.ts';
 
 export function DesktopModeProvider({ children }: { children?: ReactNode }) {
 	const [scrollable, setScrollable] = useState(false);

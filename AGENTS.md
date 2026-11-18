@@ -32,6 +32,11 @@ Do not commit, amend, or push unless the user explicitly asks.
 
 - Do not introduce a new top-level directory (e.g. `src/hooks/`) without a good
   reason. Hooks live in `src/state/`, pure helpers in `src/lib/`.
+- State follows the same folder-per-feature shape as components/views: each
+  context/provider pair lives in its own folder under `src/state/` (e.g.
+  `Theme/`) with a barrel `index.ts` that re-exports the context, hook, and
+  provider. Standalone hooks (e.g. `usePageTitle.ts`, `useRandomWindowPosition.ts`)
+  live at the top level of `src/state/`.
 - The taskbar height and window "safe area" logic must always stay in sync. Use
   `readTaskbarHeight()` and `useRandomWindowPosition()` rather than duplicating
   that math, and never hardcode the taskbar height.

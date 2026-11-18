@@ -9,7 +9,7 @@ import {
 	ThemeContext,
 	type Theme,
 	type ThemeContextValue,
-} from '@/state/theme-context.ts';
+} from './ThemeContext.ts';
 
 const STORAGE_KEY = 'ok-theme';
 

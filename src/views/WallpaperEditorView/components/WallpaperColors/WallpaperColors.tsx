@@ -3,8 +3,8 @@ import Select from '@/components/Select';
 import Button from '@/components/Button';
 import ColorInput from '@/components/ColorInput';
 import { hexToSrgb, srgbEquals, srgbToHex } from '@/lib/color.ts';
-import { useI18n } from '@/state/i18n-context.ts';
-import { useWallpaper } from '@/state/wallpaper-context.ts';
+import { useI18n } from '@/state/I18n';
+import { useWallpaper } from '@/state/Wallpaper';
 import { COLOR_PALETTES } from './palettes.ts';
 import './WallpaperColors.css';
 

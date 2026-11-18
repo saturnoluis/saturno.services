@@ -14,13 +14,13 @@ import {
 	uniformsToSeedRgb,
 	withSeedColors,
 	writeSeedColorsToCss,
-} from '@/state/seedColors.ts';
+} from './seedColors.ts';
 import { WALLPAPER_THEMES } from '@/views/WallpaperEditorView/components/WallpaperTheme/themes.ts';
 import {
 	WallpaperContext,
 	type WallpaperConfig,
 	type WallpaperContextValue,
-} from '@/state/wallpaper-context.ts';
+} from './WallpaperContext.ts';
 
 type SetUniformAction = {
 	type: 'setUniform';

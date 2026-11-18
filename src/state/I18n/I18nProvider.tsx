@@ -4,7 +4,7 @@ import {
 	I18nContext,
 	type I18nContextValue,
 	type Locale,
-} from '@/state/i18n-context.ts';
+} from './I18nContext.ts';
 
 const CATALOGS: Record<Locale, MessageCatalog> = { es, en };
 

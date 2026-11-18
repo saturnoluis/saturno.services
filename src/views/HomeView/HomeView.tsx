@@ -4,8 +4,8 @@ import Button from '@/components/Button';
 import Content from '@/components/Content';
 import Columns from '@/components/Columns';
 import Information from '@/components/Information';
-import { useDesktopMode } from '@/state/desktop-mode-context.ts';
-import { useI18n } from '@/state/i18n-context.ts';
+import { useDesktopMode } from '@/state/DesktopMode';
+import { useI18n } from '@/state/I18n';
 import { usePageTitle } from '@/state/usePageTitle';
 import './HomeView.css';
 

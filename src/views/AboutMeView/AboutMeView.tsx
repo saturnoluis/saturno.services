@@ -1,6 +1,6 @@
 import Content from '@/components/Content';
 import Window from '@/components/Window';
-import { useI18n } from '@/state/i18n-context.ts';
+import { useI18n } from '@/state/I18n';
 import { usePageTitle } from '@/state/usePageTitle';
 import { useRandomWindowPosition } from '@/state/useRandomWindowPosition';
 

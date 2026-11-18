@@ -1,5 +1,5 @@
 import Fieldset from '@/components/Fieldset';
-import { useI18n } from '@/state/i18n-context.ts';
+import { useI18n } from '@/state/I18n';
 import WallpaperColors from '@/views/WallpaperEditorView/components/WallpaperColors';
 import WallpaperPreset from '@/views/WallpaperEditorView/components/WallpaperPreset';
 import WallpaperSize from '@/views/WallpaperEditorView/components/WallpaperSize';

@@ -1,8 +1,8 @@
 import type { ChangeEvent } from 'react';
 import Select from '@/components/Select';
 import { AUTO_TARGET_ID, RESOLUTION_PROFILES } from '@/lib/resolution.ts';
-import { useI18n } from '@/state/i18n-context.ts';
-import { useWallpaper } from '@/state/wallpaper-context.ts';
+import { useI18n } from '@/state/I18n';
+import { useWallpaper } from '@/state/Wallpaper';
 
 export default function WallpaperSize() {
 	const { targetId, setTarget } = useWallpaper();

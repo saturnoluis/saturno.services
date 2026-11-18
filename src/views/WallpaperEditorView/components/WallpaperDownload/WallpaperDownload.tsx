@@ -2,8 +2,8 @@ import { useState } from 'react';
 import Button from '@/components/Button';
 import { renderWallpaperToCanvas } from '@/lib/downloadWallpaper.ts';
 import { resolveProfile } from '@/lib/resolution.ts';
-import { useI18n } from '@/state/i18n-context.ts';
-import { useWallpaper } from '@/state/wallpaper-context.ts';
+import { useI18n } from '@/state/I18n';
+import { useWallpaper } from '@/state/Wallpaper';
 import './WallpaperDownload.css';
 
 export default function WallpaperDownload() {

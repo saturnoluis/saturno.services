@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router';
-import { useI18n } from '@/state/i18n-context.ts';
+import { useI18n } from '@/state/I18n';
 import './MainMenu.css';
 
 const MOBILE_MAX_WIDTH = 640;
