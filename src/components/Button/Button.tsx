@@ -26,7 +26,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
 			...props
 		},
 		ref,
-	) 
+	) {
 		const classes = ['Button', className, active ? 'Button--active' : null]
 			.filter(Boolean)
 			.join(' ');

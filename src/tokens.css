@@ -57,7 +57,7 @@
 	--color-border-primary: var(--color-seed-1);
 
 	/* Surfaces */
-	--color-surface-primary: oklch(from var(--color-seed-1) 0.85 0.015 h / 0.80);
+	--color-surface-primary: oklch(from var(--color-seed-1) 0.85 0.015 h / 0.8);
 	--color-surface-secondary: oklch(from var(--color-seed-1) 0.97 0.01 h / 0.7);
 
 	/* Reading */
