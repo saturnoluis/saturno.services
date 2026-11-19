@@ -1,10 +1,13 @@
 .Button {
+	--button-size: calc(var(--size-input) + 4 * var(--size-1));
+
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
+	height: var(--button-size);
 	width: 100%;
-	min-width: calc(var(--size-input) + 4 * var(--size-1));
-	height: calc(var(--size-input) + 4 * var(--size-1));
+	min-width: var(--button-size);
 
 	background: none;
 	border: var(--size-1) solid var(--color-border-dark);
@@ -15,9 +18,16 @@
 			oklch(from var(--color-border-dark) l c h / 0.25);
 
 	color: var(--color-text);
+	font-family: var(--font-title);
+	font-size: var(--font-size-2);
+	line-height: 1;
+
+	padding: 0;
+	cursor: pointer;
+	text-decoration: none;
 }
 
-.Button:has(.Button__element:active),
+.Button:active,
 .Button--active {
 	box-shadow:
 		inset calc(var(--size-1) * -1) calc(var(--size-1) * -1)
@@ -26,25 +36,7 @@
 	background: oklch(from var(--color-border-dark) l c h / 0.2);
 }
 
-.Button__element {
-	display: block;
-    background: none;
-    border: none;
-    width: 100%;
-    color: inherit;
-    text-shadow: inherit;
-    padding: 0;
-    margin: 0;
-    padding-top: var(--size-1);
-    padding-left: var(--size-1);
-    cursor: pointer;
-    text-decoration: none;
-    font-family: var(--font-title);
-    font-size: var(--font-size-2);
-    line-height: var(--font-size-2);
-}
-
-.Button__element:focus-visible {
+.Button:focus-visible {
 	outline: var(--size-1) solid var(--color-border-primary);
 	outline-offset: var(--size-1);
 }

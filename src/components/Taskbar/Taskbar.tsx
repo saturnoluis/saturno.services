@@ -22,6 +22,8 @@ export default function Taskbar({ menuOpen, onMenuClick }: TaskbarProps) {
 		>
 			<Button
 				className='Taskbar__menu-button'
+				height='90%'
+				width='var(--size-7)'
 				active={menuOpen}
 				onClick={onMenuClick}
 				aria-haspopup='menu'
@@ -32,6 +34,8 @@ export default function Taskbar({ menuOpen, onMenuClick }: TaskbarProps) {
 			</Button>
 			<Button
 				className='Taskbar__theme-button'
+				height='90%'
+				width='var(--size-5)'
 				onClick={toggleTheme}
 				aria-label={t('taskbar.toggleTheme')}
 			>

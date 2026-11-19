@@ -81,7 +81,7 @@
 	color: var(--color-text);
 	background: var(--gradient-surface-title);
 	font-family: var(--font-title);
-	font-size: var(--font-size-3); 
+	font-size: var(--font-size-3);
 	text-shadow: var(--size-1) var(--size-1) var(--color-text-emboss);
 	border-radius: var(--size-1);
 }
@@ -92,12 +92,6 @@
 	justify-content: flex-end;
 	align-items: center;
 	gap: var(--size-2);
-}
-
-.Window__header-controls .Button {
-}
-
-.Window__header-controls .Button .Button__element {
 }
 
 .Window__body {
