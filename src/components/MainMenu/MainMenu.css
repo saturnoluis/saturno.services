@@ -103,13 +103,13 @@
 	flex-direction: column;
 	gap: var(--size-2);
 	font-family: var(--font-title);
-	color: var(--color-accent-text);
+	color: var(--color-text-inverted);
 }
 
 .MainMenu__link-description span {
 	font-family: var(--font-title);
 	font-size: var(--font-size-4);
-	text-shadow: var(--size-1) var(--size-1) var(--color-accent-text-shadow);
+	text-shadow: var(--size-1) var(--size-1) var(--color-text-emboss);
 }
 
 .MainMenu__link-description p {

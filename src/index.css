@@ -48,5 +48,5 @@
 :where(body) {
 	max-inline-size: 100%;
 	min-block-size: 100dvh;
-	color: var(--color-reading-text);
+	color: var(--color-text);
 }

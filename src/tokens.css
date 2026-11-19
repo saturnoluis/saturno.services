@@ -42,15 +42,14 @@
 	--color-seed-3: oklch(0.62 0.15 145);
 	--color-seed-4: oklch(0.58 0.2 25);
 
-	/* Accent — fill, muted fill, text on accent, and its emboss shadow */
-	--color-accent: oklch(from var(--color-seed-1) 0.62 0.2 h / 0.6);
+	/* Accent — fill and muted fill */
+	--color-accent: oklch(from var(--color-seed-1) 0.4 c h / 0.6);
 	--color-accent-muted: oklch(from var(--color-seed-1) 0.45 0.18 h / 0.6);
-	--color-accent-text: oklch(from var(--color-seed-1) 0.12 0.05 h);
-	/* transparent in light theme — a white shadow behind dark text looks bad */
-	--color-accent-text-shadow: oklch(from var(--color-seed-1) 0.97 0.05 h / 0);
 
-	/* Text */
-	--color-text-primary: oklch(from var(--color-seed-1) 0.15 0.05 h);
+	/* Text — main text, its inverse for colored fills, and the emboss bevel */
+	--color-text: oklch(from var(--color-seed-1) 0.15 0.05 h);
+	--color-text-inverted: oklch(from var(--color-seed-1) 0.95 0.03 h);
+	--color-text-emboss: oklch(from var(--color-seed-1) 0.97 0.05 h / 0);
 
 	/* Borders */
 	--color-border-dark: oklch(from var(--color-seed-1) 0.55 0.03 h / 0.8);
@@ -58,12 +57,11 @@
 	--color-border-primary: var(--color-seed-1);
 
 	/* Surfaces */
-	--color-surface-primary: oklch(from var(--color-seed-1) 0.9 0.015 h / 0.6);
+	--color-surface-primary: oklch(from var(--color-seed-1) 0.85 0.015 h / 0.80);
 	--color-surface-secondary: oklch(from var(--color-seed-1) 0.97 0.01 h / 0.7);
 
 	/* Reading */
 	--color-reading-surface: oklch(from var(--color-seed-1) 0.98 0.005 h);
-	--color-reading-text: oklch(from var(--color-seed-1) 0.16 0.01 h);
 
 	/* Title gradients */
 	--gradient-menu-title: linear-gradient(
@@ -74,8 +72,9 @@
 	);
 	--gradient-surface-title: linear-gradient(
 		to left,
-		oklch(from var(--color-seed-1) l 0.15 h / 0.8),
-		oklch(from var(--color-seed-1) 0.85 0.05 h / 0)
+		oklch(from var(--color-accent) 0.4 c h / 0.8),
+		oklch(from var(--color-seed-1) 0.7 c h / 0.4),
+		oklch(from var(--color-seed-1) 0.9 c h / 0)
 	);
 
 	/* Spacing scale */
@@ -105,11 +104,9 @@
 }
 
 [data-theme='dark'] {
-	/* Accent — fill, muted fill, text on accent, and its emboss shadow */
+	/* Accent — fill and muted fill */
 	--color-accent: oklch(from var(--color-seed-1) 0.6 0.18 h / 0.7);
 	--color-accent-muted: oklch(from var(--color-seed-1) 0.4 0.16 h / 0.6);
-	--color-accent-text: oklch(from var(--color-seed-1) 0.95 0.03 h);
-	--color-accent-text-shadow: oklch(from var(--color-seed-1) 0.15 0.03 h / 0.5);
 
 	/* Title gradients */
 	--gradient-menu-title: linear-gradient(
@@ -124,8 +121,10 @@
 		oklch(from var(--color-seed-1) 0.22 0.04 h / 0)
 	);
 
-	/* Text */
-	--color-text-primary: oklch(from var(--color-seed-1) 0.9 0.02 h);
+	/* Text — main text, its inverse for colored fills, and the emboss bevel */
+	--color-text: oklch(from var(--color-seed-1) 0.9 0.02 h);
+	--color-text-inverted: oklch(from var(--color-seed-1) 0.15 0.03 h);
+	--color-text-emboss: oklch(from var(--color-seed-1) 0.15 0.03 h / 0.5);
 
 	/* Borders */
 	--color-border-dark: oklch(from var(--color-seed-1) 0.08 0.02 h / 0.8);
@@ -137,7 +136,6 @@
 
 	/* Reading */
 	--color-reading-surface: oklch(from var(--color-seed-1) 0.14 0.01 h);
-	--color-reading-text: oklch(from var(--color-seed-1) 0.93 0.01 h);
 
 	--backdrop-filter-reading: saturate(50%) brightness(80%);
 }

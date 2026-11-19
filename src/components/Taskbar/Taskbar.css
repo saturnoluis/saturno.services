@@ -29,8 +29,8 @@
 	width: var(--size-7);
 	font-family: var(--font-title);
 	font-size: var(--font-size-3);
-	color: var(--color-accent-text);
-	text-shadow: var(--size-1) var(--size-1) var(--color-accent-text-shadow);
+	color: var(--color-text);
+	text-shadow: var(--size-1) var(--size-1) var(--color-text-emboss);
 }
 
 .Taskbar__theme-button {
@@ -38,6 +38,6 @@
 	width: var(--size-5);
 	font-family: var(--font-title);
 	font-size: var(--font-size-3);
-	color: var(--color-accent-text);
-	text-shadow: var(--size-1) var(--size-1) var(--color-accent-text-shadow);
+	color: var(--color-text);
+	text-shadow: var(--size-1) var(--size-1) var(--color-text-emboss);
 }

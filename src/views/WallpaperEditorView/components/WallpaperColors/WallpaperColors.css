@@ -3,7 +3,7 @@
 	flex-direction: column;
 	gap: var(--size-2);
 	width: 100%;
-	color: var(--color-text-primary);
+	color: var(--color-text);
 }
 
 .WallpaperColors__label {

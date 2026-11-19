@@ -55,7 +55,7 @@
 	font-family: var(--font-title);
 	font-size: var(--font-size-7);
 	font-weight: normal;
-	text-shadow: var(--size-1) var(--size-1) var(--color-accent-text-shadow);
+	text-shadow: var(--size-1) var(--size-1) var(--color-text-emboss);
 	line-height: 1;
 	margin-bottom: var(--size-4);
 }
@@ -123,14 +123,14 @@
 	font-weight: normal;
 	font-size: var(--font-size-7);
 	font-family: var(--font-title);
-	text-shadow: var(--size-1) var(--size-1) var(--color-accent-text-shadow);
+	text-shadow: var(--size-1) var(--size-1) var(--color-text-emboss);
 }
 
 .HomeView__services-container h2 {
 	font-weight: normal;
 	font-size: var(--font-size-6);
 	font-family: var(--font-title);
-	text-shadow: var(--size-1) var(--size-1) var(--color-accent-text-shadow);
+	text-shadow: var(--size-1) var(--size-1) var(--color-text-emboss);
 }
 
 .HomeView__services-container p {
@@ -155,7 +155,7 @@
 	font-size: var(--font-size-7);
 	font-weight: normal;
 	line-height: 1;
-	text-shadow: var(--size-1) var(--size-1) var(--color-accent-text-shadow);
+	text-shadow: var(--size-1) var(--size-1) var(--color-text-emboss);
 	margin-bottom: var(--size-4);
 }
 
@@ -218,8 +218,8 @@
 	margin: 0;
 	padding: var(--size-3) 0;
 	border-radius: var(--size-1);
-	color: var(--color-accent-text);
-	text-shadow: var(--size-1) var(--size-1) var(--color-accent-text-shadow);
+	color: var(--color-text-inverted);
+	text-shadow: var(--size-1) var(--size-1) var(--color-text-emboss);
 }
 
 .HomeView__experience-card p {

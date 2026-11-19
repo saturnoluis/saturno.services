@@ -6,7 +6,7 @@
 	padding: var(--size-2);
 	border-radius: var(--size-1);
 
-	color: var(--color-text-primary);
+	color: var(--color-text);
 	cursor: pointer;
 }
 
@@ -47,8 +47,8 @@
 	left: 50%;
 	width: calc(var(--size-input) / 4);
 	height: calc(var(--size-input) / 2);
-	border-right: var(--size-1) solid var(--color-text-primary);
-	border-bottom: var(--size-1) solid var(--color-text-primary);
+	border-right: var(--size-1) solid var(--color-text);
+	border-bottom: var(--size-1) solid var(--color-text);
 	transform: translate(-50%, -60%) rotate(45deg);
 	box-sizing: content-box;
 }

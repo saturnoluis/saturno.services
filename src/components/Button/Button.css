@@ -14,7 +14,7 @@
 		inset calc(-1 * var(--size-1)) calc(-1 * var(--size-1))
 			oklch(from var(--color-border-dark) l c h / 0.25);
 
-	color: var(--color-text-primary);
+	color: var(--color-text);
 }
 
 .Button:has(.Button__element:active),
@@ -27,25 +27,21 @@
 }
 
 .Button__element {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background: none;
-	border: none;
-	height: 100%;
-	width: 100%;
-	color: inherit;
-	text-shadow: inherit;
-	padding: 0;
-	margin: 0;
-	padding-top: var(--size-1);
-	padding-left: var(--size-1);
-
-	cursor: pointer;
-	text-decoration: none;
-
-	font-family: var(--font-title);
-	font-size: var(--font-size-2);
+	display: block;
+    background: none;
+    border: none;
+    width: 100%;
+    color: inherit;
+    text-shadow: inherit;
+    padding: 0;
+    margin: 0;
+    padding-top: var(--size-1);
+    padding-left: var(--size-1);
+    cursor: pointer;
+    text-decoration: none;
+    font-family: var(--font-title);
+    font-size: var(--font-size-2);
+    line-height: var(--font-size-2);
 }
 
 .Button__element:focus-visible {
