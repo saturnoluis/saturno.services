@@ -40,7 +40,7 @@
 	width: calc(var(--size-5) * 1.5);
 	padding: var(--size-3);
 	writing-mode: sideways-lr;
-	background: var(--color-menu-title);
+	background: var(--gradient-menu-title);
 	transform: translateY(calc(-1 * var(--size-1)));
 }
 
@@ -78,7 +78,7 @@
 
 .MainMenu__link:hover,
 .MainMenu__link:active {
-	background: var(--color-accent-dark);
+	background: var(--color-accent-muted);
 }
 
 .MainMenu__link-icon {
@@ -103,13 +103,13 @@
 	flex-direction: column;
 	gap: var(--size-2);
 	font-family: var(--font-title);
-	color: var(--color-accent-contrast);
+	color: var(--color-accent-text);
 }
 
 .MainMenu__link-description span {
 	font-family: var(--font-title);
 	font-size: var(--font-size-4);
-	text-shadow: var(--size-1) var(--size-1) var(--color-accent-shadow);
+	text-shadow: var(--size-1) var(--size-1) var(--color-accent-text-shadow);
 }
 
 .MainMenu__link-description p {

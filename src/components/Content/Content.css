@@ -36,7 +36,7 @@
 	padding: 1rem;
 
 	scrollbar-width: initial;
-	scrollbar-color: var(--color-accent-dark) var(--color-surface-secondary);
+	scrollbar-color: var(--color-accent-muted) var(--color-surface-secondary);
 }
 
 @media (max-width: 640px) {

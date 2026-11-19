@@ -152,11 +152,23 @@ dimensions. It keeps windows clear of the taskbar and inside the viewport.
 
 ## Design tokens & theming
 
-`src/tokens.css` defines all spacing, color, and typography tokens on `:root`
-(e.g. `--size-*`, `--color-*`, `--font-*`, `--strength-*`). The seed colors
-(`--color-seed-1..4`) are rewritten at runtime by the wallpaper state, and all
-derived tokens (surfaces, borders, accents) are `oklch(from ...)` compositions,
-so the whole UI re-themes with the wallpaper.
+`src/tokens.css` is the single source of truth for spacing, color, and
+typography. It uses five prefixes: `--font-*` (typefaces + the type scale),
+`--color-*` (palette), `--gradient-*` (title-bar background gradients),
+`--size-*` (spacing scale + layout dimensions), and
+`--strength-*` / `--backdrop-filter-*` (effects). See the header comment in
+`tokens.css` for the full taxonomy.
+
+**Seeds and derivation.** `--color-seed-1..4` are the only colors authored from
+scratch — they carry the hue and chroma. Every other `--color-*` token is
+derived from a seed via `oklch(from var(--color-seed-N) L C h)`, where `L` and
+`C` are absolute overrides and `h` inherits the seed's hue. The wallpaper state
+rewrites the seeds at runtime, so recoloring a seed re-themes the whole UI.
+
+**Theming.** Defaults live on `:root` (the light theme). The
+`[data-theme='dark']` block overrides only the color tokens that differ —
+spacing, typography, and strength tokens are theme-agnostic and stay in
+`:root`.
 
 When adding a token that JS must read, prefer a dedicated indirection token
 (e.g. `--size-taskbar: var(--size-6)`) so JS never hardcodes a magic value.

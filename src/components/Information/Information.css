@@ -12,9 +12,9 @@
 	display: block;
 	margin: 0;
 	padding: var(--size-3) var(--size-3);
-	background: var(--color-accent-primary);
-	color: var(--color-accent-contrast);
-	text-shadow: var(--size-1) var(--size-1) var(--color-accent-shadow);
+	background: var(--color-accent);
+	color: var(--color-accent-text);
+	text-shadow: var(--size-1) var(--size-1) var(--color-accent-text-shadow);
 	font-family: var(--font-title);
 }
 

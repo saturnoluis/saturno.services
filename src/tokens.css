@@ -1,11 +1,33 @@
+/*
+ * Design tokens — the single source of truth for spacing, color, and
+ * typography. Defaults live on `:root`; the `[data-theme='dark']` block
+ * overrides only the values that differ between themes.
+ *
+ * Model:
+ *   - `--color-seed-1..4` are the only colors authored from scratch; they carry
+ *     the hue and chroma. WallpaperProvider rewrites them at runtime.
+ *   - Every other color token is DERIVED via `oklch(from var(--color-seed-N)
+ *     L C h)`. Each component is either an absolute value or the keyword `l`,
+ *     `c`, or `h`, which copies the seed's own component. Recolor a seed and
+ *     the whole UI follows.
+ *
+ * Prefixes:
+ *   --font-*             typefaces + the font-size scale
+ *   --color-*            palette (seed / accent / text / border / surface / reading)
+ *   --gradient-*         title-bar background gradients
+ *   --size-*             spacing scale + layout dimensions
+ *   --strength-*         reusable filter primitives (blur / saturate)
+ *   --backdrop-filter-*  composed backdrop effects
+ */
+
 :root {
 	font-size: 20px;
 
+	/* Typefaces */
 	--font-title: 'Sysfont', system-ui, sans-serif;
-	--font-input: 'Sysfont', system-ui, sans-serif;
 	--font-body: 'Open Sans', system-ui, sans-serif;
-	--font-paragraph: 'Open Sans', system-ui, sans-serif;
 
+	/* Type scale */
 	--font-size-1: 0.875rem;
 	--font-size-2: 1rem;
 	--font-size-3: 1.125rem;
@@ -14,52 +36,49 @@
 	--font-size-6: 1.75rem;
 	--font-size-7: 2rem;
 
+	/* Seed colors */
 	--color-seed-1: oklch(0.6 0.18 250);
 	--color-seed-2: oklch(0.7 0.16 40);
 	--color-seed-3: oklch(0.62 0.15 145);
 	--color-seed-4: oklch(0.58 0.2 25);
 
-	--color-accent-dark: oklch(from var(--color-seed-1) 0.45 0.18 h / 0.6);
-	--color-accent-primary: oklch(from var(--color-seed-1) 0.62 0.2 h / 0.6);
-	--color-accent-contrast: oklch(from var(--color-seed-1) 0.12 0.05 h);
-	--color-accent-shadow: oklch(from var(--color-seed-1) 0.97 0.05 h);
+	/* Accent — fill, muted fill, text on accent, and its emboss shadow */
+	--color-accent: oklch(from var(--color-seed-1) 0.62 0.2 h / 0.6);
+	--color-accent-muted: oklch(from var(--color-seed-1) 0.45 0.18 h / 0.6);
+	--color-accent-text: oklch(from var(--color-seed-1) 0.12 0.05 h);
+	/* transparent in light theme — a white shadow behind dark text looks bad */
+	--color-accent-text-shadow: oklch(from var(--color-seed-1) 0.97 0.05 h / 0);
 
-	--color-menu-title: linear-gradient(
+	/* Text */
+	--color-text-primary: oklch(from var(--color-seed-1) 0.15 0.05 h);
+
+	/* Borders */
+	--color-border-dark: oklch(from var(--color-seed-1) 0.55 0.03 h / 0.8);
+	--color-border-bright: oklch(from var(--color-seed-1) 0.99 0.02 h / 0.95);
+	--color-border-primary: var(--color-seed-1);
+
+	/* Surfaces */
+	--color-surface-primary: oklch(from var(--color-seed-1) 0.9 0.015 h / 0.6);
+	--color-surface-secondary: oklch(from var(--color-seed-1) 0.97 0.01 h / 0.7);
+
+	/* Reading */
+	--color-reading-surface: oklch(from var(--color-seed-1) 0.98 0.005 h);
+	--color-reading-text: oklch(from var(--color-seed-1) 0.16 0.01 h);
+
+	/* Title gradients */
+	--gradient-menu-title: linear-gradient(
 		to top,
 		oklch(from var(--color-seed-1) 0.5 0.16 h / 0.9),
 		oklch(from var(--color-seed-3) 0.62 0.12 h / 0.7),
 		oklch(from var(--color-seed-3) 0.85 0.05 h / 0.3)
 	);
-	--color-surface-title: linear-gradient(
-		to right,
-		oklch(from var(--color-seed-1) 0.6 0.16 h / 0.85),
-		oklch(from var(--color-seed-1) 0.85 0.05 h / 0.4)
+	--gradient-surface-title: linear-gradient(
+		to left,
+		oklch(from var(--color-seed-1) l 0.15 h / 0.8),
+		oklch(from var(--color-seed-1) 0.85 0.05 h / 0)
 	);
 
-	--color-text-primary: oklch(from var(--color-seed-1) 0.15 0.05 h);
-
-	--color-border-dark: oklch(from var(--color-seed-1) 0.4 0.03 h / 0.7);
-	--color-border-bright: oklch(from var(--color-seed-1) 0.99 0.01 h / 0.95);
-	--color-border-primary: var(--color-seed-1);
-
-	--color-surface-primary: oklch(from var(--color-seed-1) 0.92 0.015 h / 0.9);
-	--color-surface-secondary: oklch(from var(--color-seed-1) 0.97 0.01 h / 0.9);
-	--color-surface-decorative-1: oklch(
-		from var(--color-seed-1) 0.88 0.04 h / 0.7
-	);
-	--color-surface-decorative-2: oklch(
-		from var(--color-seed-2) 0.88 0.04 h / 0.7
-	);
-	--color-surface-decorative-3: oklch(
-		from var(--color-seed-3) 0.88 0.04 h / 0.7
-	);
-	--color-surface-decorative-4: oklch(
-		from var(--color-seed-4) 0.88 0.04 h / 0.7
-	);
-
-	--color-reading-surface: oklch(from var(--color-seed-1) 0.98 0.005 h);
-	--color-reading-text: oklch(from var(--color-seed-1) 0.16 0.01 h);
-
+	/* Spacing scale */
 	--size-1: 2px;
 	--size-2: 4px;
 	--size-3: 8px;
@@ -68,6 +87,7 @@
 	--size-6: 64px;
 	--size-7: 128px;
 
+	/* Layout dimensions */
 	--size-taskbar: var(--size-6);
 	--size-footer: calc(var(--size-taskbar) * 0.6);
 	--size-scrollbar: var(--size-3);
@@ -77,50 +97,49 @@
 	--size-column-min: 20rem;
 	--size-input: 1rem;
 
+	/* Effects */
 	--strength-blur-normal: blur(32px);
 	--strength-saturation-normal: saturate(180%);
+
+	--backdrop-filter-reading: saturate(50%) brightness(120%);
 }
 
 [data-theme='dark'] {
-	--color-accent-dark: oklch(from var(--color-seed-1) 0.4 0.16 h / 0.6);
-	--color-accent-primary: oklch(from var(--color-seed-1) 0.6 0.18 h / 0.7);
-	--color-accent-contrast: oklch(from var(--color-seed-1) 0.95 0.03 h);
-	--color-accent-shadow: oklch(from var(--color-seed-1) 0.15 0.03 h);
+	/* Accent — fill, muted fill, text on accent, and its emboss shadow */
+	--color-accent: oklch(from var(--color-seed-1) 0.6 0.18 h / 0.7);
+	--color-accent-muted: oklch(from var(--color-seed-1) 0.4 0.16 h / 0.6);
+	--color-accent-text: oklch(from var(--color-seed-1) 0.95 0.03 h);
+	--color-accent-text-shadow: oklch(from var(--color-seed-1) 0.15 0.03 h / 0.5);
 
-	--color-menu-title: linear-gradient(
+	/* Title gradients */
+	--gradient-menu-title: linear-gradient(
 		to top,
 		oklch(from var(--color-seed-1) 0.45 0.15 h / 0.9),
 		oklch(from var(--color-seed-3) 0.5 0.1 h / 0.7),
 		oklch(from var(--color-seed-3) 0.25 0.04 h / 0.3)
 	);
-	--color-surface-title: linear-gradient(
-		to right,
-		oklch(from var(--color-seed-1) 0.48 0.15 h / 0.85),
-		oklch(from var(--color-seed-1) 0.22 0.04 h / 0.4)
+	--gradient-surface-title: linear-gradient(
+		to left,
+		oklch(from var(--color-seed-1) 0.48 0.15 h / 0.4),
+		oklch(from var(--color-seed-1) 0.22 0.04 h / 0)
 	);
 
+	/* Text */
 	--color-text-primary: oklch(from var(--color-seed-1) 0.9 0.02 h);
 
+	/* Borders */
 	--color-border-dark: oklch(from var(--color-seed-1) 0.08 0.02 h / 0.8);
-	--color-border-bright: oklch(from var(--color-seed-1) 0.5 0.02 h / 0.7);
+	--color-border-bright: oklch(from var(--color-seed-1) 0.5 0.02 h / 0.5);
 
-	--color-surface-primary: oklch(from var(--color-seed-1) 0.24 0.02 h / 0.9);
-	--color-surface-secondary: oklch(from var(--color-seed-1) 0.18 0.01 h / 0.9);
-	--color-surface-decorative-1: oklch(
-		from var(--color-seed-1) 0.24 0.04 h / 0.8
-	);
-	--color-surface-decorative-2: oklch(
-		from var(--color-seed-2) 0.24 0.04 h / 0.8
-	);
-	--color-surface-decorative-3: oklch(
-		from var(--color-seed-3) 0.24 0.04 h / 0.8
-	);
-	--color-surface-decorative-4: oklch(
-		from var(--color-seed-4) 0.24 0.04 h / 0.8
-	);
+	/* Surfaces */
+	--color-surface-primary: oklch(from var(--color-seed-1) 0.24 0.02 h / 0.8);
+	--color-surface-secondary: oklch(from var(--color-seed-1) 0.18 0.01 h / 0.5);
 
+	/* Reading */
 	--color-reading-surface: oklch(from var(--color-seed-1) 0.14 0.01 h);
 	--color-reading-text: oklch(from var(--color-seed-1) 0.93 0.01 h);
+
+	--backdrop-filter-reading: saturate(50%) brightness(80%);
 }
 
 @media (max-width: 640px) {

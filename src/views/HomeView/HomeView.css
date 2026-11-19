@@ -2,8 +2,9 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: var(--size-6) 0 0 0;
-	gap: var(--size-6);
+	padding: 0;
+
+	--home-view-spacing: var(--size-6);
 }
 
 @media (max-width: 640px) {
@@ -13,6 +14,16 @@
 }
 
 /* ---- Hero Section ------------------------------------------------------------ */
+
+.HomeView__hero {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	padding: var(--home-view-spacing);
+	backdrop-filter: var(--backdrop-filter-reading);
+}
 
 .HomeView__hero .Window {
 	width: 100%;
@@ -44,7 +55,7 @@
 	font-family: var(--font-title);
 	font-size: var(--font-size-7);
 	font-weight: normal;
-	text-shadow: var(--size-1) var(--size-1) var(--color-accent-shadow);
+	text-shadow: var(--size-1) var(--size-1) var(--color-accent-text-shadow);
 	line-height: 1;
 	margin-bottom: var(--size-4);
 }
@@ -90,7 +101,7 @@
 	padding: var(--size-5);
 	padding-bottom: var(--size-6);
 	background: var(--color-surface-primary);
-	backdrop-filter: var(--strength-blur-normal);
+	backdrop-filter: var(--strength-blur-normal) saturate(0);
 }
 
 .HomeView__services-container {
@@ -112,14 +123,14 @@
 	font-weight: normal;
 	font-size: var(--font-size-7);
 	font-family: var(--font-title);
-	text-shadow: var(--size-1) var(--size-1) var(--color-accent-shadow);
+	text-shadow: var(--size-1) var(--size-1) var(--color-accent-text-shadow);
 }
 
 .HomeView__services-container h2 {
 	font-weight: normal;
 	font-size: var(--font-size-6);
 	font-family: var(--font-title);
-	text-shadow: var(--size-1) var(--size-1) var(--color-accent-shadow);
+	text-shadow: var(--size-1) var(--size-1) var(--color-accent-text-shadow);
 }
 
 .HomeView__services-container p {
@@ -131,6 +142,7 @@
 
 .HomeView__sales {
 	padding: var(--size-6) 0;
+	background: red;
 }
 
 .HomeView__sales .Window {
@@ -143,7 +155,7 @@
 	font-size: var(--font-size-7);
 	font-weight: normal;
 	line-height: 1;
-	text-shadow: var(--size-1) var(--size-1) var(--color-accent-shadow);
+	text-shadow: var(--size-1) var(--size-1) var(--color-accent-text-shadow);
 	margin-bottom: var(--size-4);
 }
 
@@ -179,8 +191,8 @@
 
 .HomeView__experience {
 	width: 100%;
-	padding: var(--size-5) 0;
-	background: var(--color-surface-decorative-3);
+	padding: var(--size-6) 0;
+	background: var(--color-reading-surface);
 	backdrop-filter: var(--strength-blur-normal);
 }
 
@@ -206,8 +218,8 @@
 	margin: 0;
 	padding: var(--size-3) 0;
 	border-radius: var(--size-1);
-	color: var(--color-accent-contrast);
-	text-shadow: var(--size-1) var(--size-1) var(--color-accent-shadow);
+	color: var(--color-accent-text);
+	text-shadow: var(--size-1) var(--size-1) var(--color-accent-text-shadow);
 }
 
 .HomeView__experience-card p {

@@ -33,7 +33,7 @@
 }
 
 .Checkbox input[type='checkbox']:checked {
-	background: var(--color-accent-primary);
+	background: var(--color-accent);
 	box-shadow:
 		inset calc(var(--size-1) * -1) calc(var(--size-1) * -1)
 			var(--color-border-bright),

@@ -59,7 +59,7 @@
 	height: var(--size-input);
 	width: calc(var(--size-input) / 1.4);
 	margin-top: calc(1rem / -2.2);
-	background: var(--color-accent-primary);
+	background: var(--color-accent);
 	box-sizing: border-box;
 	appearance: none;
 	backdrop-filter: blur(var(--size-1));
@@ -87,7 +87,7 @@
 .Range__element-wrapper input[type='range']::-moz-range-thumb {
 	height: var(--size-input);
 	width: calc(var(--size-input) / 1.4);
-	background: var(--color-accent-primary);
+	background: var(--color-accent);
 	box-sizing: border-box;
 	appearance: none;
 	backdrop-filter: blur(var(--size-1));

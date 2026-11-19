@@ -11,8 +11,6 @@
 	user-select: none;
 	z-index: 100;
 
-	border: var(--size-1) solid var(--color-border-dark);
-	border-radius: var(--size-1);
 	box-shadow:
 		inset var(--size-1) var(--size-1) var(--size-1) var(--color-border-bright),
 		inset calc(-1 * var(--size-1)) calc(-1 * var(--size-1))
@@ -31,8 +29,8 @@
 	width: var(--size-7);
 	font-family: var(--font-title);
 	font-size: var(--font-size-3);
-	color: var(--color-accent-contrast);
-	text-shadow: var(--size-1) var(--size-1) var(--color-accent-shadow);
+	color: var(--color-accent-text);
+	text-shadow: var(--size-1) var(--size-1) var(--color-accent-text-shadow);
 }
 
 .Taskbar__theme-button {
@@ -40,6 +38,6 @@
 	width: var(--size-5);
 	font-family: var(--font-title);
 	font-size: var(--font-size-3);
-	color: var(--color-accent-contrast);
-	text-shadow: var(--size-1) var(--size-1) var(--color-accent-shadow);
+	color: var(--color-accent-text);
+	text-shadow: var(--size-1) var(--size-1) var(--color-accent-text-shadow);
 }

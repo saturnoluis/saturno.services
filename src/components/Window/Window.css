@@ -20,11 +20,7 @@
 	touch-action: none;
 	isolation: isolate;
 
-	transform: rotateX(var(--ry, 0deg)) rotateY(var(--rx, 0deg));
-	transform-style: preserve-3d;
-	transition:
-		transform 0.5s cubic-bezier(0.2, 0.9, 0.2, 1),
-		box-shadow 0.4s;
+	transition: box-shadow 0.4s;
 
 	&:active {
 		cursor: grabbing;
@@ -70,7 +66,8 @@
 .Window__header {
 	display: flex;
 	flex-direction: row;
-	padding: var(--size-2);
+	gap: var(--size-3);
+	padding: var(--size-2) 0;
 	padding-bottom: calc(var(--size-2) * 1.4);
 }
 
@@ -81,11 +78,10 @@
 	align-items: center;
 	margin: 0;
 	padding: var(--size-3) var(--size-3);
-	color: var(--color-accent-contrast);
-	background: var(--color-surface-title);
-	transform: translateX(calc(-1 * var(--size-2)));
+	color: var(--color-accent-text);
+	background: var(--gradient-surface-title);
 	font-family: var(--font-title);
-	text-shadow: var(--size-1) var(--size-1) var(--color-accent-shadow);
+	text-shadow: var(--size-1) var(--size-1) var(--color-accent-text-shadow);
 	border-radius: var(--size-1);
 }
 
@@ -98,9 +94,9 @@
 }
 
 .Window__header-controls .Button {
-	background: var(--color-accent-primary);
-	color: var(--color-accent-contrast);
-	text-shadow: var(--size-1) var(--size-1) var(--color-accent-shadow);
+	background: var(--color-accent);
+	color: var(--color-accent-text);
+	text-shadow: var(--size-1) var(--size-1) var(--color-accent-text-shadow);
 }
 
 .Window__body {
