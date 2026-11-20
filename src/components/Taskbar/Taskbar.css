@@ -19,6 +19,12 @@
 	backdrop-filter: var(--strength-blur-normal);
 }
 
+@media (max-width: 640px) {
+	.Taskbar {
+		padding: var(--size-2) var(--size-1) var(--size-2) var(--size-3);
+	}
+}
+
 .Taskbar--fixed {
 	position: sticky;
 	top: 0;
@@ -28,6 +34,7 @@
 	font-family: var(--font-title);
 	font-size: var(--font-size-3);
 	color: var(--color-text);
+	background: var(--color-surface-secondary);
 	text-shadow: var(--size-1) var(--size-1) var(--color-text-emboss);
 }
 

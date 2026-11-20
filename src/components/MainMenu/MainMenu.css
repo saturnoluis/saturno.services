@@ -78,7 +78,7 @@
 
 .MainMenu__link:hover,
 .MainMenu__link:active {
-	background: var(--color-accent-muted);
+	background: var(--color-accent);
 }
 
 .MainMenu__link-icon {

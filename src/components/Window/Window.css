@@ -14,7 +14,7 @@
 		0 30px 60px -30px rgba(0, 0, 0, 0.65);
 
 	background: var(--color-surface-primary);
-	backdrop-filter: var(--strength-blur-normal) var(--strength-saturation-normal);
+	backdrop-filter: url(#glass-distortion);
 
 	user-select: none;
 	touch-action: none;

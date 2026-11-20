@@ -19,7 +19,6 @@
  *   --gradient-*         title-bar background gradients
  *   --size-*             spacing scale + layout dimensions
  *   --strength-*         reusable filter primitives (blur / saturate)
- *   --backdrop-filter-*  composed backdrop effects
  */
 
 :root {
@@ -38,6 +37,7 @@
 	--font-size-5: 1.5rem;
 	--font-size-6: 1.75rem;
 	--font-size-7: 2rem;
+	--font-size-extra: 4.2rem;
 
 	/* Seed colors */
 	--color-seed-1: oklch(0.55 0.13 255); /* Cobalt Slate */
@@ -47,7 +47,7 @@
 
 	/* Accent — fill and muted fill */
 	--color-accent: oklch(from var(--color-seed-1) 0.7 0.2 h / 0.6);
-	--color-accent-muted: oklch(from var(--color-seed-1) 0.45 0.18 h / 0.6);
+	--color-accent-muted: oklch(from var(--color-seed-1) 0.4 0.2 h / 0.9);
 
 	/* Text — main text, its inverse for colored fills, and the emboss bevel */
 	--color-text: oklch(from var(--color-seed-1) 0.15 0.05 h);
@@ -80,9 +80,6 @@
 		oklch(from var(--color-seed-1) 0.99 0.1 h / 0)
 	);
 
-	/* Backdrop effects */
-	--backdrop-filter-reading: none;
-
 	/* Spacing scale */
 	--size-1: 2px;
 	--size-2: 4px;
@@ -105,6 +102,7 @@
 
 	/* Effects */
 	--strength-blur-normal: blur(32px);
+	--strength-blur-heavy: blur(64px);
 	--strength-saturation-normal: saturate(180%);
 }
 
@@ -127,10 +125,10 @@
 
 	/* Borders */
 	--color-border-dark: oklch(from var(--color-seed-1) 0.08 0.02 h / 0.8);
-	--color-border-bright: oklch(from var(--color-seed-1) 0.5 0.02 h / 0.5);
+	--color-border-bright: oklch(from var(--color-seed-1) 0.6 0.02 h / 0.5);
 
 	/* Surfaces */
-	--color-surface-primary: oklch(from var(--color-seed-1) 0.24 0.02 h / 0.8);
+	--color-surface-primary: oklch(from var(--color-seed-1) 0.24 0.02 h / 0.6);
 	--color-surface-secondary: oklch(from var(--color-seed-1) 0.18 0.01 h / 0.5);
 
 	/* Reading */
@@ -148,7 +146,4 @@
 		oklch(from var(--color-seed-1) 0.48 0.15 h / 0.4),
 		oklch(from var(--color-seed-4) 0.22 0.04 h / 0)
 	);
-
-	/* Backdrop effects */
-	--backdrop-filter-reading: saturate(50%) brightness(80%);
 }

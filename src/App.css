@@ -2,3 +2,10 @@
 	height: 100dvh;
 	font-family: var(--font-body);
 }
+
+.App__filters {
+	position: absolute;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+}

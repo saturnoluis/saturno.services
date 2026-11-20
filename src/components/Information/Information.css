@@ -12,7 +12,7 @@
 	display: block;
 	margin: 0;
 	padding: var(--size-3) var(--size-3);
-	background: var(--color-accent);
+	background: var(--color-accent-muted);
 	color: var(--color-text-inverted);
 	text-shadow: var(--size-1) var(--size-1) var(--color-text-emboss);
 	font-family: var(--font-title);

@@ -4,12 +4,12 @@
 	align-items: center;
 	padding: 0;
 
-	--home-view-spacing: var(--size-6);
+	---homeview-section-height: calc(99dvh - var(--size-taskbar));
 }
 
 @media (max-width: 640px) {
 	.HomeView {
-		padding: var(--size-3) 0 0 0;
+		---homeview-section-height: calc(90dvh - var(--size-taskbar));
 	}
 }
 
@@ -21,8 +21,8 @@
 	justify-content: center;
 	align-items: center;
 	width: 100%;
-	padding: var(--home-view-spacing);
-	backdrop-filter: var(--backdrop-filter-reading);
+	min-height: var(---homeview-section-height);
+	backdrop-filter: var(--backdrop-filter);
 }
 
 .HomeView__hero .Window {
@@ -97,11 +97,16 @@
 /* ---- Services Section -------------------------------------------------------- */
 
 .HomeView__services {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	width: 100%;
-	padding: var(--size-5);
-	padding-bottom: var(--size-6);
-	background: var(--color-surface-primary);
-	backdrop-filter: var(--strength-blur-normal) saturate(0);
+	min-height: var(---homeview-section-height);
+	padding: var(--size-6) 0;
+	background: oklch(from var(--color-reading-surface) l c h / 0.2);
+	backdrop-filter: var(--strength-blur-heavy);
+
 }
 
 .HomeView__services-container {
@@ -121,7 +126,7 @@
 
 .HomeView__services-container h1 {
 	font-weight: normal;
-	font-size: var(--font-size-7);
+	font-size: var(--font-size-extra);
 	font-family: var(--font-title);
 	text-shadow: var(--size-1) var(--size-1) var(--color-text-emboss);
 }
@@ -135,14 +140,18 @@
 
 .HomeView__services-container p {
 	font-family: var(--font-body);
+	font-size: var(--font-size-3);
 	line-height: 1.25;
 }
 
 /* ---- Sales Section ------------------------------------------------------------ */
 
 .HomeView__sales {
-	padding: var(--size-6) 0;
-	background: red;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: var(---homeview-section-height);
 }
 
 .HomeView__sales .Window {
@@ -192,8 +201,8 @@
 .HomeView__experience {
 	width: 100%;
 	padding: var(--size-6) 0;
-	background: var(--color-reading-surface);
-	backdrop-filter: var(--strength-blur-normal);
+	background: oklch(from var(--color-reading-surface) l c h / 0.7);
+	backdrop-filter: var(--strength-blur-heavy);
 }
 
 .HomeView__experience-container {
