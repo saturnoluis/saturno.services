@@ -37,13 +37,13 @@
 	--font-size-7: 2rem;
 
 	/* Seed colors */
-	--color-seed-1: oklch(0.6 0.18 250);
-	--color-seed-2: oklch(0.7 0.16 40);
-	--color-seed-3: oklch(0.62 0.15 145);
-	--color-seed-4: oklch(0.58 0.2 25);
+	--color-seed-1: oklch(0.55 0.13 255);
+	--color-seed-2: oklch(0.49 0.1 232);
+	--color-seed-3: oklch(0.43 0.08 205);
+	--color-seed-4: oklch(0.37 0.05 235);
 
 	/* Accent — fill and muted fill */
-	--color-accent: oklch(from var(--color-seed-1) 0.4 c h / 0.6);
+	--color-accent: oklch(from var(--color-seed-1) 0.6 0.2 h / 0.6);
 	--color-accent-muted: oklch(from var(--color-seed-1) 0.45 0.18 h / 0.6);
 
 	/* Text — main text, its inverse for colored fills, and the emboss bevel */

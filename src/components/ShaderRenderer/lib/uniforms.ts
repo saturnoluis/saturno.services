@@ -62,10 +62,10 @@ export type ShaderUniforms = {
 };
 
 export const DEFAULT_UNIFORMS: ShaderUniforms = {
-	uColor1: [0.8, 0.33, 0.0],
-	uColor2: [0.93, 0.53, 0.07],
-	uColor3: [1.0, 0.75, 0.15],
-	uColor4: [1.0, 0.92, 0.35],
+	uColor1: [0.21568627450980393, 0.4470588235294118, 0.7333333333333333],
+	uColor2: [0, 0.4117647058823529, 0.5607843137254902],
+	uColor3: [0, 0.3607843137254902, 0.396078431372549],
+	uColor4: [0.13725490196078433, 0.26666666666666666, 0.33725490196078434],
 	uBlend: 0.5,
 	uDistortType: DistortType.None,
 	uDistortStrength: 0.4,
