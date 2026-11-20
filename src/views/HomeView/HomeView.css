@@ -218,7 +218,7 @@
 	margin: 0;
 	padding: var(--size-3) 0;
 	border-radius: var(--size-1);
-	color: var(--color-text-inverted);
+	color: var(--color-text);
 	text-shadow: var(--size-1) var(--size-1) var(--color-text-emboss);
 }
 

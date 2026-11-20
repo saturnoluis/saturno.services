@@ -30,6 +30,6 @@
 	padding-top: var(--size-2);
 	font-family: var(--font-title);
 	font-size: var(--font-size-3);
-	color: var(--color-text-inverted);
+	color: var(--color-text);
 	text-shadow: var(--size-1) var(--size-1) var(--color-text-emboss);
 }

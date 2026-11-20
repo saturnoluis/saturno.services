@@ -6,6 +6,11 @@ export type ColorPalette = {
 
 export const COLOR_PALETTES: ColorPalette[] = [
 	{
+		id: 'default',
+		label: 'Default',
+		colors: ['#3772bb', '#00698f', '#005c65', '#234456'],
+	},
+	{
 		id: 'bliss',
 		label: 'Bliss',
 		colors: ['#7abcf9', '#0b43be', '#468c07', '#67b603'],

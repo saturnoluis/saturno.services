@@ -15,7 +15,7 @@
 	box-shadow:
 		inset var(--size-1) var(--size-1) var(--color-border-bright),
 		inset calc(-1 * var(--size-1)) calc(-1 * var(--size-1))
-			oklch(from var(--color-border-dark) l c h / 0.25);
+			var(--color-border-dark);
 
 	color: var(--color-text);
 	font-family: var(--font-title);
@@ -23,6 +23,7 @@
 	line-height: 1;
 
 	padding: 0;
+	padding-top: var(--size-2);
 	cursor: pointer;
 	text-decoration: none;
 }
@@ -37,7 +38,7 @@
 }
 
 .Button:focus-visible {
-	outline: var(--size-1) solid var(--color-border-primary);
+	outline: var(--size-1) solid var(--color-border-accent);
 	outline-offset: var(--size-1);
 }
 

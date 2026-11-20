@@ -54,6 +54,6 @@
 }
 
 .Checkbox input[type='checkbox']:focus-visible {
-	outline: var(--size-1) solid var(--color-border-primary);
+	outline: var(--size-1) solid var(--color-border-accent);
 	outline-offset: var(--size-1);
 }

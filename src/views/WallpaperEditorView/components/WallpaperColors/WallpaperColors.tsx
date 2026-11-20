@@ -51,14 +51,14 @@ export default function WallpaperColors({ label }: WallpaperColorsProps) {
 			)}
 			<div className='WallpaperColors__controls'>
 				<Select value={selectedId} onChange={onChange}>
-					<option key={CUSTOM_ID} value={CUSTOM_ID}>
-						{t('editor.custom')}
-					</option>
 					{COLOR_PALETTES.map((palette) => (
 						<option key={palette.id} value={palette.id}>
 							{palette.label}
 						</option>
 					))}
+					<option key={CUSTOM_ID} value={CUSTOM_ID}>
+						{t('editor.custom')}
+					</option>
 				</Select>
 				<Button
 					onClick={reverseColors}

@@ -26,14 +26,14 @@ export default function WallpaperTheme() {
 
 	return (
 		<Select label={t('editor.theme')} value={selectedId} onChange={onChange}>
-			<option key={CUSTOM_ID} value={CUSTOM_ID}>
-				{t('editor.custom')}
-			</option>
 			{WALLPAPER_THEMES.map((theme) => (
 				<option key={theme.id} value={theme.id}>
 					{theme.label}
 				</option>
 			))}
+			<option key={CUSTOM_ID} value={CUSTOM_ID}>
+				{t('editor.custom')}
+			</option>
 		</Select>
 	);
 }

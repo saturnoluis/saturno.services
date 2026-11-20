@@ -103,7 +103,7 @@
 	flex-direction: column;
 	gap: var(--size-2);
 	font-family: var(--font-title);
-	color: var(--color-text-inverted);
+	color: var(--color-text);
 }
 
 .MainMenu__link-description span {
